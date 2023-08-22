@@ -54,7 +54,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(svg|jpg)$/,
+        test: /\.(svg|jpg|gif)$/,
         type: 'asset/resource',
       },
     ],
@@ -65,6 +65,17 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
+    }),
+    new webpack.DefinePlugin({
+      'process.env.REACT_APP_GOOGLE_API_KEY': JSON.stringify(
+        process.env.REACT_APP_GOOGLE_API_KEY
+      ),
+      'process.env.REACT_APP_GOOGLE_ACCESS_TOKEN': JSON.stringify(
+        process.env.REACT_APP_GOOGLE_ACCESS_TOKEN
+      ),
+      'process.env.REACT_APP_CALENDAR_ID': JSON.stringify(
+        process.env.REACT_APP_CALENDAR_ID
+      ),
     }),
   ],
 };

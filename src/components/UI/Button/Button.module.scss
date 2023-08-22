@@ -1,0 +1,10 @@
+.button {
+  background-color: pink;
+  &:active {
+  }
+
+  @media (hover: hover) {
+    &:hover {
+    }
+  }
+}
