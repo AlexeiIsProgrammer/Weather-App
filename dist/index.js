@@ -13924,6 +13924,37 @@
         /***/
       },
 
+    /***/ './src/API/background.ts':
+      /*!*******************************!*\
+  !*** ./src/API/background.ts ***!
+  \*******************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => /* binding */ getRandomBackground,
+          /* harmony export */
+        });
+        async function getBackgrounds(weather) {
+          const response = await fetch(
+            `https://api.unsplash.com/search/photos/?client_id=${'l32mTP4FcGRDJsmsDalVtqX11wkq8_6HQQHCr_DPJ6k'}&page=1&query=${weather}`
+          );
+          const data = await response.json();
+          return data;
+        }
+        async function getRandomBackground(weather) {
+          const images = await getBackgrounds(weather);
+          const randomImageNumber = Math.floor(Math.random() * 10);
+          return images.results[randomImageNumber].urls.full;
+        }
+
+        /***/
+      },
+
     /***/ './src/API/calendar.ts':
       /*!*****************************!*\
   !*** ./src/API/calendar.ts ***!
@@ -13957,8 +13988,6 @@
             'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
           ],
         };
-        const calendarID =
-          'https://www.googleapis.com/calendar/v3/calendars/alexshmulevtsov@gmail.com/events';
         const apiCalendar =
           new (react_google_calendar_api__WEBPACK_IMPORTED_MODULE_0___default())(
             config
@@ -13986,7 +14015,7 @@
         });
         async function getPosition() {
           const request = await fetch(
-            'https://ipinfo.io/json?token=108a74d0a35999'
+            `https://ipinfo.io/json?token=${'108a74d0a35999'}`
           );
           const jsonResponse = await request.json();
           return jsonResponse.city;
@@ -14040,31 +14069,15 @@
         }
         class Weather {
           constructor() {
-            _defineProperty(
-              this,
-              'apiKey1',
-              'a9895c5e3fed47565362c834e83e2158'
-            );
-            _defineProperty(
-              this,
-              'otherWeatherAPIkey',
-              '4c996111139447b0aeb154912232208'
-            );
+            _defineProperty(this, 'apiKey', '4c996111139447b0aeb154912232208');
             _defineProperty(this, 'baseURL', 'http://api.weatherapi.com/v1');
           }
-          async getFiveDayWeather(city) {
+          async getWeather(city) {
             const response = await fetch(
-              `${this.baseURL}/forecast.json?q=${city}&days=7&key=${this.otherWeatherAPIkey}`
+              `${this.baseURL}/forecast.json?q=${city}&days=7&key=${this.apiKey}`
             );
             const data = await response.json();
             return data;
-          }
-          async getHourDayWeather(city, day) {
-            const response = await fetch(
-              `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${this.apiKey1}&units=metric`
-            );
-            const data = await response.json();
-            console.log(data);
           }
         }
         const weather = new Weather();
@@ -14094,29 +14107,33 @@
           /*#__PURE__*/ __webpack_require__.n(
             react__WEBPACK_IMPORTED_MODULE_0__
           );
-        /* harmony import */ var _components_Event__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(
-            /*! ./components/Event */ './src/components/Event.tsx'
-          );
-        /* harmony import */ var _API_calendar__WEBPACK_IMPORTED_MODULE_2__ =
+        /* harmony import */ var _API_calendar__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(/*! ./API/calendar */ './src/API/calendar.ts');
-        /* harmony import */ var _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_3__ =
+        /* harmony import */ var _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_2__ =
           __webpack_require__(
             /*! ./components/UI/Button/Button */ './src/components/UI/Button/Button.tsx'
           );
-        /* harmony import */ var _API_weather__WEBPACK_IMPORTED_MODULE_4__ =
+        /* harmony import */ var _API_weather__WEBPACK_IMPORTED_MODULE_3__ =
           __webpack_require__(/*! ./API/weather */ './src/API/weather.ts');
-        /* harmony import */ var _components_Time__WEBPACK_IMPORTED_MODULE_5__ =
+        /* harmony import */ var _components_time_Time__WEBPACK_IMPORTED_MODULE_4__ =
           __webpack_require__(
-            /*! ./components/Time */ './src/components/Time.tsx'
+            /*! ./components/time/Time */ './src/components/time/Time.tsx'
           );
-        /* harmony import */ var _API_geolocation__WEBPACK_IMPORTED_MODULE_6__ =
+        /* harmony import */ var _API_geolocation__WEBPACK_IMPORTED_MODULE_5__ =
           __webpack_require__(
             /*! ./API/geolocation */ './src/API/geolocation.ts'
           );
-        /* harmony import */ var _components_Day__WEBPACK_IMPORTED_MODULE_7__ =
+        /* harmony import */ var _API_background__WEBPACK_IMPORTED_MODULE_6__ =
           __webpack_require__(
-            /*! ./components/Day */ './src/components/Day.tsx'
+            /*! ./API/background */ './src/API/background.ts'
+          );
+        /* harmony import */ var _components_weather_Days__WEBPACK_IMPORTED_MODULE_7__ =
+          __webpack_require__(
+            /*! ./components/weather/Days */ './src/components/weather/Days.tsx'
+          );
+        /* harmony import */ var _components_calendar_EventsList__WEBPACK_IMPORTED_MODULE_8__ =
+          __webpack_require__(
+            /*! ./components/calendar/EventsList */ './src/components/calendar/EventsList.tsx'
           );
 
         function App() {
@@ -14126,37 +14143,31 @@
 
           const [weatherDays, setWeatherDays] = (0,
           react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+          const [weatherImage, setWeatherImage] = (0,
+          react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
           const [events, setEvents] = (0,
           react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
           (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
             (0,
-            _API_geolocation__WEBPACK_IMPORTED_MODULE_6__['default'])().then(
+            _API_geolocation__WEBPACK_IMPORTED_MODULE_5__['default'])().then(
               (pos) => {
-                _API_weather__WEBPACK_IMPORTED_MODULE_4__['default']
+                _API_weather__WEBPACK_IMPORTED_MODULE_3__['default']
                   .getFiveDayWeather(pos)
-                  .then((data) => {
-                    setWeatherDays(data.forecast.forecastday);
+                  .then(async (data) => {
+                    const forecastDays = data.forecast.forecastday;
+                    const currentWeather = data.current.condition.text;
+                    setWeatherDays(forecastDays);
+                    const weatherImageData = await (0,
+                    _API_background__WEBPACK_IMPORTED_MODULE_6__['default'])(
+                      currentWeather
+                    );
+                    setWeatherImage(weatherImageData);
                   });
               }
             );
           }, []);
           function getAllEvents() {
-            // const curDate = new Date();
-
-            // const plus10DaysDate = (date: Date) => {
-            //   date.setDate(curDate.getDate() + 10);
-            //   return date;
-            // };
-
-            // {
-            //   timeMin: curDate.toISOString(),
-            //   timeMax: plus10DaysDate(curDate).toISOString(),
-            //   showDeleted: true,
-            //   maxResults: 10,
-            //   orderBy: 'updated',
-            // }
-
-            _API_calendar__WEBPACK_IMPORTED_MODULE_2__['default']
+            _API_calendar__WEBPACK_IMPORTED_MODULE_1__['default']
               .listUpcomingEvents(10)
               .then((res) => {
                 const calendarEvents = res.result.items;
@@ -14164,246 +14175,68 @@
               });
           }
           return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-            react__WEBPACK_IMPORTED_MODULE_0___default().Fragment,
-            null,
+            'main',
+            {
+              className: 'main',
+              style: {
+                backgroundImage: `url('${weatherImage}')`,
+              },
+            },
             /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
               'div',
-              null,
-              weatherDays.map((day) =>
-                /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                  _components_Day__WEBPACK_IMPORTED_MODULE_7__['default'],
-                  {
-                    key: Math.random(),
-                    weather: day,
-                  }
-                )
-              )
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'div',
-              null,
+              {
+                className: 'main__container',
+              },
               /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                _components_Time__WEBPACK_IMPORTED_MODULE_5__['default'],
+                _components_time_Time__WEBPACK_IMPORTED_MODULE_4__['default'],
                 null
               ),
-              events.map((event) =>
-                /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                  'li',
-                  {
-                    key: event.id,
-                  },
-                  /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                    _components_Event__WEBPACK_IMPORTED_MODULE_1__['default'],
+              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                _components_weather_Days__WEBPACK_IMPORTED_MODULE_7__[
+                  'default'
+                ],
+                {
+                  weatherDays: weatherDays,
+                }
+              ),
+              events.length
+                ? /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                    _components_calendar_EventsList__WEBPACK_IMPORTED_MODULE_8__[
+                      'default'
+                    ],
                     {
-                      event: event,
+                      events: events,
                     }
                   )
-                )
+                : null,
+              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_2__[
+                  'default'
+                ],
+                {
+                  onClick: () =>
+                    _API_calendar__WEBPACK_IMPORTED_MODULE_1__['default']
+                      .handleAuthClick()
+                      .then(() => getAllEvents()),
+                },
+                'sign in'
+              ),
+              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_2__[
+                  'default'
+                ],
+                {
+                  onClick: () =>
+                    _API_calendar__WEBPACK_IMPORTED_MODULE_1__[
+                      'default'
+                    ].handleSignoutClick(),
+                },
+                'sign out'
               )
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_3__[
-                'default'
-              ],
-              {
-                onClick: () =>
-                  _API_calendar__WEBPACK_IMPORTED_MODULE_2__['default']
-                    .handleAuthClick()
-                    .then((user) => console.log(user)),
-              },
-              'sign in'
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_3__[
-                'default'
-              ],
-              {
-                onClick: () =>
-                  _API_calendar__WEBPACK_IMPORTED_MODULE_2__[
-                    'default'
-                  ].handleSignoutClick(),
-              },
-              'sign out'
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_3__[
-                'default'
-              ],
-              {
-                onClick: () => getAllEvents(),
-              },
-              'get all events'
             )
           );
         }
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = App;
-
-        /***/
-      },
-
-    /***/ './src/components/Day.tsx':
-      /*!********************************!*\
-  !*** ./src/components/Day.tsx ***!
-  \********************************/
-      /***/ (
-        __unused_webpack_module,
-        __webpack_exports__,
-        __webpack_require__
-      ) => {
-        'use strict';
-        __webpack_require__.r(__webpack_exports__);
-        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
-          /* harmony export */
-        });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(/*! ../utils */ './src/utils/index.ts');
-
-        function Day({ weather }) {
-          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-            'div',
-            null,
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'div',
-              null,
-              (0, _utils__WEBPACK_IMPORTED_MODULE_1__.getWeekDay)(weather.date)
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'div',
-              null,
-              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-                'img',
-                {
-                  src: weather.day.condition.icon,
-                  alt: 'weather',
-                }
-              )
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'div',
-              null,
-              weather.day.avgtemp_c,
-              ' *C'
-            )
-          );
-        }
-        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Day;
-
-        /***/
-      },
-
-    /***/ './src/components/Event.tsx':
-      /*!**********************************!*\
-  !*** ./src/components/Event.tsx ***!
-  \**********************************/
-      /***/ (
-        __unused_webpack_module,
-        __webpack_exports__,
-        __webpack_require__
-      ) => {
-        'use strict';
-        __webpack_require__.r(__webpack_exports__);
-        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
-          /* harmony export */
-        });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(/*! ../utils */ './src/utils/index.ts');
-
-        function Event({ event }) {
-          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-            'div',
-            null,
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'span',
-              null,
-              (0, _utils__WEBPACK_IMPORTED_MODULE_1__.getShortTime)(
-                new Date(event.start.dateTime)
-              )
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'p',
-              null,
-              event.summary
-            )
-          );
-        }
-        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Event;
-
-        /***/
-      },
-
-    /***/ './src/components/Time.tsx':
-      /*!*********************************!*\
-  !*** ./src/components/Time.tsx ***!
-  \*********************************/
-      /***/ (
-        __unused_webpack_module,
-        __webpack_exports__,
-        __webpack_require__
-      ) => {
-        'use strict';
-        __webpack_require__.r(__webpack_exports__);
-        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
-          /* harmony export */
-        });
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
-          __webpack_require__(/*! react */ './node_modules/react/index.js');
-        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
-          /*#__PURE__*/ __webpack_require__.n(
-            react__WEBPACK_IMPORTED_MODULE_0__
-          );
-        /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ =
-          __webpack_require__(/*! ../utils */ './src/utils/index.ts');
-
-        function Time() {
-          const [clock, setClock] = (0,
-          react__WEBPACK_IMPORTED_MODULE_0__.useState)(
-            (0, _utils__WEBPACK_IMPORTED_MODULE_1__.getShortTime)(new Date())
-          );
-          const [date, setDate] = (0,
-          react__WEBPACK_IMPORTED_MODULE_0__.useState)(
-            new Date().toDateString()
-          );
-          (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-            const ONE_SECOND = 1000;
-            setInterval(() => {
-              const newDate = new Date();
-              const newTime = (0,
-              _utils__WEBPACK_IMPORTED_MODULE_1__.getShortTime)(newDate);
-              setClock(newTime);
-              setDate(newDate.toDateString());
-            }, ONE_SECOND);
-          }, []);
-          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-            react__WEBPACK_IMPORTED_MODULE_0___default().Fragment,
-            null,
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'div',
-              null,
-              clock
-            ),
-            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'div',
-              null,
-              date
-            )
-          );
-        }
-        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Time;
 
         /***/
       },
@@ -14476,6 +14309,436 @@
         /***/
       },
 
+    /***/ './src/components/calendar/Event.tsx':
+      /*!*******************************************!*\
+  !*** ./src/components/calendar/Event.tsx ***!
+  \*******************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! ../../utils */ './src/utils/index.ts');
+
+        function Event({ event }) {
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'div',
+            null,
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'span',
+              null,
+              (0, _utils__WEBPACK_IMPORTED_MODULE_1__.getShortTime)(
+                event.start.dateTime.toString()
+              )
+            ),
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'p',
+              null,
+              event.summary
+            )
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Event;
+
+        /***/
+      },
+
+    /***/ './src/components/calendar/EventsList.tsx':
+      /*!************************************************!*\
+  !*** ./src/components/calendar/EventsList.tsx ***!
+  \************************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _Event__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! ./Event */ './src/components/calendar/Event.tsx'
+          );
+
+        function EventsList({ events }) {
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'div',
+            null,
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'ul',
+              null,
+              events.map((event) =>
+                /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                  _Event__WEBPACK_IMPORTED_MODULE_1__['default'],
+                  {
+                    key: Math.random(),
+                    event: event,
+                  }
+                )
+              )
+            )
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          EventsList;
+
+        /***/
+      },
+
+    /***/ './src/components/time/Time.tsx':
+      /*!**************************************!*\
+  !*** ./src/components/time/Time.tsx ***!
+  \**************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! ../../utils */ './src/utils/index.ts');
+        /* harmony import */ var _time_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./time.scss */ './src/components/time/time.scss'
+          );
+
+        function Time() {
+          const [clock, setClock] = (0,
+          react__WEBPACK_IMPORTED_MODULE_0__.useState)(
+            (0, _utils__WEBPACK_IMPORTED_MODULE_1__.getShortTime)(new Date())
+          );
+          const [date, setDate] = (0,
+          react__WEBPACK_IMPORTED_MODULE_0__.useState)(
+            new Date().toDateString()
+          );
+          (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+            const ONE_SECOND = 1000;
+            setInterval(() => {
+              const newDate = new Date();
+              const newTime = (0,
+              _utils__WEBPACK_IMPORTED_MODULE_1__.getShortTime)(newDate);
+              setClock(newTime);
+              setDate(newDate.toDateString());
+            }, ONE_SECOND);
+          }, []);
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'div',
+            null,
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              null,
+              clock
+            ),
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              null,
+              date
+            )
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Time;
+
+        /***/
+      },
+
+    /***/ './src/components/weather/DayItem.tsx':
+      /*!********************************************!*\
+  !*** ./src/components/weather/DayItem.tsx ***!
+  \********************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! ../../utils */ './src/utils/index.ts');
+        /* harmony import */ var _Hours__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./Hours */ './src/components/weather/Hours.tsx'
+          );
+
+        function DayItem({ weather }) {
+          const [isHourStat, setIsHourStat] = (0,
+          react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+          function hourStatistic() {
+            setIsHourStat(!isHourStat);
+          }
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'div',
+            {
+              className: 'day',
+              onClick: hourStatistic,
+            },
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              null,
+              (0, _utils__WEBPACK_IMPORTED_MODULE_1__.getWeekDay)(weather.date)
+            ),
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              null,
+              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                'img',
+                {
+                  src: weather.day.condition.icon,
+                  alt: 'weather',
+                }
+              )
+            ),
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              null,
+              weather.day.avgtemp_c,
+              '\xB0C'
+            ),
+            isHourStat
+              ? /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                  _Hours__WEBPACK_IMPORTED_MODULE_2__['default'],
+                  {
+                    hours: weather.hour,
+                  }
+                )
+              : null
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = DayItem;
+
+        /***/
+      },
+
+    /***/ './src/components/weather/Days.tsx':
+      /*!*****************************************!*\
+  !*** ./src/components/weather/Days.tsx ***!
+  \*****************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _DayItem__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! ./DayItem */ './src/components/weather/DayItem.tsx'
+          );
+        /* harmony import */ var _weather_scss__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! ./weather.scss */ './src/components/weather/weather.scss'
+          );
+
+        function Days({ weatherDays }) {
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'div',
+            {
+              className: 'days',
+            },
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              {
+                className: 'days__list',
+              },
+              weatherDays.map((day) =>
+                /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                  _DayItem__WEBPACK_IMPORTED_MODULE_1__['default'],
+                  {
+                    key: Math.random(),
+                    weather: day,
+                  }
+                )
+              )
+            )
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Days;
+
+        /***/
+      },
+
+    /***/ './src/components/weather/HourItem.tsx':
+      /*!*********************************************!*\
+  !*** ./src/components/weather/HourItem.tsx ***!
+  \*********************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(/*! ../../utils */ './src/utils/index.ts');
+
+        function HourItem({ hour }) {
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'li',
+            {
+              className: 'hours__item hour',
+            },
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'p',
+              {
+                className: 'hour__time',
+              },
+              (0, _utils__WEBPACK_IMPORTED_MODULE_1__.getShortTime)(
+                hour.time,
+                false
+              )
+            ),
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              {
+                className: 'hour__image',
+              },
+              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                'img',
+                {
+                  src: hour.condition.icon,
+                  alt: 'weather',
+                }
+              )
+            ),
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'p',
+              {
+                className: 'hour__temp',
+              },
+              hour.temp_c,
+              ' ',
+              '\xB0C'
+            )
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          HourItem;
+
+        /***/
+      },
+
+    /***/ './src/components/weather/Hours.tsx':
+      /*!******************************************!*\
+  !*** ./src/components/weather/Hours.tsx ***!
+  \******************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _HourItem__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! ./HourItem */ './src/components/weather/HourItem.tsx'
+          );
+
+        function Hours({ hours }) {
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'div',
+            {
+              className: 'hours',
+            },
+            /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+              'div',
+              {
+                className: 'hours__container',
+              },
+              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                'ul',
+                {
+                  className: 'hours__list',
+                },
+                hours.map((hour) =>
+                  /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                    _HourItem__WEBPACK_IMPORTED_MODULE_1__['default'],
+                    {
+                      key: Math.random(),
+                      hour: hour,
+                    }
+                  )
+                )
+              )
+            )
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Hours;
+
+        /***/
+      },
+
     /***/ './src/utils/index.ts':
       /*!****************************!*\
   !*** ./src/utils/index.ts ***!
@@ -14492,11 +14755,12 @@
           /* harmony export */ getWeekDay: () => /* binding */ getWeekDay,
           /* harmony export */
         });
-        const getShortTime = (date) => {
+        const getShortTime = (dateArg, includeSeconds = true) => {
+          const date = new Date(dateArg);
           const addZeroToEnd = (time) => `0${time}`.slice(-2);
           return `${addZeroToEnd(date.getHours())}:${addZeroToEnd(
             date.getMinutes()
-          )}:${addZeroToEnd(date.getSeconds())}`;
+          )}${includeSeconds ? `:${addZeroToEnd(date.getSeconds())}` : ''}`;
         };
         const getWeekDay = (date) => {
           const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
@@ -14569,6 +14833,145 @@
         /***/
       },
 
+    /***/ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/time/time.scss':
+      /*!******************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/time/time.scss ***!
+  \******************************************************************************************************************************************************************************************/
+      /***/ (module, __webpack_exports__, __webpack_require__) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ './node_modules/css-loader/dist/runtime/sourceMaps.js'
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! ../../../node_modules/css-loader/dist/runtime/api.js */ './node_modules/css-loader/dist/runtime/api.js'
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__
+          );
+        // Imports
+
+        var ___CSS_LOADER_EXPORT___ =
+          _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()(
+            _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()
+          );
+        // Module
+        ___CSS_LOADER_EXPORT___.push([
+          module.id,
+          ``,
+          '',
+          { version: 3, sources: [], names: [], mappings: '', sourceRoot: '' },
+        ]);
+        // Exports
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          ___CSS_LOADER_EXPORT___;
+
+        /***/
+      },
+
+    /***/ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/weather/weather.scss':
+      /*!************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/weather/weather.scss ***!
+  \************************************************************************************************************************************************************************************************/
+      /***/ (module, __webpack_exports__, __webpack_require__) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! ../../../node_modules/css-loader/dist/runtime/sourceMaps.js */ './node_modules/css-loader/dist/runtime/sourceMaps.js'
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! ../../../node_modules/css-loader/dist/runtime/api.js */ './node_modules/css-loader/dist/runtime/api.js'
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__
+          );
+        // Imports
+
+        var ___CSS_LOADER_EXPORT___ =
+          _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()(
+            _node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()
+          );
+        // Module
+        ___CSS_LOADER_EXPORT___.push([
+          module.id,
+          `.days__list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.day {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.hours {
+  position: absolute;
+  bottom: -150%;
+  width: 100vw;
+  left: 0;
+}
+.hours__container {
+  overflow-x: auto;
+}
+.hours__list {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+}
+.hour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}`,
+          '',
+          {
+            version: 3,
+            sources: ['webpack://./src/components/weather/weather.scss'],
+            names: [],
+            mappings:
+              'AAGI;EACI,aAAA;EACA,mBAAA;EACA,SAAA;AAFR;;AAME;EACE,kBAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;EACA,QAAA;AAHJ;;AAOE;EACE,kBAAA;EACA,aAAA;EACA,YAAA;EACA,OAAA;AAJJ;AAKI;EACI,gBAAA;AAHR;AAMI;EACI,aAAA;EACA,mBAAA;EACA,SAAA;EACA,mBAAA;AAJR;AAYE;EACE,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;AAVJ',
+            sourcesContent: [
+              '\r\n\r\n.days {\r\n    &__list {\r\n        display: flex;\r\n        flex-direction: row;\r\n        gap: 20px;   \r\n    }\r\n}\r\n  \r\n  .day {\r\n    position: relative;\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    gap: 5px;\r\n  }\r\n\r\n\r\n  .hours {\r\n    position: absolute;\r\n    bottom: -150%;\r\n    width: 100vw;\r\n    left: 0;\r\n    &__container {\r\n        overflow-x: auto;\r\n    }\r\n\r\n    &__list {\r\n        display: flex;\r\n        flex-direction: row;\r\n        gap: 10px;\r\n        align-items: center;\r\n    }\r\n    \r\n    &__item {\r\n    \r\n    }\r\n  }\r\n\r\n  .hour {\r\n    display: flex;\r\n    flex-direction: column;\r\n    align-items: center;\r\n    justify-content: center;\r\n    &__time {\r\n        \r\n    }\r\n    &__image {\r\n\r\n    }\r\n    &__temp {\r\n\r\n    }\r\n  }',
+            ],
+            sourceRoot: '',
+          },
+        ]);
+        // Exports
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          ___CSS_LOADER_EXPORT___;
+
+        /***/
+      },
+
     /***/ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss':
       /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
@@ -14605,7 +15008,12 @@
         // Module
         ___CSS_LOADER_EXPORT___.push([
           module.id,
-          `body {
+          `html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -14615,6 +15023,16 @@
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }`,
           '',
           {
@@ -14622,9 +15040,9 @@ code {
             sources: ['webpack://./src/index.scss'],
             names: [],
             mappings:
-              'AAAA;EACE,SAAA;EACA,8JAAA;EAGA,mCAAA;EACA,kCAAA;EACA,qBAAA;AADF;;AAIA;EACE,+EAAA;AADF',
+              'AAAA;EACE,YAAA;EACA,WAAA;AACF;;AAEA;EACE,SAAA;EACA,8JAAA;EAGA,mCAAA;EACA,kCAAA;EACA,qBAAA;AADF;;AAIA;EACE,+EAAA;AADF;;AAKA;EACE,aAAA;EACA,mBAAA;EACA,uBAAA;EAEA,4BAAA;EACA,sBAAA;EAEA,WAAA;EACA,YAAA;AAJF',
             sourcesContent: [
-              "body {\r\n  margin: 0;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\r\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\r\n    sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  background-color: red;\r\n}\r\n\r\ncode {\r\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\r\n    monospace;\r\n}\r\n",
+              "html, body, #root {\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\nbody {\r\n  margin: 0;\r\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',\r\n    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',\r\n    sans-serif;\r\n  -webkit-font-smoothing: antialiased;\r\n  -moz-osx-font-smoothing: grayscale;\r\n  background-color: red;\r\n}\r\n\r\ncode {\r\n  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',\r\n    monospace;\r\n}\r\n\r\n.main {\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n\r\n  background-repeat: no-repeat;\r\n  background-size: cover;\r\n\r\n  width: 100%;\r\n  height: 100%;\r\n  &__container {\r\n    \r\n  }\r\n}",
             ],
             sourceRoot: '',
           },
@@ -56676,6 +57094,224 @@ code {
             'default'
           ].locals
             ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_module_scss__WEBPACK_IMPORTED_MODULE_6__[
+                'default'
+              ].locals
+            : undefined;
+
+        /***/
+      },
+
+    /***/ './src/components/time/time.scss':
+      /*!***************************************!*\
+  !*** ./src/components/time/time.scss ***!
+  \***************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ './node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ './node_modules/style-loader/dist/runtime/styleDomAPI.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ './node_modules/style-loader/dist/runtime/insertBySelector.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ './node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ './node_modules/style-loader/dist/runtime/insertStyleElement.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ './node_modules/style-loader/dist/runtime/styleTagTransform.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_time_scss__WEBPACK_IMPORTED_MODULE_6__ =
+          __webpack_require__(
+            /*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js!./time.scss */ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/time/time.scss'
+          );
+
+        var options = {};
+
+        options.styleTagTransform =
+          _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default();
+        options.setAttributes =
+          _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default();
+
+        options.insert =
+          _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(
+            null,
+            'head'
+          );
+
+        options.domAPI =
+          _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default();
+        options.insertStyleElement =
+          _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default();
+
+        var update =
+          _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(
+            _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_time_scss__WEBPACK_IMPORTED_MODULE_6__[
+              'default'
+            ],
+            options
+          );
+
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_time_scss__WEBPACK_IMPORTED_MODULE_6__[
+            'default'
+          ] &&
+          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_time_scss__WEBPACK_IMPORTED_MODULE_6__[
+            'default'
+          ].locals
+            ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_time_scss__WEBPACK_IMPORTED_MODULE_6__[
+                'default'
+              ].locals
+            : undefined;
+
+        /***/
+      },
+
+    /***/ './src/components/weather/weather.scss':
+      /*!*********************************************!*\
+  !*** ./src/components/weather/weather.scss ***!
+  \*********************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ './node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/styleDomAPI.js */ './node_modules/style-loader/dist/runtime/styleDomAPI.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/insertBySelector.js */ './node_modules/style-loader/dist/runtime/insertBySelector.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js */ './node_modules/style-loader/dist/runtime/setAttributesWithoutAttributes.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/insertStyleElement.js */ './node_modules/style-loader/dist/runtime/insertStyleElement.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4__
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__ =
+          __webpack_require__(
+            /*! !../../../node_modules/style-loader/dist/runtime/styleTagTransform.js */ './node_modules/style-loader/dist/runtime/styleTagTransform.js'
+          );
+        /* harmony import */ var _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__
+          );
+        /* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_weather_scss__WEBPACK_IMPORTED_MODULE_6__ =
+          __webpack_require__(
+            /*! !!../../../node_modules/css-loader/dist/cjs.js!../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../../node_modules/sass-loader/dist/cjs.js!./weather.scss */ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/weather/weather.scss'
+          );
+
+        var options = {};
+
+        options.styleTagTransform =
+          _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5___default();
+        options.setAttributes =
+          _node_modules_style_loader_dist_runtime_setAttributesWithoutAttributes_js__WEBPACK_IMPORTED_MODULE_3___default();
+
+        options.insert =
+          _node_modules_style_loader_dist_runtime_insertBySelector_js__WEBPACK_IMPORTED_MODULE_2___default().bind(
+            null,
+            'head'
+          );
+
+        options.domAPI =
+          _node_modules_style_loader_dist_runtime_styleDomAPI_js__WEBPACK_IMPORTED_MODULE_1___default();
+        options.insertStyleElement =
+          _node_modules_style_loader_dist_runtime_insertStyleElement_js__WEBPACK_IMPORTED_MODULE_4___default();
+
+        var update =
+          _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(
+            _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_weather_scss__WEBPACK_IMPORTED_MODULE_6__[
+              'default'
+            ],
+            options
+          );
+
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
+          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_weather_scss__WEBPACK_IMPORTED_MODULE_6__[
+            'default'
+          ] &&
+          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_weather_scss__WEBPACK_IMPORTED_MODULE_6__[
+            'default'
+          ].locals
+            ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_weather_scss__WEBPACK_IMPORTED_MODULE_6__[
                 'default'
               ].locals
             : undefined;

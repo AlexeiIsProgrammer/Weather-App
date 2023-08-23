@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getShortTime } from '../utils';
+import { getShortTime } from '../../utils';
+import './time.scss';
 
 function Time() {
   const [clock, setClock] = useState<string>(getShortTime(new Date()));
@@ -17,10 +18,10 @@ function Time() {
   }, []);
 
   return (
-    <>
+    <div>
       <div>{clock}</div>
       <div>{date}</div>
-    </>
+    </div>
   );
 }
 

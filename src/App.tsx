@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import Event from './components/Event';
 import apiCalendar from './API/calendar';
 import Button from './components/UI/Button/Button';
 import weather from './API/weather';
-import Time from './components/Time';
+import Time from './components/time/Time';
 import getPosition from './API/geolocation';
-import Day from './components/Day';
 import { Forecastday, Weather } from './types/weather';
 import { CalendarResponse, Item } from './types/calendar';
+import getRandomBackground from './API/background';
+import { WeatherImage } from './types/weather-image';
+import Days from './components/weather/Days';
+import EventsList from './components/calendar/EventsList';
 
 function App() {
   // const calendarID = process.env.REACT_APP_CALENDAR_ID as string;
@@ -15,32 +17,24 @@ function App() {
   // const accessToken = process.env.REACT_APP_GOOGLE_ACCESS_TOKEN;
 
   const [weatherDays, setWeatherDays] = useState<Forecastday[]>([]);
+  const [weatherImage, setWeatherImage] = useState<WeatherImage | null>(null);
   const [events, setEvents] = useState<Item[]>([]);
 
   useEffect(() => {
     getPosition().then((pos) => {
-      weather.getFiveDayWeather(pos).then((data: Weather) => {
-        setWeatherDays(data.forecast.forecastday);
+      weather.getFiveDayWeather(pos).then(async (data: Weather) => {
+        const forecastDays = data.forecast.forecastday;
+        const currentWeather = data.current.condition.text;
+
+        setWeatherDays(forecastDays);
+
+        const weatherImageData: WeatherImage = await getRandomBackground(currentWeather);
+        setWeatherImage(weatherImageData);
       });
     });
   }, []);
 
   function getAllEvents() {
-    // const curDate = new Date();
-
-    // const plus10DaysDate = (date: Date) => {
-    //   date.setDate(curDate.getDate() + 10);
-    //   return date;
-    // };
-
-    // {
-    //   timeMin: curDate.toISOString(),
-    //   timeMax: plus10DaysDate(curDate).toISOString(),
-    //   showDeleted: true,
-    //   maxResults: 10,
-    //   orderBy: 'updated',
-    // }
-
     apiCalendar.listUpcomingEvents(10).then((res: CalendarResponse) => {
       const calendarEvents: Item[] = res.result.items;
 
@@ -49,28 +43,24 @@ function App() {
   }
 
   return (
-    <>
-      <div>
-        {weatherDays.map((day) => (
-          <Day key={Math.random()} weather={day} />
-        ))}
-      </div>
-      <div>
+    <main
+      className="main"
+      style={{ backgroundImage: `url('${weatherImage}')` }}
+    >
+      <div className="main__container">
         <Time />
-        {events.map((event: Item) => (
-          <li key={event.id}>
-            <Event event={event} />
-          </li>
-        ))}
+        <Days weatherDays={weatherDays} />
+        {events.length ? <EventsList events={events} /> : null}
+        <Button
+          onClick={() => apiCalendar.handleAuthClick().then(() => getAllEvents())}
+        >
+          sign in
+        </Button>
+        <Button onClick={() => apiCalendar.handleSignoutClick()}>
+          sign out
+        </Button>
       </div>
-      <Button
-        onClick={() => apiCalendar.handleAuthClick().then((user) => console.log(user))}
-      >
-        sign in
-      </Button>
-      <Button onClick={() => apiCalendar.handleSignoutClick()}>sign out</Button>
-      <Button onClick={() => getAllEvents()}>get all events</Button>
-    </>
+    </main>
   );
 }
 

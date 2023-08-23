@@ -1,6 +1,6 @@
 import React from 'react';
-import { Item } from '../types/calendar';
-import { getShortTime } from '../utils';
+import { Item } from '../../types/calendar';
+import { getShortTime } from '../../utils';
 
 type EventProps = {
   event: Item;
@@ -9,7 +9,7 @@ type EventProps = {
 function Event({ event }: EventProps) {
   return (
     <div>
-      <span>{getShortTime(new Date(event.start.dateTime))}</span>
+      <span>{getShortTime(event.start.dateTime.toString())}</span>
       <p>{event.summary}</p>
     </div>
   );
