@@ -49,6 +49,7 @@ module.exports = env = {
               },
             },
           },
+          { loader: 'css-modules-typescript-loader' },
           'sass-loader',
         ],
       },
@@ -65,23 +66,6 @@ module.exports = env = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    // new webpack.DefinePlugin({
-    //   'process.env.REACT_APP_PHOTO_ACCESS_KEY': JSON.stringify(
-    //     process.env.REACT_APP_PHOTO_ACCESS_KEY
-    //   ),
-    //   'process.env.REACT_APP_GOOGLE_API_KEY': JSON.stringify(
-    //     process.env.REACT_APP_GOOGLE_API_KEY
-    //   ),
-    //   'process.env.REACT_APP_GOOGLE_ACCESS_TOKEN': JSON.stringify(
-    //     process.env.REACT_APP_GOOGLE_ACCESS_TOKEN
-    //   ),
-    //   'process.env.REACT_APP_POSITION_TOKEN': JSON.stringify(
-    //     process.env.REACT_APP_POSITION_TOKEN
-    //   ),
-    //   'process.env.REACT_APP_WEATHER_API_KEY': J``SON.stringify(
-    //     process.env.REACT_APP_WEATHER_API_KEY
-    //   ),
-    // }),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(process.env),
     }),
