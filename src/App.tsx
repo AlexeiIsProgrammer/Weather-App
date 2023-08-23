@@ -13,9 +13,7 @@ import WeatherAPI from './API/weather';
 
 function App() {
   const [inputCity, setInputCity] = useState<string>('');
-  const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | null>(
-    null,
-  );
+  const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | number>(0);
 
   const [weatherDays, setWeatherDays] = useState<Weather | null>(null);
   const [weatherImage, setWeatherImage] = useState<string>('');
