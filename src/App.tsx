@@ -7,28 +7,25 @@ import getPosition from './API/geolocation';
 import { Forecastday, Weather } from './types/weather';
 import { CalendarResponse, Item } from './types/calendar';
 import getRandomBackground from './API/background';
-import { WeatherImage } from './types/weather-image';
 import Days from './components/weather/Days';
 import EventsList from './components/calendar/EventsList';
+import Input from './components/UI/Input/Input';
 
 function App() {
-  // const calendarID = process.env.REACT_APP_CALENDAR_ID as string;
-  // const apiKey = process.env.REACT_APP_GOOGLE_API_KEY as string;
-  // const accessToken = process.env.REACT_APP_GOOGLE_ACCESS_TOKEN;
-
+  const [inputCountry, setInputCountry] = useState<string>('');
   const [weatherDays, setWeatherDays] = useState<Forecastday[]>([]);
-  const [weatherImage, setWeatherImage] = useState<WeatherImage | null>(null);
+  const [weatherImage, setWeatherImage] = useState<string>('');
   const [events, setEvents] = useState<Item[]>([]);
 
   useEffect(() => {
     getPosition().then((pos) => {
-      weather.getFiveDayWeather(pos).then(async (data: Weather) => {
+      weather.getWeather(pos).then(async (data: Weather) => {
         const forecastDays = data.forecast.forecastday;
         const currentWeather = data.current.condition.text;
 
         setWeatherDays(forecastDays);
 
-        const weatherImageData: WeatherImage = await getRandomBackground(currentWeather);
+        const weatherImageData: string = await getRandomBackground(currentWeather);
         setWeatherImage(weatherImageData);
       });
     });
@@ -51,6 +48,13 @@ function App() {
         <Time />
         <Days weatherDays={weatherDays} />
         {events.length ? <EventsList events={events} /> : null}
+
+        <Input
+          onChange={(e) => setInputCountry(e.target.value)}
+          value={inputCountry}
+          placeholder="Country"
+        />
+
         <Button
           onClick={() => apiCalendar.handleAuthClick().then(() => getAllEvents())}
         >

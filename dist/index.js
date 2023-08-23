@@ -13941,7 +13941,124 @@
         });
         async function getBackgrounds(weather) {
           const response = await fetch(
-            `https://api.unsplash.com/search/photos/?client_id=${'l32mTP4FcGRDJsmsDalVtqX11wkq8_6HQQHCr_DPJ6k'}&page=1&query=${weather}`
+            `https://api.unsplash.com/search/photos/?client_id=${
+              {
+                ADSK_3DSMAX_x64_2020: 'D:\\3д макс прога\\3ds Max 2020\\',
+                ALLUSERSPROFILE: 'C:\\ProgramData',
+                APPDATA: 'C:\\Users\\USER\\AppData\\Roaming',
+                CHROME_CRASHPAD_PIPE_NAME:
+                  '\\\\.\\pipe\\LOCAL\\crashpad_1876_BZMSMHFTZPCVRDMI',
+                COLOR: '1',
+                COLORTERM: 'truecolor',
+                CommonProgramFiles: 'C:\\Program Files\\Common Files',
+                'CommonProgramFiles(x86)':
+                  'C:\\Program Files (x86)\\Common Files',
+                CommonProgramW6432: 'C:\\Program Files\\Common Files',
+                COMPUTERNAME: 'DESKTOP-S4GD93L',
+                ComSpec: 'C:\\Windows\\system32\\cmd.exe',
+                DriverData: 'C:\\Windows\\System32\\Drivers\\DriverData',
+                EDITOR: 'C:\\Windows\\notepad.exe',
+                FPS_BROWSER_APP_PROFILE_STRING: 'Internet Explorer',
+                FPS_BROWSER_USER_PROFILE_STRING: 'Default',
+                GIT_ASKPASS:
+                  'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh',
+                HOME: 'C:\\Users\\USER',
+                HOMEDRIVE: 'C:',
+                HOMEPATH: '\\Users\\USER',
+                INIT_CWD: 'D:\\OneDrive\\Рабочий стол\\Weather-App',
+                INTEL_DEV_REDIST:
+                  'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\',
+                LANG: 'en_US.UTF-8',
+                LOCALAPPDATA: 'C:\\Users\\USER\\AppData\\Local',
+                LOGONSERVER: '\\\\DESKTOP-S4GD93L',
+                MIC_LD_LIBRARY_PATH:
+                  'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic',
+                NODE: 'D:\\Programming\\JS\\node.exe',
+                NODE_ENV: 'development',
+                NODE_EXE: 'D:\\Programming\\JS\\\\node.exe',
+                NPM_CLI_JS:
+                  'D:\\Programming\\JS\\\\node_modules\\npm\\bin\\npm-cli.js',
+                npm_command: 'run-script',
+                npm_config_cache: 'C:\\Users\\USER\\AppData\\Local\\npm-cache',
+                npm_config_globalconfig:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm\\etc\\npmrc',
+                npm_config_global_prefix:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm',
+                npm_config_init_module: 'C:\\Users\\USER\\.npm-init.js',
+                npm_config_local_prefix:
+                  'D:\\OneDrive\\Рабочий стол\\Weather-App',
+                npm_config_metrics_registry: 'https://registry.npmjs.org/',
+                npm_config_node_gyp:
+                  'D:\\Programming\\JS\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js',
+                npm_config_noproxy: '',
+                npm_config_prefix: 'C:\\Users\\USER\\AppData\\Roaming\\npm',
+                npm_config_userconfig: 'C:\\Users\\USER\\.npmrc',
+                npm_config_user_agent:
+                  'npm/9.6.7 node/v18.17.1 win32 x64 workspaces/false',
+                npm_execpath:
+                  'D:\\Programming\\JS\\node_modules\\npm\\bin\\npm-cli.js',
+                npm_lifecycle_event: 'build-dev',
+                npm_lifecycle_script: 'set NODE_ENV=development&&webpack',
+                npm_node_execpath: 'D:\\Programming\\JS\\node.exe',
+                npm_package_json:
+                  'D:\\OneDrive\\Рабочий стол\\Weather-App\\package.json',
+                npm_package_name: 'Weather App',
+                npm_package_version: '0.1.0',
+                NPM_PREFIX_NPM_CLI_JS:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+                NUMBER_OF_PROCESSORS: '8',
+                OneDrive: 'D:\\OneDrive',
+                OneDriveConsumer: 'D:\\OneDrive',
+                ORIGINAL_XDG_CURRENT_DESKTOP: 'undefined',
+                OS: 'Windows_NT',
+                Path: 'D:\\OneDrive\\Рабочий стол\\Weather-App\\node_modules\\.bin;D:\\OneDrive\\Рабочий стол\\node_modules\\.bin;D:\\OneDrive\\node_modules\\.bin;D:\\node_modules\\.bin;D:\\Programming\\JS\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl\\Win64;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl\\Win64;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\Common Files\\Autodesk Shared\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;D;C:\\Program Files\\dotnet\\;D:\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Azure Data Studio\\bin;D:\\Programming\\JS\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\bin;C:\\Users\\USER\\.dotnet\\tools;C:\\Users\\USER\\AppData\\Local\\GitHubDesktop\\bin;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Graphviz\\bin;C:\\Users\\USER\\AppData\\Roaming\\npm',
+                PATHEXT:
+                  '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL',
+                PROCESSOR_ARCHITECTURE: 'AMD64',
+                PROCESSOR_IDENTIFIER:
+                  'Intel64 Family 6 Model 158 Stepping 13, GenuineIntel',
+                PROCESSOR_LEVEL: '6',
+                PROCESSOR_REVISION: '9e0d',
+                ProgramData: 'C:\\ProgramData',
+                ProgramFiles: 'C:\\Program Files',
+                'ProgramFiles(x86)': 'C:\\Program Files (x86)',
+                ProgramW6432: 'C:\\Program Files',
+                PROMPT: '$P$G',
+                PSModulePath:
+                  'D:\\OneDrive\\Документы\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\',
+                PUBLIC: 'C:\\Users\\Public',
+                REACT_APP_GOOGLE_ACCESS_TOKEN:
+                  '434038276821-jef9peoirm176oka280b90oj7hdnfbnf.apps.googleusercontent.com',
+                REACT_APP_GOOGLE_API_KEY:
+                  'AIzaSyDRoxDtmfR8u2IoKblFShjFYcd08hWYRnI',
+                REACT_APP_PHOTO_ACCESS_KEY:
+                  'l32mTP4FcGRDJsmsDalVtqX11wkq8_6HQQHCr_DPJ6k',
+                REACT_APP_POSITION_TOKEN: '108a74d0a35999',
+                REACT_APP_WEATHER_API_KEY: '4c996111139447b0aeb154912232208',
+                SESSIONNAME: 'Console',
+                SystemDrive: 'C:',
+                SystemRoot: 'C:\\Windows',
+                TEMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+                TERM_PROGRAM: 'vscode',
+                TERM_PROGRAM_VERSION: '1.81.1',
+                TMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+                USERDOMAIN: 'DESKTOP-S4GD93L',
+                USERDOMAIN_ROAMINGPROFILE: 'DESKTOP-S4GD93L',
+                USERNAME: 'USER',
+                USERPROFILE: 'C:\\Users\\USER',
+                VS160COMCOMNTOOLS:
+                  'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\',
+                VSCODE_GIT_ASKPASS_EXTRA_ARGS:
+                  '--ms-enable-electron-run-as-node',
+                VSCODE_GIT_ASKPASS_MAIN:
+                  'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js',
+                VSCODE_GIT_ASKPASS_NODE:
+                  'D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\Code.exe',
+                VSCODE_GIT_IPC_HANDLE:
+                  '\\\\.\\pipe\\vscode-git-9e785802b1-sock',
+                windir: 'C:\\Windows',
+              }.REACT_APP_PHOTO_ACCESS_KEY
+            }&page=1&query=${weather}`
           );
           const data = await response.json();
           return data;
@@ -13980,9 +14097,226 @@
           );
 
         const config = {
-          apiKey: 'AIzaSyDRoxDtmfR8u2IoKblFShjFYcd08hWYRnI',
-          clientId:
-            '434038276821-jef9peoirm176oka280b90oj7hdnfbnf.apps.googleusercontent.com',
+          apiKey: {
+            ADSK_3DSMAX_x64_2020: 'D:\\3д макс прога\\3ds Max 2020\\',
+            ALLUSERSPROFILE: 'C:\\ProgramData',
+            APPDATA: 'C:\\Users\\USER\\AppData\\Roaming',
+            CHROME_CRASHPAD_PIPE_NAME:
+              '\\\\.\\pipe\\LOCAL\\crashpad_1876_BZMSMHFTZPCVRDMI',
+            COLOR: '1',
+            COLORTERM: 'truecolor',
+            CommonProgramFiles: 'C:\\Program Files\\Common Files',
+            'CommonProgramFiles(x86)': 'C:\\Program Files (x86)\\Common Files',
+            CommonProgramW6432: 'C:\\Program Files\\Common Files',
+            COMPUTERNAME: 'DESKTOP-S4GD93L',
+            ComSpec: 'C:\\Windows\\system32\\cmd.exe',
+            DriverData: 'C:\\Windows\\System32\\Drivers\\DriverData',
+            EDITOR: 'C:\\Windows\\notepad.exe',
+            FPS_BROWSER_APP_PROFILE_STRING: 'Internet Explorer',
+            FPS_BROWSER_USER_PROFILE_STRING: 'Default',
+            GIT_ASKPASS:
+              'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh',
+            HOME: 'C:\\Users\\USER',
+            HOMEDRIVE: 'C:',
+            HOMEPATH: '\\Users\\USER',
+            INIT_CWD: 'D:\\OneDrive\\Рабочий стол\\Weather-App',
+            INTEL_DEV_REDIST:
+              'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\',
+            LANG: 'en_US.UTF-8',
+            LOCALAPPDATA: 'C:\\Users\\USER\\AppData\\Local',
+            LOGONSERVER: '\\\\DESKTOP-S4GD93L',
+            MIC_LD_LIBRARY_PATH:
+              'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic',
+            NODE: 'D:\\Programming\\JS\\node.exe',
+            NODE_ENV: 'development',
+            NODE_EXE: 'D:\\Programming\\JS\\\\node.exe',
+            NPM_CLI_JS:
+              'D:\\Programming\\JS\\\\node_modules\\npm\\bin\\npm-cli.js',
+            npm_command: 'run-script',
+            npm_config_cache: 'C:\\Users\\USER\\AppData\\Local\\npm-cache',
+            npm_config_globalconfig:
+              'C:\\Users\\USER\\AppData\\Roaming\\npm\\etc\\npmrc',
+            npm_config_global_prefix: 'C:\\Users\\USER\\AppData\\Roaming\\npm',
+            npm_config_init_module: 'C:\\Users\\USER\\.npm-init.js',
+            npm_config_local_prefix: 'D:\\OneDrive\\Рабочий стол\\Weather-App',
+            npm_config_metrics_registry: 'https://registry.npmjs.org/',
+            npm_config_node_gyp:
+              'D:\\Programming\\JS\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js',
+            npm_config_noproxy: '',
+            npm_config_prefix: 'C:\\Users\\USER\\AppData\\Roaming\\npm',
+            npm_config_userconfig: 'C:\\Users\\USER\\.npmrc',
+            npm_config_user_agent:
+              'npm/9.6.7 node/v18.17.1 win32 x64 workspaces/false',
+            npm_execpath:
+              'D:\\Programming\\JS\\node_modules\\npm\\bin\\npm-cli.js',
+            npm_lifecycle_event: 'build-dev',
+            npm_lifecycle_script: 'set NODE_ENV=development&&webpack',
+            npm_node_execpath: 'D:\\Programming\\JS\\node.exe',
+            npm_package_json:
+              'D:\\OneDrive\\Рабочий стол\\Weather-App\\package.json',
+            npm_package_name: 'Weather App',
+            npm_package_version: '0.1.0',
+            NPM_PREFIX_NPM_CLI_JS:
+              'C:\\Users\\USER\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+            NUMBER_OF_PROCESSORS: '8',
+            OneDrive: 'D:\\OneDrive',
+            OneDriveConsumer: 'D:\\OneDrive',
+            ORIGINAL_XDG_CURRENT_DESKTOP: 'undefined',
+            OS: 'Windows_NT',
+            Path: 'D:\\OneDrive\\Рабочий стол\\Weather-App\\node_modules\\.bin;D:\\OneDrive\\Рабочий стол\\node_modules\\.bin;D:\\OneDrive\\node_modules\\.bin;D:\\node_modules\\.bin;D:\\Programming\\JS\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl\\Win64;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl\\Win64;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\Common Files\\Autodesk Shared\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;D;C:\\Program Files\\dotnet\\;D:\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Azure Data Studio\\bin;D:\\Programming\\JS\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\bin;C:\\Users\\USER\\.dotnet\\tools;C:\\Users\\USER\\AppData\\Local\\GitHubDesktop\\bin;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Graphviz\\bin;C:\\Users\\USER\\AppData\\Roaming\\npm',
+            PATHEXT:
+              '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL',
+            PROCESSOR_ARCHITECTURE: 'AMD64',
+            PROCESSOR_IDENTIFIER:
+              'Intel64 Family 6 Model 158 Stepping 13, GenuineIntel',
+            PROCESSOR_LEVEL: '6',
+            PROCESSOR_REVISION: '9e0d',
+            ProgramData: 'C:\\ProgramData',
+            ProgramFiles: 'C:\\Program Files',
+            'ProgramFiles(x86)': 'C:\\Program Files (x86)',
+            ProgramW6432: 'C:\\Program Files',
+            PROMPT: '$P$G',
+            PSModulePath:
+              'D:\\OneDrive\\Документы\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\',
+            PUBLIC: 'C:\\Users\\Public',
+            REACT_APP_GOOGLE_ACCESS_TOKEN:
+              '434038276821-jef9peoirm176oka280b90oj7hdnfbnf.apps.googleusercontent.com',
+            REACT_APP_GOOGLE_API_KEY: 'AIzaSyDRoxDtmfR8u2IoKblFShjFYcd08hWYRnI',
+            REACT_APP_PHOTO_ACCESS_KEY:
+              'l32mTP4FcGRDJsmsDalVtqX11wkq8_6HQQHCr_DPJ6k',
+            REACT_APP_POSITION_TOKEN: '108a74d0a35999',
+            REACT_APP_WEATHER_API_KEY: '4c996111139447b0aeb154912232208',
+            SESSIONNAME: 'Console',
+            SystemDrive: 'C:',
+            SystemRoot: 'C:\\Windows',
+            TEMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+            TERM_PROGRAM: 'vscode',
+            TERM_PROGRAM_VERSION: '1.81.1',
+            TMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+            USERDOMAIN: 'DESKTOP-S4GD93L',
+            USERDOMAIN_ROAMINGPROFILE: 'DESKTOP-S4GD93L',
+            USERNAME: 'USER',
+            USERPROFILE: 'C:\\Users\\USER',
+            VS160COMCOMNTOOLS:
+              'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\',
+            VSCODE_GIT_ASKPASS_EXTRA_ARGS: '--ms-enable-electron-run-as-node',
+            VSCODE_GIT_ASKPASS_MAIN:
+              'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js',
+            VSCODE_GIT_ASKPASS_NODE:
+              'D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\Code.exe',
+            VSCODE_GIT_IPC_HANDLE: '\\\\.\\pipe\\vscode-git-9e785802b1-sock',
+            windir: 'C:\\Windows',
+          }.REACT_APP_GOOGLE_API_KEY,
+          clientId: {
+            ADSK_3DSMAX_x64_2020: 'D:\\3д макс прога\\3ds Max 2020\\',
+            ALLUSERSPROFILE: 'C:\\ProgramData',
+            APPDATA: 'C:\\Users\\USER\\AppData\\Roaming',
+            CHROME_CRASHPAD_PIPE_NAME:
+              '\\\\.\\pipe\\LOCAL\\crashpad_1876_BZMSMHFTZPCVRDMI',
+            COLOR: '1',
+            COLORTERM: 'truecolor',
+            CommonProgramFiles: 'C:\\Program Files\\Common Files',
+            'CommonProgramFiles(x86)': 'C:\\Program Files (x86)\\Common Files',
+            CommonProgramW6432: 'C:\\Program Files\\Common Files',
+            COMPUTERNAME: 'DESKTOP-S4GD93L',
+            ComSpec: 'C:\\Windows\\system32\\cmd.exe',
+            DriverData: 'C:\\Windows\\System32\\Drivers\\DriverData',
+            EDITOR: 'C:\\Windows\\notepad.exe',
+            FPS_BROWSER_APP_PROFILE_STRING: 'Internet Explorer',
+            FPS_BROWSER_USER_PROFILE_STRING: 'Default',
+            GIT_ASKPASS:
+              'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh',
+            HOME: 'C:\\Users\\USER',
+            HOMEDRIVE: 'C:',
+            HOMEPATH: '\\Users\\USER',
+            INIT_CWD: 'D:\\OneDrive\\Рабочий стол\\Weather-App',
+            INTEL_DEV_REDIST:
+              'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\',
+            LANG: 'en_US.UTF-8',
+            LOCALAPPDATA: 'C:\\Users\\USER\\AppData\\Local',
+            LOGONSERVER: '\\\\DESKTOP-S4GD93L',
+            MIC_LD_LIBRARY_PATH:
+              'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic',
+            NODE: 'D:\\Programming\\JS\\node.exe',
+            NODE_ENV: 'development',
+            NODE_EXE: 'D:\\Programming\\JS\\\\node.exe',
+            NPM_CLI_JS:
+              'D:\\Programming\\JS\\\\node_modules\\npm\\bin\\npm-cli.js',
+            npm_command: 'run-script',
+            npm_config_cache: 'C:\\Users\\USER\\AppData\\Local\\npm-cache',
+            npm_config_globalconfig:
+              'C:\\Users\\USER\\AppData\\Roaming\\npm\\etc\\npmrc',
+            npm_config_global_prefix: 'C:\\Users\\USER\\AppData\\Roaming\\npm',
+            npm_config_init_module: 'C:\\Users\\USER\\.npm-init.js',
+            npm_config_local_prefix: 'D:\\OneDrive\\Рабочий стол\\Weather-App',
+            npm_config_metrics_registry: 'https://registry.npmjs.org/',
+            npm_config_node_gyp:
+              'D:\\Programming\\JS\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js',
+            npm_config_noproxy: '',
+            npm_config_prefix: 'C:\\Users\\USER\\AppData\\Roaming\\npm',
+            npm_config_userconfig: 'C:\\Users\\USER\\.npmrc',
+            npm_config_user_agent:
+              'npm/9.6.7 node/v18.17.1 win32 x64 workspaces/false',
+            npm_execpath:
+              'D:\\Programming\\JS\\node_modules\\npm\\bin\\npm-cli.js',
+            npm_lifecycle_event: 'build-dev',
+            npm_lifecycle_script: 'set NODE_ENV=development&&webpack',
+            npm_node_execpath: 'D:\\Programming\\JS\\node.exe',
+            npm_package_json:
+              'D:\\OneDrive\\Рабочий стол\\Weather-App\\package.json',
+            npm_package_name: 'Weather App',
+            npm_package_version: '0.1.0',
+            NPM_PREFIX_NPM_CLI_JS:
+              'C:\\Users\\USER\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+            NUMBER_OF_PROCESSORS: '8',
+            OneDrive: 'D:\\OneDrive',
+            OneDriveConsumer: 'D:\\OneDrive',
+            ORIGINAL_XDG_CURRENT_DESKTOP: 'undefined',
+            OS: 'Windows_NT',
+            Path: 'D:\\OneDrive\\Рабочий стол\\Weather-App\\node_modules\\.bin;D:\\OneDrive\\Рабочий стол\\node_modules\\.bin;D:\\OneDrive\\node_modules\\.bin;D:\\node_modules\\.bin;D:\\Programming\\JS\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl\\Win64;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl\\Win64;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\Common Files\\Autodesk Shared\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;D;C:\\Program Files\\dotnet\\;D:\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Azure Data Studio\\bin;D:\\Programming\\JS\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\bin;C:\\Users\\USER\\.dotnet\\tools;C:\\Users\\USER\\AppData\\Local\\GitHubDesktop\\bin;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Graphviz\\bin;C:\\Users\\USER\\AppData\\Roaming\\npm',
+            PATHEXT:
+              '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL',
+            PROCESSOR_ARCHITECTURE: 'AMD64',
+            PROCESSOR_IDENTIFIER:
+              'Intel64 Family 6 Model 158 Stepping 13, GenuineIntel',
+            PROCESSOR_LEVEL: '6',
+            PROCESSOR_REVISION: '9e0d',
+            ProgramData: 'C:\\ProgramData',
+            ProgramFiles: 'C:\\Program Files',
+            'ProgramFiles(x86)': 'C:\\Program Files (x86)',
+            ProgramW6432: 'C:\\Program Files',
+            PROMPT: '$P$G',
+            PSModulePath:
+              'D:\\OneDrive\\Документы\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\',
+            PUBLIC: 'C:\\Users\\Public',
+            REACT_APP_GOOGLE_ACCESS_TOKEN:
+              '434038276821-jef9peoirm176oka280b90oj7hdnfbnf.apps.googleusercontent.com',
+            REACT_APP_GOOGLE_API_KEY: 'AIzaSyDRoxDtmfR8u2IoKblFShjFYcd08hWYRnI',
+            REACT_APP_PHOTO_ACCESS_KEY:
+              'l32mTP4FcGRDJsmsDalVtqX11wkq8_6HQQHCr_DPJ6k',
+            REACT_APP_POSITION_TOKEN: '108a74d0a35999',
+            REACT_APP_WEATHER_API_KEY: '4c996111139447b0aeb154912232208',
+            SESSIONNAME: 'Console',
+            SystemDrive: 'C:',
+            SystemRoot: 'C:\\Windows',
+            TEMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+            TERM_PROGRAM: 'vscode',
+            TERM_PROGRAM_VERSION: '1.81.1',
+            TMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+            USERDOMAIN: 'DESKTOP-S4GD93L',
+            USERDOMAIN_ROAMINGPROFILE: 'DESKTOP-S4GD93L',
+            USERNAME: 'USER',
+            USERPROFILE: 'C:\\Users\\USER',
+            VS160COMCOMNTOOLS:
+              'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\',
+            VSCODE_GIT_ASKPASS_EXTRA_ARGS: '--ms-enable-electron-run-as-node',
+            VSCODE_GIT_ASKPASS_MAIN:
+              'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js',
+            VSCODE_GIT_ASKPASS_NODE:
+              'D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\Code.exe',
+            VSCODE_GIT_IPC_HANDLE: '\\\\.\\pipe\\vscode-git-9e785802b1-sock',
+            windir: 'C:\\Windows',
+          }.REACT_APP_GOOGLE_ACCESS_TOKEN,
           scope: 'https://www.googleapis.com/auth/calendar',
           discoveryDocs: [
             'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
@@ -14015,7 +14349,124 @@
         });
         async function getPosition() {
           const request = await fetch(
-            `https://ipinfo.io/json?token=${'108a74d0a35999'}`
+            `https://ipinfo.io/json?token=${
+              {
+                ADSK_3DSMAX_x64_2020: 'D:\\3д макс прога\\3ds Max 2020\\',
+                ALLUSERSPROFILE: 'C:\\ProgramData',
+                APPDATA: 'C:\\Users\\USER\\AppData\\Roaming',
+                CHROME_CRASHPAD_PIPE_NAME:
+                  '\\\\.\\pipe\\LOCAL\\crashpad_1876_BZMSMHFTZPCVRDMI',
+                COLOR: '1',
+                COLORTERM: 'truecolor',
+                CommonProgramFiles: 'C:\\Program Files\\Common Files',
+                'CommonProgramFiles(x86)':
+                  'C:\\Program Files (x86)\\Common Files',
+                CommonProgramW6432: 'C:\\Program Files\\Common Files',
+                COMPUTERNAME: 'DESKTOP-S4GD93L',
+                ComSpec: 'C:\\Windows\\system32\\cmd.exe',
+                DriverData: 'C:\\Windows\\System32\\Drivers\\DriverData',
+                EDITOR: 'C:\\Windows\\notepad.exe',
+                FPS_BROWSER_APP_PROFILE_STRING: 'Internet Explorer',
+                FPS_BROWSER_USER_PROFILE_STRING: 'Default',
+                GIT_ASKPASS:
+                  'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh',
+                HOME: 'C:\\Users\\USER',
+                HOMEDRIVE: 'C:',
+                HOMEPATH: '\\Users\\USER',
+                INIT_CWD: 'D:\\OneDrive\\Рабочий стол\\Weather-App',
+                INTEL_DEV_REDIST:
+                  'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\',
+                LANG: 'en_US.UTF-8',
+                LOCALAPPDATA: 'C:\\Users\\USER\\AppData\\Local',
+                LOGONSERVER: '\\\\DESKTOP-S4GD93L',
+                MIC_LD_LIBRARY_PATH:
+                  'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic',
+                NODE: 'D:\\Programming\\JS\\node.exe',
+                NODE_ENV: 'development',
+                NODE_EXE: 'D:\\Programming\\JS\\\\node.exe',
+                NPM_CLI_JS:
+                  'D:\\Programming\\JS\\\\node_modules\\npm\\bin\\npm-cli.js',
+                npm_command: 'run-script',
+                npm_config_cache: 'C:\\Users\\USER\\AppData\\Local\\npm-cache',
+                npm_config_globalconfig:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm\\etc\\npmrc',
+                npm_config_global_prefix:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm',
+                npm_config_init_module: 'C:\\Users\\USER\\.npm-init.js',
+                npm_config_local_prefix:
+                  'D:\\OneDrive\\Рабочий стол\\Weather-App',
+                npm_config_metrics_registry: 'https://registry.npmjs.org/',
+                npm_config_node_gyp:
+                  'D:\\Programming\\JS\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js',
+                npm_config_noproxy: '',
+                npm_config_prefix: 'C:\\Users\\USER\\AppData\\Roaming\\npm',
+                npm_config_userconfig: 'C:\\Users\\USER\\.npmrc',
+                npm_config_user_agent:
+                  'npm/9.6.7 node/v18.17.1 win32 x64 workspaces/false',
+                npm_execpath:
+                  'D:\\Programming\\JS\\node_modules\\npm\\bin\\npm-cli.js',
+                npm_lifecycle_event: 'build-dev',
+                npm_lifecycle_script: 'set NODE_ENV=development&&webpack',
+                npm_node_execpath: 'D:\\Programming\\JS\\node.exe',
+                npm_package_json:
+                  'D:\\OneDrive\\Рабочий стол\\Weather-App\\package.json',
+                npm_package_name: 'Weather App',
+                npm_package_version: '0.1.0',
+                NPM_PREFIX_NPM_CLI_JS:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+                NUMBER_OF_PROCESSORS: '8',
+                OneDrive: 'D:\\OneDrive',
+                OneDriveConsumer: 'D:\\OneDrive',
+                ORIGINAL_XDG_CURRENT_DESKTOP: 'undefined',
+                OS: 'Windows_NT',
+                Path: 'D:\\OneDrive\\Рабочий стол\\Weather-App\\node_modules\\.bin;D:\\OneDrive\\Рабочий стол\\node_modules\\.bin;D:\\OneDrive\\node_modules\\.bin;D:\\node_modules\\.bin;D:\\Programming\\JS\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl\\Win64;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl\\Win64;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\Common Files\\Autodesk Shared\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;D;C:\\Program Files\\dotnet\\;D:\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Azure Data Studio\\bin;D:\\Programming\\JS\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\bin;C:\\Users\\USER\\.dotnet\\tools;C:\\Users\\USER\\AppData\\Local\\GitHubDesktop\\bin;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Graphviz\\bin;C:\\Users\\USER\\AppData\\Roaming\\npm',
+                PATHEXT:
+                  '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL',
+                PROCESSOR_ARCHITECTURE: 'AMD64',
+                PROCESSOR_IDENTIFIER:
+                  'Intel64 Family 6 Model 158 Stepping 13, GenuineIntel',
+                PROCESSOR_LEVEL: '6',
+                PROCESSOR_REVISION: '9e0d',
+                ProgramData: 'C:\\ProgramData',
+                ProgramFiles: 'C:\\Program Files',
+                'ProgramFiles(x86)': 'C:\\Program Files (x86)',
+                ProgramW6432: 'C:\\Program Files',
+                PROMPT: '$P$G',
+                PSModulePath:
+                  'D:\\OneDrive\\Документы\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\',
+                PUBLIC: 'C:\\Users\\Public',
+                REACT_APP_GOOGLE_ACCESS_TOKEN:
+                  '434038276821-jef9peoirm176oka280b90oj7hdnfbnf.apps.googleusercontent.com',
+                REACT_APP_GOOGLE_API_KEY:
+                  'AIzaSyDRoxDtmfR8u2IoKblFShjFYcd08hWYRnI',
+                REACT_APP_PHOTO_ACCESS_KEY:
+                  'l32mTP4FcGRDJsmsDalVtqX11wkq8_6HQQHCr_DPJ6k',
+                REACT_APP_POSITION_TOKEN: '108a74d0a35999',
+                REACT_APP_WEATHER_API_KEY: '4c996111139447b0aeb154912232208',
+                SESSIONNAME: 'Console',
+                SystemDrive: 'C:',
+                SystemRoot: 'C:\\Windows',
+                TEMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+                TERM_PROGRAM: 'vscode',
+                TERM_PROGRAM_VERSION: '1.81.1',
+                TMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+                USERDOMAIN: 'DESKTOP-S4GD93L',
+                USERDOMAIN_ROAMINGPROFILE: 'DESKTOP-S4GD93L',
+                USERNAME: 'USER',
+                USERPROFILE: 'C:\\Users\\USER',
+                VS160COMCOMNTOOLS:
+                  'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\',
+                VSCODE_GIT_ASKPASS_EXTRA_ARGS:
+                  '--ms-enable-electron-run-as-node',
+                VSCODE_GIT_ASKPASS_MAIN:
+                  'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js',
+                VSCODE_GIT_ASKPASS_NODE:
+                  'D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\Code.exe',
+                VSCODE_GIT_IPC_HANDLE:
+                  '\\\\.\\pipe\\vscode-git-9e785802b1-sock',
+                windir: 'C:\\Windows',
+              }.REACT_APP_POSITION_TOKEN
+            }`
           );
           const jsonResponse = await request.json();
           return jsonResponse.city;
@@ -14069,7 +14520,126 @@
         }
         class Weather {
           constructor() {
-            _defineProperty(this, 'apiKey', '4c996111139447b0aeb154912232208');
+            _defineProperty(
+              this,
+              'apiKey',
+              {
+                ADSK_3DSMAX_x64_2020: 'D:\\3д макс прога\\3ds Max 2020\\',
+                ALLUSERSPROFILE: 'C:\\ProgramData',
+                APPDATA: 'C:\\Users\\USER\\AppData\\Roaming',
+                CHROME_CRASHPAD_PIPE_NAME:
+                  '\\\\.\\pipe\\LOCAL\\crashpad_1876_BZMSMHFTZPCVRDMI',
+                COLOR: '1',
+                COLORTERM: 'truecolor',
+                CommonProgramFiles: 'C:\\Program Files\\Common Files',
+                'CommonProgramFiles(x86)':
+                  'C:\\Program Files (x86)\\Common Files',
+                CommonProgramW6432: 'C:\\Program Files\\Common Files',
+                COMPUTERNAME: 'DESKTOP-S4GD93L',
+                ComSpec: 'C:\\Windows\\system32\\cmd.exe',
+                DriverData: 'C:\\Windows\\System32\\Drivers\\DriverData',
+                EDITOR: 'C:\\Windows\\notepad.exe',
+                FPS_BROWSER_APP_PROFILE_STRING: 'Internet Explorer',
+                FPS_BROWSER_USER_PROFILE_STRING: 'Default',
+                GIT_ASKPASS:
+                  'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass.sh',
+                HOME: 'C:\\Users\\USER',
+                HOMEDRIVE: 'C:',
+                HOMEPATH: '\\Users\\USER',
+                INIT_CWD: 'D:\\OneDrive\\Рабочий стол\\Weather-App',
+                INTEL_DEV_REDIST:
+                  'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\',
+                LANG: 'en_US.UTF-8',
+                LOCALAPPDATA: 'C:\\Users\\USER\\AppData\\Local',
+                LOGONSERVER: '\\\\DESKTOP-S4GD93L',
+                MIC_LD_LIBRARY_PATH:
+                  'C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\compiler\\lib\\mic',
+                NODE: 'D:\\Programming\\JS\\node.exe',
+                NODE_ENV: 'development',
+                NODE_EXE: 'D:\\Programming\\JS\\\\node.exe',
+                NPM_CLI_JS:
+                  'D:\\Programming\\JS\\\\node_modules\\npm\\bin\\npm-cli.js',
+                npm_command: 'run-script',
+                npm_config_cache: 'C:\\Users\\USER\\AppData\\Local\\npm-cache',
+                npm_config_globalconfig:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm\\etc\\npmrc',
+                npm_config_global_prefix:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm',
+                npm_config_init_module: 'C:\\Users\\USER\\.npm-init.js',
+                npm_config_local_prefix:
+                  'D:\\OneDrive\\Рабочий стол\\Weather-App',
+                npm_config_metrics_registry: 'https://registry.npmjs.org/',
+                npm_config_node_gyp:
+                  'D:\\Programming\\JS\\node_modules\\npm\\node_modules\\node-gyp\\bin\\node-gyp.js',
+                npm_config_noproxy: '',
+                npm_config_prefix: 'C:\\Users\\USER\\AppData\\Roaming\\npm',
+                npm_config_userconfig: 'C:\\Users\\USER\\.npmrc',
+                npm_config_user_agent:
+                  'npm/9.6.7 node/v18.17.1 win32 x64 workspaces/false',
+                npm_execpath:
+                  'D:\\Programming\\JS\\node_modules\\npm\\bin\\npm-cli.js',
+                npm_lifecycle_event: 'build-dev',
+                npm_lifecycle_script: 'set NODE_ENV=development&&webpack',
+                npm_node_execpath: 'D:\\Programming\\JS\\node.exe',
+                npm_package_json:
+                  'D:\\OneDrive\\Рабочий стол\\Weather-App\\package.json',
+                npm_package_name: 'Weather App',
+                npm_package_version: '0.1.0',
+                NPM_PREFIX_NPM_CLI_JS:
+                  'C:\\Users\\USER\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+                NUMBER_OF_PROCESSORS: '8',
+                OneDrive: 'D:\\OneDrive',
+                OneDriveConsumer: 'D:\\OneDrive',
+                ORIGINAL_XDG_CURRENT_DESKTOP: 'undefined',
+                OS: 'Windows_NT',
+                Path: 'D:\\OneDrive\\Рабочий стол\\Weather-App\\node_modules\\.bin;D:\\OneDrive\\Рабочий стол\\node_modules\\.bin;D:\\OneDrive\\node_modules\\.bin;D:\\node_modules\\.bin;D:\\Programming\\JS\\node_modules\\npm\\node_modules\\@npmcli\\run-script\\lib\\node-gyp-bin;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\21.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\21.0\\Bpl\\Win64;C:\\Program Files (x86)\\Common Files\\Intel\\Shared Libraries\\redist\\intel64\\compiler;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl;C:\\Program Files (x86)\\Embarcadero\\Studio\\20.0\\bin64;C:\\Users\\Public\\Documents\\Embarcadero\\Studio\\20.0\\Bpl\\Win64;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files\\NVIDIA Corporation\\NVIDIA NvDLISR;C:\\Program Files (x86)\\Windows Kits\\10\\Windows Performance Toolkit\\;C:\\Program Files\\Common Files\\Autodesk Shared\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;D;C:\\Program Files\\dotnet\\;D:\\Git\\cmd;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn\\;C:\\Program Files\\Azure Data Studio\\bin;D:\\Programming\\JS\\;C:\\Users\\USER\\AppData\\Local\\Microsoft\\WindowsApps;D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\bin;C:\\Users\\USER\\.dotnet\\tools;C:\\Users\\USER\\AppData\\Local\\GitHubDesktop\\bin;C:\\Program Files\\Azure Data Studio\\bin;C:\\Program Files\\Graphviz\\bin;C:\\Users\\USER\\AppData\\Roaming\\npm',
+                PATHEXT:
+                  '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL',
+                PROCESSOR_ARCHITECTURE: 'AMD64',
+                PROCESSOR_IDENTIFIER:
+                  'Intel64 Family 6 Model 158 Stepping 13, GenuineIntel',
+                PROCESSOR_LEVEL: '6',
+                PROCESSOR_REVISION: '9e0d',
+                ProgramData: 'C:\\ProgramData',
+                ProgramFiles: 'C:\\Program Files',
+                'ProgramFiles(x86)': 'C:\\Program Files (x86)',
+                ProgramW6432: 'C:\\Program Files',
+                PROMPT: '$P$G',
+                PSModulePath:
+                  'D:\\OneDrive\\Документы\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\Tools\\PowerShell\\Modules\\',
+                PUBLIC: 'C:\\Users\\Public',
+                REACT_APP_GOOGLE_ACCESS_TOKEN:
+                  '434038276821-jef9peoirm176oka280b90oj7hdnfbnf.apps.googleusercontent.com',
+                REACT_APP_GOOGLE_API_KEY:
+                  'AIzaSyDRoxDtmfR8u2IoKblFShjFYcd08hWYRnI',
+                REACT_APP_PHOTO_ACCESS_KEY:
+                  'l32mTP4FcGRDJsmsDalVtqX11wkq8_6HQQHCr_DPJ6k',
+                REACT_APP_POSITION_TOKEN: '108a74d0a35999',
+                REACT_APP_WEATHER_API_KEY: '4c996111139447b0aeb154912232208',
+                SESSIONNAME: 'Console',
+                SystemDrive: 'C:',
+                SystemRoot: 'C:\\Windows',
+                TEMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+                TERM_PROGRAM: 'vscode',
+                TERM_PROGRAM_VERSION: '1.81.1',
+                TMP: 'C:\\Users\\USER\\AppData\\Local\\Temp',
+                USERDOMAIN: 'DESKTOP-S4GD93L',
+                USERDOMAIN_ROAMINGPROFILE: 'DESKTOP-S4GD93L',
+                USERNAME: 'USER',
+                USERPROFILE: 'C:\\Users\\USER',
+                VS160COMCOMNTOOLS:
+                  'C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\Tools\\',
+                VSCODE_GIT_ASKPASS_EXTRA_ARGS:
+                  '--ms-enable-electron-run-as-node',
+                VSCODE_GIT_ASKPASS_MAIN:
+                  'd:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\resources\\app\\extensions\\git\\dist\\askpass-main.js',
+                VSCODE_GIT_ASKPASS_NODE:
+                  'D:\\Design\\CSS, HTML, JS\\Microsoft VS Code\\Code.exe',
+                VSCODE_GIT_IPC_HANDLE:
+                  '\\\\.\\pipe\\vscode-git-9e785802b1-sock',
+                windir: 'C:\\Windows',
+              }.REACT_APP_WEATHER_API_KEY
+            );
             _defineProperty(this, 'baseURL', 'http://api.weatherapi.com/v1');
           }
           async getWeather(city) {

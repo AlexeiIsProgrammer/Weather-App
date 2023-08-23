@@ -1,7 +1,11 @@
-// import React from 'react';
+import React from 'react';
 
-// const Input = ({ children }) => {
-//   return <input>{children}</input>;
-// };
+type InputProps = {
+  children: React.ReactNode;
+};
 
-// export default Input;
+function Input({ ...props }: InputProps) {
+  return <input {...props} />;
+}
+
+export default Input;

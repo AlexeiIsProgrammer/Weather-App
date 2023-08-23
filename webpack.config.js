@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+require('dotenv').config({ path: './.env' });
 const path = require('path'); //правильные пути указывать
 const mode = process.env.NODE_ENV || 'development'; //указание среды разработки ()
 const HtmlWebpackPlugin = require('html-webpack-plugin'); //Плагин для HTLM npm install html-webpack-plugin -D
@@ -7,7 +8,7 @@ const devMode = mode === 'development';
 const target = 'web'; // Если development, то web настройки, если продакшн, то файл browserslistrc
 const devtool = devMode ? 'source-map' : undefined; // При дев моде, будет source-map для отслежиания ошибок
 
-module.exports = {
+module.exports = env = {
   mode,
   target,
   devtool,
@@ -77,9 +78,12 @@ module.exports = {
     //   'process.env.REACT_APP_POSITION_TOKEN': JSON.stringify(
     //     process.env.REACT_APP_POSITION_TOKEN
     //   ),
-    //   'process.env.REACT_APP_WEATHER_API_KEY': JSON.stringify(
+    //   'process.env.REACT_APP_WEATHER_API_KEY': J``SON.stringify(
     //     process.env.REACT_APP_WEATHER_API_KEY
     //   ),
     // }),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    }),
   ],
 };
