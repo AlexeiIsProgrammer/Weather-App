@@ -14705,16 +14705,18 @@
           __webpack_require__(
             /*! ./components/calendar/EventsList */ './src/components/calendar/EventsList.tsx'
           );
+        /* harmony import */ var _components_UI_Input_Input__WEBPACK_IMPORTED_MODULE_9__ =
+          __webpack_require__(
+            /*! ./components/UI/Input/Input */ './src/components/UI/Input/Input.tsx'
+          );
 
         function App() {
-          // const calendarID = process.env.REACT_APP_CALENDAR_ID as string;
-          // const apiKey = process.env.REACT_APP_GOOGLE_API_KEY as string;
-          // const accessToken = process.env.REACT_APP_GOOGLE_ACCESS_TOKEN;
-
+          const [inputCountry, setInputCountry] = (0,
+          react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
           const [weatherDays, setWeatherDays] = (0,
           react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
           const [weatherImage, setWeatherImage] = (0,
-          react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+          react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
           const [events, setEvents] = (0,
           react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
           (0, react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
@@ -14722,7 +14724,7 @@
             _API_geolocation__WEBPACK_IMPORTED_MODULE_5__['default'])().then(
               (pos) => {
                 _API_weather__WEBPACK_IMPORTED_MODULE_3__['default']
-                  .getFiveDayWeather(pos)
+                  .getWeather(pos)
                   .then(async (data) => {
                     const forecastDays = data.forecast.forecastday;
                     const currentWeather = data.current.condition.text;
@@ -14780,6 +14782,16 @@
                   )
                 : null,
               /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+                _components_UI_Input_Input__WEBPACK_IMPORTED_MODULE_9__[
+                  'default'
+                ],
+                {
+                  onChange: (e) => setInputCountry(e.target.value),
+                  value: inputCountry,
+                  placeholder: 'Country',
+                }
+              ),
+              /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
                 _components_UI_Button_Button__WEBPACK_IMPORTED_MODULE_2__[
                   'default'
                 ],
@@ -14832,9 +14844,9 @@
           /*#__PURE__*/ __webpack_require__.n(
             react__WEBPACK_IMPORTED_MODULE_0__
           );
-        /* harmony import */ var _Button_module_scss__WEBPACK_IMPORTED_MODULE_1__ =
+        /* harmony import */ var _Button_scss__WEBPACK_IMPORTED_MODULE_1__ =
           __webpack_require__(
-            /*! ./Button.module.scss */ './src/components/UI/Button/Button.module.scss'
+            /*! ./Button.scss */ './src/components/UI/Button/Button.scss'
           );
         function _extends() {
           _extends = Object.assign
@@ -14854,27 +14866,54 @@
         }
 
         function Button({ children, ...props }) {
-          return (
-            /*#__PURE__*/
-            // eslint-disable-next-line react/jsx-props-no-spreading
-            react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
-              'button',
-              _extends(
-                {
-                  className:
-                    _Button_module_scss__WEBPACK_IMPORTED_MODULE_1__['default']
-                      .button,
-                },
-                props,
-                {
-                  type: 'button',
-                }
-              ),
-              children
-            )
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'button',
+            _extends(
+              {
+                className: 'button',
+              },
+              props,
+              {
+                type: 'button',
+              }
+            ),
+            children
           );
         }
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Button;
+
+        /***/
+      },
+
+    /***/ './src/components/UI/Input/Input.tsx':
+      /*!*******************************************!*\
+  !*** ./src/components/UI/Input/Input.tsx ***!
+  \*******************************************/
+      /***/ (
+        __unused_webpack_module,
+        __webpack_exports__,
+        __webpack_require__
+      ) => {
+        'use strict';
+        __webpack_require__.r(__webpack_exports__);
+        /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+          /* harmony export */ default: () => __WEBPACK_DEFAULT_EXPORT__,
+          /* harmony export */
+        });
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ =
+          __webpack_require__(/*! react */ './node_modules/react/index.js');
+        /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default =
+          /*#__PURE__*/ __webpack_require__.n(
+            react__WEBPACK_IMPORTED_MODULE_0__
+          );
+
+        function Input({ ...props }) {
+          return /*#__PURE__*/ react__WEBPACK_IMPORTED_MODULE_0___default().createElement(
+            'input',
+            props
+          );
+        }
+        /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = Input;
 
         /***/
       },
@@ -15340,10 +15379,10 @@
         /***/
       },
 
-    /***/ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/UI/Button/Button.module.scss':
-      /*!********************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/UI/Button/Button.module.scss ***!
-  \********************************************************************************************************************************************************************************************************/
+    /***/ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/UI/Button/Button.scss':
+      /*!*************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/UI/Button/Button.scss ***!
+  \*************************************************************************************************************************************************************************************************/
       /***/ (module, __webpack_exports__, __webpack_require__) => {
         'use strict';
         __webpack_require__.r(__webpack_exports__);
@@ -15376,15 +15415,13 @@
         // Module
         ___CSS_LOADER_EXPORT___.push([
           module.id,
-          `.WTsBDLCOKo9YUGHVtMxw {
+          `.button {
   background-color: pink;
 }`,
           '',
           {
             version: 3,
-            sources: [
-              'webpack://./src/components/UI/Button/Button.module.scss',
-            ],
+            sources: ['webpack://./src/components/UI/Button/Button.scss'],
             names: [],
             mappings: 'AAAA;EACE,sBAAA;AACF',
             sourcesContent: [
@@ -15394,9 +15431,6 @@
           },
         ]);
         // Exports
-        ___CSS_LOADER_EXPORT___.locals = {
-          button: `WTsBDLCOKo9YUGHVtMxw`,
-        };
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
           ___CSS_LOADER_EXPORT___;
 
@@ -57562,10 +57596,10 @@ code {
         /***/
       },
 
-    /***/ './src/components/UI/Button/Button.module.scss':
-      /*!*****************************************************!*\
-  !*** ./src/components/UI/Button/Button.module.scss ***!
-  \*****************************************************/
+    /***/ './src/components/UI/Button/Button.scss':
+      /*!**********************************************!*\
+  !*** ./src/components/UI/Button/Button.scss ***!
+  \**********************************************/
       /***/ (
         __unused_webpack_module,
         __webpack_exports__,
@@ -57625,9 +57659,9 @@ code {
           /*#__PURE__*/ __webpack_require__.n(
             _node_modules_style_loader_dist_runtime_styleTagTransform_js__WEBPACK_IMPORTED_MODULE_5__
           );
-        /* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_module_scss__WEBPACK_IMPORTED_MODULE_6__ =
+        /* harmony import */ var _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_scss__WEBPACK_IMPORTED_MODULE_6__ =
           __webpack_require__(
-            /*! !!../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js!./Button.module.scss */ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/UI/Button/Button.module.scss'
+            /*! !!../../../../node_modules/css-loader/dist/cjs.js!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js!./Button.scss */ './node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[1].use[2]!./node_modules/sass-loader/dist/cjs.js!./src/components/UI/Button/Button.scss'
           );
 
         var options = {};
@@ -57650,20 +57684,20 @@ code {
 
         var update =
           _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(
-            _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_module_scss__WEBPACK_IMPORTED_MODULE_6__[
+            _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_scss__WEBPACK_IMPORTED_MODULE_6__[
               'default'
             ],
             options
           );
 
         /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ =
-          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_module_scss__WEBPACK_IMPORTED_MODULE_6__[
+          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_scss__WEBPACK_IMPORTED_MODULE_6__[
             'default'
           ] &&
-          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_module_scss__WEBPACK_IMPORTED_MODULE_6__[
+          _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_scss__WEBPACK_IMPORTED_MODULE_6__[
             'default'
           ].locals
-            ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_module_scss__WEBPACK_IMPORTED_MODULE_6__[
+            ? _node_modules_css_loader_dist_cjs_js_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_1_use_2_node_modules_sass_loader_dist_cjs_js_Button_scss__WEBPACK_IMPORTED_MODULE_6__[
                 'default'
               ].locals
             : undefined;
