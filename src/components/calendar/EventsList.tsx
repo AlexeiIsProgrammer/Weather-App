@@ -1,6 +1,8 @@
 import React from 'react';
+import Marquee from 'react-fast-marquee';
 import { Item } from '../../types/calendar';
 import Event from './Event';
+import styles from './Calendar.module.scss';
 
 type EventsProps = {
   events: Item[];
@@ -8,12 +10,14 @@ type EventsProps = {
 
 function EventsList({ events }: EventsProps) {
   return (
-    <div>
-      <ul>
-        {events.map((event) => (
-          <Event key={Math.random()} event={event} />
-        ))}
-      </ul>
+    <div className={styles.events}>
+      <div className={styles.events__container}>
+        <Marquee pauseOnHover direction="down" className={styles.events__list}>
+          {events.map((event) => (
+            <Event key={Math.random()} event={event} />
+          ))}
+        </Marquee>
+      </div>
     </div>
   );
 }

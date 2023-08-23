@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { getShortTime } from '../../utils';
-import './time.scss';
+import styles from './Time.module.scss';
 
-function Time() {
+type TimeProps = {
+  city: string;
+};
+
+function Time({ city }: TimeProps) {
   const [clock, setClock] = useState<string>(getShortTime(new Date()));
   const [date, setDate] = useState<string>(new Date().toDateString());
 
@@ -18,9 +22,12 @@ function Time() {
   }, []);
 
   return (
-    <div>
-      <div>{clock}</div>
-      <div>{date}</div>
+    <div className={styles.time}>
+      <div className={styles.time__city}>{city}</div>
+      <div className={styles.time__your}>
+        <div className={styles.time__clock}>{clock}</div>
+        <div className={styles.time__date}>{date}</div>
+      </div>
     </div>
   );
 }

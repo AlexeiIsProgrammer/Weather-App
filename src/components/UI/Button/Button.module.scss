@@ -1,0 +1,24 @@
+.button {
+  background-color: white;
+  outline: none;
+  border: 1px solid black;
+  padding: 5px 10px;
+  font-size: 30px;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  cursor: pointer;
+
+  &:active {
+    border-color: white;
+    color: white;
+    background-color: black;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      border-color: white;
+      color: white;
+      background-color: black;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Button.scss';
+import styles from './Button.module.scss';
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -7,7 +7,7 @@ type ButtonProps = {
 
 function Button({ children, ...props }: ButtonProps) {
   return (
-    <button className="button" {...props} type="button">
+    <button className={styles.button} {...props} type="button">
       {children}
     </button>
   );

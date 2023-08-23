@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Forecastday } from '../../types/weather';
 import { getWeekDay } from '../../utils';
 import Hours from './Hours';
+import styles from './Weather.module.scss';
 
 type DayProps = {
   weather: Forecastday;
@@ -15,15 +16,15 @@ function DayItem({ weather }: DayProps) {
   }
 
   return (
-    <div className="day" onClick={hourStatistic}>
-      <div>{getWeekDay(weather.date)}</div>
-      <div>
+    <div className={styles.day} onClick={hourStatistic}>
+      <p className={styles.day__date}>{getWeekDay(weather.date)}</p>
+      <div className={styles.day__image}>
         <img src={weather.day.condition.icon} alt="weather" />
       </div>
-      <div>
+      <span className={styles.day__temp}>
         {weather.day.avgtemp_c}
         °C
-      </div>
+      </span>
 
       {isHourStat ? <Hours hours={weather.hour} /> : null}
     </div>
