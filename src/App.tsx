@@ -62,7 +62,7 @@ function App() {
       });
   }
 
-  const onChangeHandler = (e: Event) => {
+  const onChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
     const { target } = e;
 
     if (target instanceof HTMLInputElement) {
