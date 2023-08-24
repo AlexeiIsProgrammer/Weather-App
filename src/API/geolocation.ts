@@ -8,7 +8,7 @@ export default async function getPosition() {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_POSITION_TOKEN}`,
       },
-    }
+    },
   );
 
   return response.data.city;

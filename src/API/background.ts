@@ -9,13 +9,13 @@ async function getBackgrounds(weather: string): Promise<WeatherImages> {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_POSITION_TOKEN}`,
       },
-    }
+    },
   );
   return response.data;
 }
 
 export default async function getRandomBackground(
-  weather: string
+  weather: string,
 ): Promise<string> {
   const images: WeatherImages = await getBackgrounds(weather);
   const maxImagesCount = 10;

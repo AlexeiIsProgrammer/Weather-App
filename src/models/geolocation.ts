@@ -40,7 +40,7 @@ export interface Company {
 export interface Domains {
   page: number;
   total: number;
-  domains: any[];
+  domains: string[];
 }
 
 export interface Privacy {
