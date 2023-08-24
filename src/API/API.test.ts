@@ -1,6 +1,8 @@
 import getRandomBackground from './background';
 import getPosition from './geolocation';
 
+jest.mock('axios');
+
 describe('background API testing', () => {
   it('should return url value', async () => {
     const data = await getRandomBackground('Sunny');

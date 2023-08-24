@@ -26,7 +26,7 @@
     "build-dev": "set NODE_ENV=development&&webpack",
     "build-prod": "set NODE_ENV=production&&webpack",
     "clear": "rd /s /q dist",
-    "test": "jest --env=jsdom",
+    "test": "jest --env=jsdom --setupFiles dotenv/config",
     "lint": "eslint . --ext js,jsx,ts,tsx --fix",
     "coverage": "npx jest --coverage"
   },

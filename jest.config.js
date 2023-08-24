@@ -8,7 +8,7 @@ module.exports = {
     '\\.(css|scss|sass)$': 'identity-obj-proxy',
   },
   verbose: true,
-
+  setupFiles: ["dotenv/config"],
   testEnvironment: 'node',
 
   // globals: {
