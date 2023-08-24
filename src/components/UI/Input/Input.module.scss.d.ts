@@ -2,8 +2,8 @@
 // Please do not change this file!
 interface CssExports {
   input: string | undefined;
-  input__input: any;
-  input__input_error: any;
+  input__input: string | undefined;
+  input__input_error: string | undefined;
 
 }
 export const cssExports: CssExports;

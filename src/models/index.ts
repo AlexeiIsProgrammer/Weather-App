@@ -1,4 +1,4 @@
-type Diapasone = {
+type CalendarDiapasone = {
   dateTime: string;
   timeZone: string;
 };
@@ -17,8 +17,8 @@ export interface CalendarEvent {
   id: number;
   summary: string;
   location: string;
-  start: Diapasone;
-  end: Diapasone;
+  start: CalendarDiapasone;
+  end: CalendarDiapasone;
   recurrence: string[];
   attendees: [];
   reminders: Default;
