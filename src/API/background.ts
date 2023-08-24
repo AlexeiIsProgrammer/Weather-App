@@ -1,12 +1,11 @@
-import { WeatherImages } from '../types/weather-image';
+import axios from 'axios';
+import { WeatherImages } from '../models/weather-image';
 
 async function getBackgrounds(weather: string): Promise<WeatherImages> {
-  const response = await fetch(
+  const response = await axios.get<WeatherImages>(
     `https://api.unsplash.com/search/photos/?client_id=${process.env.REACT_APP_PHOTO_ACCESS_KEY}&page=1&query=${weather}`,
   );
-  const data = await response.json();
-
-  return data;
+  return response.data;
 }
 
 export default async function getRandomBackground(

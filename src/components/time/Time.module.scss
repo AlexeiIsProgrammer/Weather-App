@@ -6,11 +6,20 @@
   justify-content: center;
   font-size: 45px;
   &__clock {
+    text-align: center;
     font-size: 100px;
+
+    @media screen and (max-width: 450px) {
+      font-size: 60px;
+    }
   }
 
   &__date {
     text-align: center;
+
+    @media screen and (max-width: 450px) {
+      font-size: 30px;
+    }
   }
 
   &__your {
@@ -19,6 +28,4 @@
     border: 1px solid black;
     background-color: white;
   }
-
-  margin-bottom: 30px;
 }
