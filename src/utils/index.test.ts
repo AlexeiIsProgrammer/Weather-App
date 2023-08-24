@@ -1,6 +1,6 @@
 import type * as TestFunctions from './index';
 
-const { getWeekDay, getShortTime } =
+const { getWeekDay, getShortTime, randomImageNumber } =
   jest.requireActual<typeof TestFunctions>('./index.ts');
 describe('getWeekDay() should return correct dates', () => {
   const testCases = [
@@ -55,5 +55,13 @@ describe("getShortTime() should return time with zero's if possible", () => {
   it.each(testCases)('should return correct $output', ({ input, output }) => {
     const { dateArg, includeSeconds = false } = input;
     expect(getShortTime(dateArg, includeSeconds)).toBe(output);
+  });
+});
+
+describe('randomImageNumber() should return random number in diapasone', () => {
+  it('should return correct random number in diapasone od 0...$input', () => {
+    const input = 10;
+    expect(randomImageNumber(input)).toBeLessThan(input);
+    expect(randomImageNumber(input)).toBeGreaterThanOrEqual(0);
   });
 });

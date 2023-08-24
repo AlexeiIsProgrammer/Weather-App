@@ -12,3 +12,6 @@ export const getWeekDay = (date: Date) => {
 
   return days[new Date(date).getDay()];
 };
+
+export const randomImageNumber = (max: number) =>
+  Math.floor(Math.random() * max);

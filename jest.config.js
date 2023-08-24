@@ -11,8 +11,7 @@ module.exports = {
 
   testEnvironment: 'node',
 
-  globals: {
-    fetch: global.fetch,
-  },
-
+  // globals: {
+  //   fetch: global.fetch,
+  // },
 };
