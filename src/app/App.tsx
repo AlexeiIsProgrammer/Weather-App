@@ -13,9 +13,8 @@ import Hours from '../components/weather/Hours';
 
 function App() {
   const dispatch = useAppDispatch();
-  const {
-    weather, weatherImage, clickedDay, isLoading, error,
-  } = useAppSelector((state) => state.weatherReducer);
+  const { weather, weatherImage, clickedDay, isLoading, error } =
+    useAppSelector((state) => state.weatherReducer);
   const [inputCity, setInputCity] = useState<string>('');
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | number>(0);
 
@@ -55,19 +54,17 @@ function App() {
   }
 
   const onChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
-    const { target } = e;
+    const target = e.target as HTMLInputElement;
 
-    if (target instanceof HTMLInputElement) {
-      setInputCity(target.value);
+    setInputCity(target.value);
 
-      clearTimeout(timer);
+    clearTimeout(timer);
 
-      const newTimer = setTimeout(() => {
-        setWeather(target.value);
-      }, 2000);
+    const newTimer = setTimeout(() => {
+      setWeather(target.value);
+    }, 2000);
 
-      setTimer(newTimer);
-    }
+    setTimer(newTimer);
   };
 
   return (
@@ -104,15 +101,15 @@ function App() {
 
             {!isSignIn ? (
               <Button
-                onClick={() => apiCalendar
-                  .handleAuthClick()
-                  .then(() => {
-                    getAllEvents();
-                    setIsSignIn(true);
-                  })
-                  .catch(() => {
-
-                  })}
+                onClick={() =>
+                  apiCalendar
+                    .handleAuthClick()
+                    .then(() => {
+                      getAllEvents();
+                      setIsSignIn(true);
+                    })
+                    .catch(() => {})
+                }
               >
                 Sign in
               </Button>

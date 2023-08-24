@@ -12,7 +12,7 @@ export const fetchWeather = (city: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(weatherSlice.actions.weatherFetching());
     const response = await axios.get<Weather>(
-      `${baseURL}/forecast.json?q=${city}&days=7&key=${apiKey}`,
+      `${baseURL}/forecast.json?q=${city}&days=7&key=${apiKey}`
     );
 
     const currentWeather = response.data.current.condition.text;
@@ -25,6 +25,8 @@ export const fetchWeather = (city: string) => async (dispatch: AppDispatch) => {
 
     dispatch(weatherSlice.actions.weatherFetchingSuccess(weatherResponse));
   } catch (e) {
-    dispatch(weatherSlice.actions.weatherFetchingError(e.message));
+    if (e instanceof Error) {
+      dispatch(weatherSlice.actions.weatherFetchingError(e.message));
+    }
   }
 };

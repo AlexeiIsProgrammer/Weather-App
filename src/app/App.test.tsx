@@ -1,10 +1,11 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import App from './App';
+import { renderWithProviders } from '../test';
 
 test('renders learn react link', () => {
-  render(<App />);
+  renderWithProviders(<App />);
   const linkElement = screen.getByText(/Sign in/i);
   expect(linkElement).toBeInTheDocument();
 });

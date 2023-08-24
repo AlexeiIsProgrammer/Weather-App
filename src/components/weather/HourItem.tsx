@@ -1,7 +1,7 @@
 import React from 'react';
-import { Hour } from '../../types/weather';
 import { getShortTime } from '../../utils';
 import styles from './Weather.module.scss';
+import { Hour } from '../../models/weather';
 
 type HourProps = {
   hour: Hour;
@@ -14,11 +14,7 @@ function HourItem({ hour }: HourProps) {
       <div className={styles.hour__image}>
         <img src={hour.condition.icon} alt="weather" />
       </div>
-      <p className={styles.hour__temp}>
-        {hour.temp_c}
-        {' '}
-        °C
-      </p>
+      <p className={styles.hour__temp}>{hour.temp_c} °C</p>
     </li>
   );
 }
