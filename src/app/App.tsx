@@ -79,6 +79,12 @@ function App() {
         <section className="main-block">
           <div className="main-block__container">
             {events.length ? <EventsList events={events} /> : null}
+            {!events.length && isSignIn && (
+              <h1 style={{ textAlign: 'center' }}>
+                Поздравляю, сегодня событий нет!
+              </h1>
+            )}
+
             {isWeatherExists && <Time city={weather.location.name} />}
             <Input
               error={error}
