@@ -1,31 +1,41 @@
-import React, { useState } from 'react';
-import { Forecastday } from '../../types/weather';
+import React from 'react';
 import { getWeekDay } from '../../utils';
-import Hours from './Hours';
+import styles from './Weather.module.scss';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
+import { Forecastday } from '../../models/weather';
+import { weatherSlice } from '../../store/reducers/weatherSlice';
 
 type DayProps = {
+  id: number;
   weather: Forecastday;
 };
 
-function DayItem({ weather }: DayProps) {
-  const [isHourStat, setIsHourStat] = useState<boolean>(false);
+function DayItem({ id, weather }: DayProps) {
+  const dispatch = useAppDispatch();
+
+  const { clickedDay } = useAppSelector((state) => state.weatherReducer);
 
   function hourStatistic() {
-    setIsHourStat(!isHourStat);
+    dispatch(
+      clickedDay === id
+        ? weatherSlice.actions.weatherChooseDay(null)
+        : weatherSlice.actions.weatherChooseDay(id),
+    );
   }
 
   return (
-    <div className="day" onClick={hourStatistic}>
-      <div>{getWeekDay(weather.date)}</div>
-      <div>
+    <div
+      className={`${styles.day} ${clickedDay === id ? styles.day_active : ''}`}
+      onClick={hourStatistic}
+    >
+      <p className={styles.day__date}>{getWeekDay(weather.date)}</p>
+      <div className={styles.day__image}>
         <img src={weather.day.condition.icon} alt="weather" />
       </div>
-      <div>
+      <span className={styles.day__temp}>
         {weather.day.avgtemp_c}
         °C
-      </div>
-
-      {isHourStat ? <Hours hours={weather.hour} /> : null}
+      </span>
     </div>
   );
 }
