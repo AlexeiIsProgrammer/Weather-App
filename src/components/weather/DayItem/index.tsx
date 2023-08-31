@@ -2,7 +2,7 @@ import React from 'react';
 
 import { getWeekDay } from '../../../utils';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { Forecastday } from '../../../interfaces/weather';
+import { Forecastday } from '../../../interfaces';
 import { weatherSlice } from '../../../store/reducers/weatherSlice';
 
 import { DayDate, DayImage, DayTemp, DayWrapper } from './styles';

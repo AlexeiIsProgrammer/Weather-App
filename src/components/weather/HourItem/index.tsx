@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { getShortTime } from '../../../utils';
-import { Hour } from '../../../interfaces/weather';
+import { Hour } from '../../../interfaces';
 
 import { HourWrapper } from './styles';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Current, Forecastday } from '../../../interfaces/weather';
+import { CurrentDayWeather, Forecastday } from '../../../interfaces';
 import DayItem from '../DayItem';
 import CurrentDayItem from '../CurrentDayItem';
 
@@ -8,7 +8,7 @@ import { DaysList, DaysWrapper } from './styles';
 
 type DaysProps = {
   weatherDays: Forecastday[];
-  currentDay: Current;
+  currentDay: CurrentDayWeather;
 };
 
 function Days({ currentDay, weatherDays }: DaysProps) {

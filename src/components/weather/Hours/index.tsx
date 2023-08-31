@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Hour } from '../../../interfaces/weather';
+import { Hour } from '../../../interfaces';
 import HourItem from '../HourItem';
 
 import { HoursList, HoursWrapper } from './styles';

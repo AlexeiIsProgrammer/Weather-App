@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 
 import apiCalendar from '../API/calendar';
-import Button from '../components/UI/Button';
-import Time from '../components/Time';
 import getPosition from '../API/geolocation';
-import { CalendarResponse, Item } from '../interfaces/calendar';
-import Days from '../components/Weather/Days';
 import EventsList from '../components/Calendar/EventsList';
+import Time from '../components/Time';
+import Button from '../components/UI/Button';
 import Input from '../components/UI/Input';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { fetchWeather } from '../store/reducers/ActionCreators';
+import Days from '../components/Weather/Days';
 import Hours from '../components/Weather/Hours';
+import { useAppDispatch, useAppSelector } from '../hooks/redux';
+import { CalendarResponse, EventItem } from '../interfaces';
+import { fetchWeather } from '../store/reducers/ActionCreators';
 
 import {
   Main,
@@ -28,7 +28,7 @@ function App() {
 
   const isWeatherExists = Object.keys(weather).length !== 0;
 
-  const [events, setEvents] = useState<Item[]>([]);
+  const [events, setEvents] = useState<EventItem[]>([]);
 
   const [isSignIn, setIsSignIn] = useState<boolean>();
 
@@ -55,7 +55,7 @@ function App() {
         orderBy: 'updated',
       })
       .then((res: CalendarResponse) => {
-        const calendarEvents: Item[] = res.result.items;
+        const calendarEvents: EventItem[] = res.result.items;
 
         setEvents(calendarEvents);
       });

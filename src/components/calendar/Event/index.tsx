@@ -1,14 +1,12 @@
 import React from 'react';
 
-import { Item } from '../../../interfaces/calendar';
+import { EventItem } from '../../../interfaces';
 import { getShortTime } from '../../../utils';
 
-import {
-  EventBlock, EventSummary, EventTime, EventWrapper,
-} from './styles';
+import { EventBlock, EventSummary, EventTime, EventWrapper } from './styles';
 
 type EventProps = {
-  event: Item;
+  event: EventItem;
 };
 
 function Event({ event }: EventProps) {
@@ -17,9 +15,10 @@ function Event({ event }: EventProps) {
       <a href={event.htmlLink}>
         <EventWrapper>
           <EventTime>
-            {getShortTime(event.start.dateTime.toString(), false)}
-            -
-            {getShortTime(event.end.dateTime.toString(), false)}
+            {`${getShortTime(
+              event.start.dateTime.toString(),
+              false
+            )}-${getShortTime(event.end.dateTime.toString(), false)}`}
           </EventTime>
           <EventSummary>{event.summary}</EventSummary>
         </EventWrapper>
