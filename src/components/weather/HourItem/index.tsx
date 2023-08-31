@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { getShortTime } from '../../utils';
-import { Hour } from '../../interfaces/weather';
+import { getShortTime } from '../../../utils';
+import { Hour } from '../../../interfaces/weather';
 
-import styles from './Weather.module.scss';
+import styles from '../Weather.module.scss';
 
 type HourProps = {
   hour: Hour;

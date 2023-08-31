@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { getWeekDay } from '../../utils';
-import { useAppDispatch, useAppSelector } from '../../hooks/redux';
-import { Forecastday } from '../../interfaces/weather';
-import { weatherSlice } from '../../store/reducers/weatherSlice';
+import { getWeekDay } from '../../../utils';
+import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
+import { Forecastday } from '../../../interfaces/weather';
+import { weatherSlice } from '../../../store/reducers/weatherSlice';
 
-import styles from './Weather.module.scss';
+import styles from '../Weather.module.scss';
 
 type DayProps = {
   id: number;

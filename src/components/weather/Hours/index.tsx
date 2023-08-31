@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Hour } from '../../interfaces/weather';
+import { Hour } from '../../../interfaces/weather';
 
-import HourItem from './HourItem';
-import styles from './Weather.module.scss';
+import HourItem from '../HourItem/HourItem';
+import styles from '../Weather.module.scss';
 
 type HoursProps = {
   hours: Hour[];

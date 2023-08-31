@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Item } from '../../interfaces/calendar';
-import { getShortTime } from '../../utils';
+import { Item } from '../../../interfaces/calendar';
+import { getShortTime } from '../../../utils';
 
-import styles from './Calendar.module.scss';
+import styles from '../Calendar.module.scss';
 
 type EventProps = {
   event: Item;

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 import apiCalendar from '../API/calendar';
 import Button from '../components/UI/Button/Button';
-import Time from '../components/time/Time';
+import Time from '../components/Time';
 import getPosition from '../API/geolocation';
 import { CalendarResponse, Item } from '../interfaces/calendar';
 import Days from '../components/weather/Days';
-import EventsList from '../components/calendar/EventsList';
+import EventsList from '../components/Calendar/EventsList/EventsList';
 import Input from '../components/UI/Input/Input';
 import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchWeather } from '../store/reducers/ActionCreators';
