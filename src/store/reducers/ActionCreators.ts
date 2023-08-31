@@ -1,9 +1,11 @@
 import axios from 'axios';
+
 import { WeatherResponse } from '../../types';
-import { Weather } from '../../models/weather';
+import { Weather } from '../../interfaces/weather';
 import { AppDispatch } from '..';
-import { weatherSlice } from './weatherSlice';
 import getRandomBackground from '../../API/background';
+
+import { weatherSlice } from './weatherSlice';
 
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 const baseURL = 'http://api.weatherapi.com/v1';
@@ -12,7 +14,7 @@ export const fetchWeather = (city: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(weatherSlice.actions.weatherFetching());
     const response = await axios.get<Weather>(
-      `${baseURL}/forecast.json?q=${city}&days=7&key=${apiKey}`,
+      `${baseURL}/forecast.json?q=${city}&days=7&key=${apiKey}`
     );
 
     const currentWeather = response.data.current.condition.text;

@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
+
 import apiCalendar from '../API/calendar';
 import Button from '../components/UI/Button/Button';
 import Time from '../components/time/Time';
 import getPosition from '../API/geolocation';
-import { CalendarResponse, Item } from '../models/calendar';
+import { CalendarResponse, Item } from '../interfaces/calendar';
 import Days from '../components/weather/Days';
 import EventsList from '../components/calendar/EventsList';
 import Input from '../components/UI/Input/Input';
@@ -13,9 +14,8 @@ import Hours from '../components/weather/Hours';
 
 function App() {
   const dispatch = useAppDispatch();
-  const {
-    weather, weatherImage, clickedDay, isLoading, error,
-  } = useAppSelector((state) => state.weatherReducer);
+  const { weather, weatherImage, clickedDay, isLoading, error } =
+    useAppSelector((state) => state.weatherReducer);
   const [inputCity, setInputCity] = useState<string>('');
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | number>(0);
 
@@ -108,13 +108,15 @@ function App() {
 
             {!isSignIn ? (
               <Button
-                onClick={() => apiCalendar
-                  .handleAuthClick()
-                  .then(() => {
-                    getAllEvents();
-                    setIsSignIn(true);
-                  })
-                  .catch(() => {})}
+                onClick={() =>
+                  apiCalendar
+                    .handleAuthClick()
+                    .then(() => {
+                      getAllEvents();
+                      setIsSignIn(true);
+                    })
+                    .catch(() => {})
+                }
               >
                 Sign in
               </Button>

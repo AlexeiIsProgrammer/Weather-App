@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Weather } from '../../models/weather';
+
+import { Weather } from '../../interfaces/weather';
 import { WeatherResponse } from '../../types';
 
 type ClickedDayType = number | null;

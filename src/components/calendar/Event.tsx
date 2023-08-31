@@ -1,6 +1,8 @@
 import React from 'react';
-import { Item } from '../../models/calendar';
+
+import { Item } from '../../interfaces/calendar';
 import { getShortTime } from '../../utils';
+
 import styles from './Calendar.module.scss';
 
 type EventProps = {
@@ -13,8 +15,7 @@ function Event({ event }: EventProps) {
       <a href={event.htmlLink}>
         <div className={styles.event__container}>
           <span className={styles.event__time}>
-            {getShortTime(event.start.dateTime.toString(), false)}
-            -
+            {getShortTime(event.start.dateTime.toString(), false)}-
             {getShortTime(event.end.dateTime.toString(), false)}
           </span>
           <p className={styles.event__summary}>{event.summary}</p>

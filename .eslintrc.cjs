@@ -17,7 +17,7 @@ module.exports = {
         sourceType: 'module',
         project: ['./tsconfig.json'],
     },
-    plugins: ['react', '@typescript-eslint'],
+    plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
     rules: {
         'react/react-in-jsx-scope': 0,
         'jsx-a11y/click-events-have-key-events': 0,
@@ -26,6 +26,8 @@ module.exports = {
         'import/no-extraneous-dependencies': 0,
         'no-param-reassign': 0,
         'import/prefer-default-export': 0,
-        'react-hooks/exhaustive-deps': 0
+        'react-hooks/exhaustive-deps': 0,
+        "simple-import-sort/sort": "off",
+        "import/order": ["error", { "newlines-between": "always" }]
     },
 };

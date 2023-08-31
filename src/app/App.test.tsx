@@ -1,8 +1,10 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { screen } from '@testing-library/react';
-import App from './App';
+
 import { renderWithProviders } from '../test';
+
+import App from './App';
 
 test('renders learn react link', () => {
   renderWithProviders(<App />);

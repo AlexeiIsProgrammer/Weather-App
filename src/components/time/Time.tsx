@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+
 import { getShortTime } from '../../utils';
+
 import styles from './Time.module.scss';
 
 type TimeProps = {
