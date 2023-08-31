@@ -1,5 +1,4 @@
 import { Item } from '../../../interfaces/calendar';
-
 import Event from '../Event';
 import styles from '../Calendar.module.scss';
 

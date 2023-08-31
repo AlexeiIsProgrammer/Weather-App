@@ -1,6 +1,7 @@
-import type * as TestFunctions from './index';
+import type * as TestFunctions from '.';
 
-const { getWeekDay, getShortTime, randomImageNumber } = jest.requireActual<typeof TestFunctions>('./index.ts');
+const { getWeekDay, getShortTime, randomImageNumber } =
+  jest.requireActual<typeof TestFunctions>('./index.ts');
 describe('getWeekDay() should return correct dates', () => {
   const testCases = [
     {
@@ -36,7 +37,7 @@ describe('getWeekDay() should return correct dates', () => {
     'should return correct day: $output',
     ({ input, output }) => {
       expect(getWeekDay(input)).toBe(output);
-    },
+    }
   );
 });
 

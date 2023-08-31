@@ -14,8 +14,9 @@ import Hours from '../components/Weather/Hours';
 
 function App() {
   const dispatch = useAppDispatch();
-  const { weather, weatherImage, clickedDay, isLoading, error } =
-    useAppSelector((state) => state.weatherReducer);
+  const {
+    weather, weatherImage, clickedDay, isLoading, error,
+  } = useAppSelector((state) => state.weatherReducer);
   const [inputCity, setInputCity] = useState<string>('');
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | number>(0);
 
@@ -108,15 +109,13 @@ function App() {
 
             {!isSignIn ? (
               <Button
-                onClick={() =>
-                  apiCalendar
-                    .handleAuthClick()
-                    .then(() => {
-                      getAllEvents();
-                      setIsSignIn(true);
-                    })
-                    .catch(() => {})
-                }
+                onClick={() => apiCalendar
+                  .handleAuthClick()
+                  .then(() => {
+                    getAllEvents();
+                    setIsSignIn(true);
+                  })
+                  .catch(() => {})}
               >
                 Sign in
               </Button>

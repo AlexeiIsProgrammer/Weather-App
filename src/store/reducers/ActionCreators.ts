@@ -14,7 +14,7 @@ export const fetchWeather = (city: string) => async (dispatch: AppDispatch) => {
   try {
     dispatch(weatherSlice.actions.weatherFetching());
     const response = await axios.get<Weather>(
-      `${baseURL}/forecast.json?q=${city}&days=7&key=${apiKey}`
+      `${baseURL}/forecast.json?q=${city}&days=7&key=${apiKey}`,
     );
 
     const currentWeather = response.data.current.condition.text;

@@ -1,5 +1,6 @@
-import { Current, Forecastday } from '../../../interfaces/weather';
+import React from 'react';
 
+import { Current, Forecastday } from '../../../interfaces/weather';
 import DayItem from '../DayItem';
 import styles from '../Weather.module.scss';
 import CurrentDayItem from '../CurrentDayItem';
