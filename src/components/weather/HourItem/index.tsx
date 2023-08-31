@@ -2,7 +2,8 @@ import React from 'react';
 
 import { getShortTime } from '../../../utils';
 import { Hour } from '../../../interfaces/weather';
-import styles from '../Weather.module.scss';
+
+import { HourWrapper } from './styles';
 
 type HourProps = {
   hour: Hour;
@@ -10,17 +11,16 @@ type HourProps = {
 
 function HourItem({ hour }: HourProps) {
   return (
-    <li className={styles.hour}>
-      <p className={styles.hour__time}>{getShortTime(hour.time, false)}</p>
-      <div className={styles.hour__image}>
+    <HourWrapper>
+      <p>{getShortTime(hour.time, false)}</p>
+      <div>
         <img src={hour.condition.icon} alt="weather" />
       </div>
-      <p className={styles.hour__temp}>
+      <p>
         {hour.temp_c}
-        {' '}
         °C
       </p>
-    </li>
+    </HourWrapper>
   );
 }
 

@@ -12,11 +12,17 @@ import { useAppDispatch, useAppSelector } from '../hooks/redux';
 import { fetchWeather } from '../store/reducers/ActionCreators';
 import Hours from '../components/Weather/Hours';
 
+import {
+  Main,
+  MainContainer,
+  MainSection,
+  MainSectionContainer,
+} from './styles';
+
 function App() {
   const dispatch = useAppDispatch();
-  const {
-    weather, weatherImage, clickedDay, isLoading, error,
-  } = useAppSelector((state) => state.weatherReducer);
+  const { weather, weatherImage, clickedDay, isLoading, error } =
+    useAppSelector((state) => state.weatherReducer);
   const [inputCity, setInputCity] = useState<string>('');
   const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | number>(0);
 
@@ -59,26 +65,23 @@ function App() {
     const target = e.target as HTMLInputElement;
 
     setInputCity(target.value);
+  };
 
+  useEffect(() => {
     clearTimeout(timer);
 
     const newTimer = setTimeout(() => {
-      setWeather(target.value);
+      setWeather(inputCity);
     }, 2000);
 
     setTimer(newTimer);
-  };
+  }, [inputCity]);
 
   return (
-    <main
-      className="main"
-      style={
-        isWeatherExists ? { backgroundImage: `url('${weatherImage}')` } : {}
-      }
-    >
-      <div className="main__container">
-        <section className="main-block">
-          <div className="main-block__container">
+    <Main $backgroundImage={isWeatherExists ? `url('${weatherImage}')` : ''}>
+      <MainContainer>
+        <MainSection className="main-block">
+          <MainSectionContainer className="main-block__container">
             {events.length ? <EventsList events={events} /> : null}
             {!events.length && isSignIn && (
               <h1 style={{ textAlign: 'center' }}>
@@ -109,13 +112,15 @@ function App() {
 
             {!isSignIn ? (
               <Button
-                onClick={() => apiCalendar
-                  .handleAuthClick()
-                  .then(() => {
-                    getAllEvents();
-                    setIsSignIn(true);
-                  })
-                  .catch(() => {})}
+                onClick={() =>
+                  apiCalendar
+                    .handleAuthClick()
+                    .then(() => {
+                      getAllEvents();
+                      setIsSignIn(true);
+                    })
+                    .catch(() => {})
+                }
               >
                 Sign in
               </Button>
@@ -132,10 +137,10 @@ function App() {
                 Sign out
               </Button>
             ) : null}
-          </div>
-        </section>
-      </div>
-    </main>
+          </MainSectionContainer>
+        </MainSection>
+      </MainContainer>
+    </Main>
   );
 }
 

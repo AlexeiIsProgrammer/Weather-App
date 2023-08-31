@@ -2,8 +2,9 @@ import React from 'react';
 
 import { Current, Forecastday } from '../../../interfaces/weather';
 import DayItem from '../DayItem';
-import styles from '../Weather.module.scss';
 import CurrentDayItem from '../CurrentDayItem';
+
+import { DaysList, DaysWrapper } from './styles';
 
 type DaysProps = {
   weatherDays: Forecastday[];
@@ -12,14 +13,14 @@ type DaysProps = {
 
 function Days({ currentDay, weatherDays }: DaysProps) {
   return (
-    <div className={styles.days}>
+    <DaysWrapper>
       <CurrentDayItem currentDay={currentDay} />
-      <div className={styles.days__list}>
-        {weatherDays.map((day, ind) => (
-          <DayItem key={Math.random()} id={ind} weather={day} />
+      <DaysList>
+        {weatherDays.map((day, index) => (
+          <DayItem key={day.toString()} id={index} weather={day} />
         ))}
-      </div>
-    </div>
+      </DaysList>
+    </DaysWrapper>
   );
 }
 

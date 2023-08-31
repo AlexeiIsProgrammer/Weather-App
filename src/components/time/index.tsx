@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { getShortTime } from '../../utils';
 
-import styles from './Time.module.scss';
+import {
+  TimeBlock,
+  TimeCity,
+  TimeClock,
+  TimeContainer,
+  TimeDate,
+} from './styles';
 
 type TimeProps = {
   city: string;
@@ -24,13 +30,13 @@ function Time({ city }: TimeProps) {
   }, []);
 
   return (
-    <div className={styles.time}>
-      <div className={styles.time__city}>{city}</div>
-      <div className={styles.time__your}>
-        <div className={styles.time__clock}>{clock}</div>
-        <div className={styles.time__date}>{date}</div>
-      </div>
-    </div>
+    <TimeBlock>
+      <TimeCity>{city}</TimeCity>
+      <TimeContainer>
+        <TimeClock>{clock}</TimeClock>
+        <TimeDate>{date}</TimeDate>
+      </TimeContainer>
+    </TimeBlock>
   );
 }
 

@@ -4,7 +4,8 @@ import { getWeekDay } from '../../../utils';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { Forecastday } from '../../../interfaces/weather';
 import { weatherSlice } from '../../../store/reducers/weatherSlice';
-import styles from '../Weather.module.scss';
+
+import { DayDate, DayImage, DayTemp, DayWrapper } from './styles';
 
 type DayProps = {
   id: number;
@@ -20,24 +21,21 @@ function DayItem({ id, weather }: DayProps) {
     dispatch(
       clickedDay === id
         ? weatherSlice.actions.weatherChooseDay(null)
-        : weatherSlice.actions.weatherChooseDay(id),
+        : weatherSlice.actions.weatherChooseDay(id)
     );
   }
 
   return (
-    <div
-      className={`${styles.day} ${clickedDay === id ? styles.day_active : ''}`}
-      onClick={hourStatistic}
-    >
-      <p className={styles.day__date}>{getWeekDay(weather.date)}</p>
-      <div className={styles.day__image}>
+    <DayWrapper $active={clickedDay === id} onClick={hourStatistic}>
+      <DayDate>{getWeekDay(weather.date)}</DayDate>
+      <DayImage>
         <img src={weather.day.condition.icon} alt="weather" />
-      </div>
-      <span className={styles.day__temp}>
+      </DayImage>
+      <DayTemp>
         {weather.day.avgtemp_c}
         °C
-      </span>
-    </div>
+      </DayTemp>
+    </DayWrapper>
   );
 }
 

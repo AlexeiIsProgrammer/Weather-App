@@ -1,6 +1,9 @@
-import { Item } from '../../../interfaces/calendar';
+import React from 'react';
+
 import Event from '../Event';
-import styles from '../Calendar.module.scss';
+import { Item } from '../../../interfaces/calendar';
+
+import { Events, EventsListBlock } from './styles';
 
 type EventsProps = {
   events: Item[];
@@ -8,15 +11,15 @@ type EventsProps = {
 
 function EventsList({ events }: EventsProps) {
   return (
-    <div className={styles.events}>
-      <div className={styles.events__container}>
-        <ul className={styles.events__list}>
+    <Events>
+      <div>
+        <EventsListBlock>
           {events.map((event) => (
-            <Event key={Math.random()} event={event} />
+            <Event key={event.id} event={event} />
           ))}
-        </ul>
+        </EventsListBlock>
       </div>
-    </div>
+    </Events>
   );
 }
 

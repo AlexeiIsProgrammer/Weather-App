@@ -1,7 +1,14 @@
 import React from 'react';
 
 import { Current } from '../../../interfaces/weather';
-import styles from '../Weather.module.scss';
+
+import {
+  CurrentDayDate,
+  CurrentDayImage,
+  CurrentDayImageImg,
+  CurrentDayTemp,
+  CurrentDayWrapper,
+} from './styles';
 
 type CurrentDayProps = {
   currentDay: Current;
@@ -9,16 +16,16 @@ type CurrentDayProps = {
 
 function CurrentDayItem({ currentDay }: CurrentDayProps) {
   return (
-    <div className={`${styles.day} ${styles.day__current}`}>
-      <div className={styles.day__image}>
-        <img src={currentDay.condition.icon} alt="weather" />
-      </div>
-      <p className={styles.day__date}>Now</p>
-      <span className={styles.day__temp}>
+    <CurrentDayWrapper>
+      <CurrentDayImage>
+        <CurrentDayImageImg src={currentDay.condition.icon} alt="weather" />
+      </CurrentDayImage>
+      <CurrentDayDate>Now</CurrentDayDate>
+      <CurrentDayTemp>
         {currentDay.temp_c}
         °C
-      </span>
-    </div>
+      </CurrentDayTemp>
+    </CurrentDayWrapper>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Input.module.scss';
+import { InputContainer, RealInput } from './styles';
 
 type InputProps = {
   error: string;
@@ -13,16 +13,14 @@ function Input({
   error, onChange, value, placeholder,
 }: InputProps) {
   return (
-    <div className={styles.input}>
-      <input
-        className={`${styles.input__input} ${
-          error ? `${styles.input__input_error}` : ''
-        }`}
+    <InputContainer>
+      <RealInput
+        $error={!!error}
         value={value}
         placeholder={placeholder}
         onChange={onChange}
       />
-    </div>
+    </InputContainer>
   );
 }
 

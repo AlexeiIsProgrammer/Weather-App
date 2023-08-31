@@ -1,4 +1,6 @@
-.button {
+import { styled } from 'styled-components';
+
+const ButtonStyle = styled.button`
   background-color: white;
   outline: none;
   border: 1px solid black;
@@ -21,4 +23,5 @@
       background-color: black;
     }
   }
-}
+`;
+export default ButtonStyle;

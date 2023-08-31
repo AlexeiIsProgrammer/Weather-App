@@ -2,7 +2,8 @@ import React from 'react';
 
 import { Hour } from '../../../interfaces/weather';
 import HourItem from '../HourItem';
-import styles from '../Weather.module.scss';
+
+import { HoursList, HoursWrapper } from './styles';
 
 type HoursProps = {
   hours: Hour[];
@@ -10,15 +11,15 @@ type HoursProps = {
 
 function Hours({ hours }: HoursProps) {
   return (
-    <div className={styles.hours}>
-      <div className={styles.hours__container}>
-        <ul className={styles.hours__list}>
+    <HoursWrapper>
+      <div>
+        <HoursList>
           {hours.map((hour) => (
-            <HourItem key={Math.random()} hour={hour} />
+            <HourItem key={hour.toString()} hour={hour} />
           ))}
-        </ul>
+        </HoursList>
       </div>
-    </div>
+    </HoursWrapper>
   );
 }
 
