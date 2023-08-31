@@ -29,6 +29,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 0,
         "simple-import-sort/sort": "off",
         'import/order': ["error", { "newlines-between": "always" }],
-        'react/jsx-no-bind': 0
+        'react/jsx-no-bind': 0,
+        'no-alert': 0
     },
 };
