@@ -1,11 +1,8 @@
-import React from 'react';
-
 import { Current, Forecastday } from '../../../interfaces/weather';
 
-import DayItem from '../DayItem/DayItem';
-// import CurrentDayItem from './CurrentDayItem';
+import DayItem from '../DayItem';
 import styles from '../Weather.module.scss';
-import CurrentDayItem from '../CurrentDayItem/CurrentDayItem';
+import CurrentDayItem from '../CurrentDayItem';
 
 type DaysProps = {
   weatherDays: Forecastday[];

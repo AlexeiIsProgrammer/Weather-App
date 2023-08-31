@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { getWeekDay } from '../../../utils';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { Forecastday } from '../../../interfaces/weather';

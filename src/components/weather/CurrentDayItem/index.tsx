@@ -1,7 +1,4 @@
-import React from 'react';
-
 import { Current } from '../../../interfaces/weather';
-
 import styles from '../Weather.module.scss';
 
 type CurrentDayProps = {

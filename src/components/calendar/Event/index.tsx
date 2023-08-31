@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Item } from '../../../interfaces/calendar';
 import { getShortTime } from '../../../utils';
 
