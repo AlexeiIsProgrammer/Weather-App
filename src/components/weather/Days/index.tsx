@@ -1,15 +1,10 @@
 import React from 'react';
 
-import { CurrentDayWeather, Forecastday } from '../../../interfaces';
 import DayItem from '../DayItem';
 import CurrentDayItem from '../CurrentDayItem';
 
 import { DaysList, DaysWrapper } from './styles';
-
-type DaysProps = {
-  weatherDays: Forecastday[];
-  currentDay: CurrentDayWeather;
-};
+import { DaysProps } from './types/types';
 
 function Days({ currentDay, weatherDays }: DaysProps) {
   return (

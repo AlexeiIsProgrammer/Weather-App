@@ -1,11 +1,7 @@
 import React from 'react';
 
 import ButtonStyle from './styles';
-
-type ButtonProps = {
-  children: React.ReactNode;
-  onClick: () => void;
-};
+import { ButtonProps } from './types/types';
 
 function Button({ children, onClick, ...props }: ButtonProps) {
   return (

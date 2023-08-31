@@ -9,10 +9,7 @@ import {
   TimeContainer,
   TimeDate,
 } from './styles';
-
-type TimeProps = {
-  city: string;
-};
+import { TimeProps } from './types/types';
 
 function Time({ city }: TimeProps) {
   const [clock, setClock] = useState<string>(getShortTime(new Date()));

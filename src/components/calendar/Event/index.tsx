@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { EventItem } from '../../../interfaces';
 import { getShortTime } from '../../../utils';
 
-import { EventBlock, EventSummary, EventTime, EventWrapper } from './styles';
-
-type EventProps = {
-  event: EventItem;
-};
+import {
+  EventBlock, EventSummary, EventTime, EventWrapper,
+} from './styles';
+import { EventProps } from './types/types';
 
 function Event({ event }: EventProps) {
   return (
@@ -17,7 +15,7 @@ function Event({ event }: EventProps) {
           <EventTime>
             {`${getShortTime(
               event.start.dateTime.toString(),
-              false
+              false,
             )}-${getShortTime(event.end.dateTime.toString(), false)}`}
           </EventTime>
           <EventSummary>{event.summary}</EventSummary>

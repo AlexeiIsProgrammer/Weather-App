@@ -1,13 +1,9 @@
 import React from 'react';
 
-import { EventItem } from '../../../interfaces';
 import Event from '../Event';
 
 import { Events, EventsListBlock } from './styles';
-
-type EventsProps = {
-  events: EventItem[];
-};
+import { EventsProps } from './types/types';
 
 function EventsList({ events }: EventsProps) {
   return (

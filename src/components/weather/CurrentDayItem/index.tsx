@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { CurrentDayWeather } from '../../../interfaces';
-
 import {
   CurrentDayDate,
   CurrentDayImage,
@@ -9,10 +7,7 @@ import {
   CurrentDayTemp,
   CurrentDayWrapper,
 } from './styles';
-
-type CurrentDayProps = {
-  currentDay: CurrentDayWeather;
-};
+import { CurrentDayProps } from './types/types';
 
 function CurrentDayItem({ currentDay }: CurrentDayProps) {
   return (

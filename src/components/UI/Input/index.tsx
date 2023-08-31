@@ -1,13 +1,7 @@
 import React from 'react';
 
 import { InputContainer, RealInput } from './styles';
-
-type InputProps = {
-  error: string;
-  onChange: (e: React.FormEvent<HTMLInputElement>) => void;
-  value: string;
-  placeholder: string;
-};
+import { InputProps } from './types/types';
 
 function Input({
   error, onChange, value, placeholder,

@@ -1,13 +1,9 @@
 import React from 'react';
 
-import { Hour } from '../../../interfaces';
 import HourItem from '../HourItem';
 
 import { HoursList, HoursWrapper } from './styles';
-
-type HoursProps = {
-  hours: Hour[];
-};
+import { HoursProps } from './types/types';
 
 function Hours({ hours }: HoursProps) {
   return (

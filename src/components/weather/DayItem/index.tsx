@@ -2,15 +2,12 @@ import React from 'react';
 
 import { getWeekDay } from '../../../utils';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
-import { Forecastday } from '../../../interfaces';
 import { weatherSlice } from '../../../store/reducers/weatherSlice';
 
-import { DayDate, DayImage, DayTemp, DayWrapper } from './styles';
-
-type DayProps = {
-  id: number;
-  weather: Forecastday;
-};
+import {
+  DayDate, DayImage, DayTemp, DayWrapper,
+} from './styles';
+import { DayProps } from './types/types';
 
 function DayItem({ id, weather }: DayProps) {
   const dispatch = useAppDispatch();
@@ -21,7 +18,7 @@ function DayItem({ id, weather }: DayProps) {
     dispatch(
       clickedDay === id
         ? weatherSlice.actions.weatherChooseDay(null)
-        : weatherSlice.actions.weatherChooseDay(id)
+        : weatherSlice.actions.weatherChooseDay(id),
     );
   }
 
