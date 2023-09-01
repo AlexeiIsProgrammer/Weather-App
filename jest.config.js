@@ -9,7 +9,7 @@ module.exports = {
   },
   verbose: true,
   setupFiles: ["dotenv/config"],
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
 
   // globals: {
   //   fetch: global.fetch,

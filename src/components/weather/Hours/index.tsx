@@ -10,7 +10,7 @@ import { HoursList, HoursWrapper } from './styles';
 function Hours() {
   const { weather, clickedDay } = useAppSelector(weatherSelector);
 
-  if (!clickedDay) return null;
+  if (clickedDay === null) return null;
 
   const hours: Hour[] = weather.forecast.forecastday[clickedDay].hour;
 

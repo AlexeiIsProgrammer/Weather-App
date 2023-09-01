@@ -1,6 +1,1 @@
-import { Weather } from '../../interfaces';
-
-export interface WeatherResponse {
-  weather: Weather;
-  weatherImage: string;
-}
+export type ClickedDayType = number | null;

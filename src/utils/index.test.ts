@@ -50,12 +50,19 @@ describe("getShortTime() should return time with zero's if possible", () => {
       output: '23:01:01',
     },
     {
-      input: { dateArg: new Date('May 10 2019 10:00:00') },
+      input: {
+        dateArg: new Date('May 10 2019 10:00:00'),
+        includeSeconds: false,
+      },
       output: '10:00',
+    },
+    {
+      input: { dateArg: new Date('June 18 2017 12:15:00') },
+      output: '12:15:00',
     },
   ];
   it.each(testCases)('should return correct $output', ({ input, output }) => {
-    const { dateArg, includeSeconds = false } = input;
+    const { dateArg, includeSeconds } = input;
     expect(getShortTime(dateArg, includeSeconds)).toBe(output);
   });
 });

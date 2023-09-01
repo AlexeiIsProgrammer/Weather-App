@@ -3,10 +3,10 @@ import React from 'react';
 import { getWeekDay } from '../../../utils';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { weatherSlice } from '../../../store/reducers/weatherSlice';
+import weatherSelector from '../../../store/selectors';
 
 import { DayDate, DayImage, DayTemp, DayWrapper } from './styles';
 import { DayProps } from './types/types';
-import weatherSelector from '../../../store/selectors';
 
 function DayItem({ id, weather }: DayProps) {
   const dispatch = useAppDispatch();

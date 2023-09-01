@@ -1,17 +1,8 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 import { Weather } from '../../interfaces/weather';
-import { WeatherResponse } from '../types/types';
-
-type ClickedDayType = number | null;
-
-interface WeatherState {
-  weather: Weather;
-  weatherImage: string;
-  clickedDay: ClickedDayType;
-  isLoading: boolean;
-  error: string;
-}
+import { WeatherResponse, WeatherState } from '../types/interfaces';
+import { ClickedDayType } from '../types/types';
 
 const weatherObj = {} as Weather;
 

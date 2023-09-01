@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-import { WeatherResponse } from '../types/types';
 import { Weather } from '../../interfaces/weather';
 import { AppDispatch } from '..';
 import getRandomBackground from '../../API/background';
+import { WeatherResponse } from '../types/interfaces';
 
 import { weatherSlice } from './weatherSlice';
 
