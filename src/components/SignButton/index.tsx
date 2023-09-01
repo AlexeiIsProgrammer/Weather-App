@@ -7,7 +7,7 @@ import { SignButtonProps } from './types/types';
 
 function SignButton({ setEvents }: SignButtonProps) {
   const [isSignIn, setIsSignIn] = useState<boolean>();
-
+  console.log('sign in buttons');
   const signInHandle = async () => {
     await apiCalendar.handleAuthClick();
     const responseEvents = await getAllEvents();
@@ -35,4 +35,4 @@ function SignButton({ setEvents }: SignButtonProps) {
   );
 }
 
-export default SignButton;
+export default React.memo(SignButton);

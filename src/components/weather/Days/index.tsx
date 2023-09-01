@@ -2,21 +2,33 @@ import React from 'react';
 
 import DayItem from '../DayItem';
 import CurrentDayItem from '../CurrentDayItem';
+import { useAppSelector } from '../../../hooks/redux';
+import weatherSelector from '../../../store/selectors';
+import { isWeatherExists } from '../../../utils';
 
 import { DaysList, DaysWrapper } from './styles';
-import { DaysProps } from './types/types';
 
-function Days({ currentDay, weatherDays }: DaysProps) {
+function Days() {
+  console.log('days list');
+  const { weather, isLoading } = useAppSelector(weatherSelector);
+
+  if (!isWeatherExists(weather) || isLoading) {
+    return <h1>Идет загрузка погоды...</h1>;
+  }
+
+  const currentDay = weather.current;
+  const weatherDays = weather.forecast.forecastday;
+
   return (
     <DaysWrapper>
       <CurrentDayItem currentDay={currentDay} />
       <DaysList>
         {weatherDays.map((day, index) => (
-          <DayItem key={day.toString()} id={index} weather={day} />
+          <DayItem key={day.date.toString()} id={index} weather={day} />
         ))}
       </DaysList>
     </DaysWrapper>
   );
 }
 
-export default Days;
+export default React.memo(Days);

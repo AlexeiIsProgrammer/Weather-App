@@ -4,21 +4,21 @@ import { getWeekDay } from '../../../utils';
 import { useAppDispatch, useAppSelector } from '../../../hooks/redux';
 import { weatherSlice } from '../../../store/reducers/weatherSlice';
 
-import {
-  DayDate, DayImage, DayTemp, DayWrapper,
-} from './styles';
+import { DayDate, DayImage, DayTemp, DayWrapper } from './styles';
 import { DayProps } from './types/types';
+import weatherSelector from '../../../store/selectors';
 
 function DayItem({ id, weather }: DayProps) {
   const dispatch = useAppDispatch();
+  console.log('day');
 
-  const { clickedDay } = useAppSelector((state) => state.weatherReducer);
+  const { clickedDay } = useAppSelector(weatherSelector);
 
   function hourStatistic() {
     dispatch(
       clickedDay === id
         ? weatherSlice.actions.weatherChooseDay(null)
-        : weatherSlice.actions.weatherChooseDay(id),
+        : weatherSlice.actions.weatherChooseDay(id)
     );
   }
 

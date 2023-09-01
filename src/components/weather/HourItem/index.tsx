@@ -6,6 +6,8 @@ import { HourWrapper } from './styles';
 import { HourProps } from './types/types';
 
 function HourItem({ hour }: HourProps) {
+  console.log('hour');
+
   return (
     <HourWrapper>
       <p>{getShortTime(hour.time, false)}</p>
