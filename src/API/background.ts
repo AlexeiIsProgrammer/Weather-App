@@ -1,7 +1,6 @@
+import { WeatherImages } from '@interfaces';
+import { randomImageNumber } from '@utils/get-random';
 import axios from 'axios';
-
-import { WeatherImages } from '../interfaces';
-import { randomImageNumber } from '../utils';
 
 async function getBackgrounds(weather: string): Promise<WeatherImages> {
   const response = await axios.get<WeatherImages>(

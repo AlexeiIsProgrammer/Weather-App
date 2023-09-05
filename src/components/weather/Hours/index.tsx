@@ -1,11 +1,10 @@
 import React from 'react';
+import { useAppSelector } from '@hooks/redux';
+import { Hour } from '@interfaces';
+import weatherSelector from '@store/selectors';
+import HourItem from '@components/Weather/HourItem';
 
-import HourItem from '../HourItem';
-import { useAppSelector } from '../../../hooks/redux';
-import weatherSelector from '../../../store/selectors';
-import { Hour } from '../../../interfaces';
-
-import { HoursList, HoursWrapper } from './styles';
+import { HoursWrapper, HoursList } from './styles';
 
 function Hours() {
   const { weather, clickedDay } = useAppSelector(weatherSelector);

@@ -1,4 +1,4 @@
-import { Hour } from '../../../../interfaces';
+import { Hour } from '@interfaces';
 
 export type HourProps = {
   hour: Hour;

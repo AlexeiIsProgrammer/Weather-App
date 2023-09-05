@@ -1,4 +1,4 @@
-import { Weather } from '../interfaces';
+import { Weather } from '@interfaces';
 
 import type * as TestFunctions from '.';
 

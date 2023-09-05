@@ -1,5 +1,6 @@
+import { WeatherState } from '@store/types/interfaces';
+
 import { RootState } from '..';
-import { WeatherState } from '../types/interfaces';
 
 import userSelector from './index';
 

@@ -2,6 +2,7 @@ import { styled } from 'styled-components';
 
 export const InputContainer = styled.div`
   display: block;
+  flex: 1;
 `;
 
 export const RealInput = styled.input<{ $error?: boolean }>`

@@ -1,4 +1,4 @@
-import { EventItem } from '../../../../interfaces';
+import { EventItem } from '@interfaces';
 
 export type EventProps = {
   event: EventItem;

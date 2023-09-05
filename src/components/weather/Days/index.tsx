@@ -1,19 +1,22 @@
 import React from 'react';
+import { useAppSelector } from '@hooks/redux';
+import weatherSelector from '@store/selectors';
+import { isWeatherExists } from '@utils/is-weather-exists';
+import CurrentDayItem from '@components/Weather/CurrentDayItem';
+import DayItem from '@components/Weather/DayItem';
 
-import DayItem from '../DayItem';
-import CurrentDayItem from '../CurrentDayItem';
-import { useAppSelector } from '../../../hooks/redux';
-import weatherSelector from '../../../store/selectors';
-import { isWeatherExists } from '../../../utils';
-
-import { DaysList, DaysWrapper } from './styles';
+import { DaysWrapper, DaysList, ErrorMessage } from './styles';
 
 function Days() {
   console.log('days list');
-  const { weather, isLoading } = useAppSelector(weatherSelector);
+  const { weather, isLoading, error } = useAppSelector(weatherSelector);
+
+  if (error) {
+    return <ErrorMessage>{error}</ErrorMessage>;
+  }
 
   if (!isWeatherExists(weather) || isLoading) {
-    return <h1>Идет загрузка погоды...</h1>;
+    return <ErrorMessage>Weather loading...</ErrorMessage>;
   }
 
   const currentDay = weather.current;

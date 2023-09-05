@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-
-import getPosition from '../API/geolocation';
-import EventsList from '../components/Calendar/EventsList';
-import Time from '../components/Time';
-import Days from '../components/Weather/Days';
-import Hours from '../components/Weather/Hours';
-import { useAppDispatch, useAppSelector } from '../hooks/redux';
-import { EventItem } from '../interfaces';
-import { fetchWeather } from '../store/reducers/ActionCreators';
-import { isWeatherExists } from '../utils/is-weather-exists';
-import SignButton from '../components/SignButton';
-import ElasticSearch from '../components/ElasticSearch';
-import weatherSelector from '../store/selectors';
+import EventsList from '@components/Calendar/EventsList';
+import getPosition from '@API/geolocation';
+import ElasticSearch from '@components/ElasticSearch';
+import SignButton from '@components/SignButton';
+import Time from '@components/Time';
+import Days from '@components/Weather/Days';
+import Hours from '@components/Weather/Hours';
+import { useAppSelector, useAppDispatch } from '@hooks/redux';
+import { isWeatherExists } from '@utils/is-weather-exists';
+import { EventItem } from '@interfaces';
+import { fetchPositionWeather } from '@store/reducers/ActionCreators';
+import weatherSelector from '@store/selectors';
 
 import {
   Main,
@@ -29,9 +28,11 @@ function App() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     getPosition().then((pos) => {
-      dispatch(fetchWeather(pos));
+      dispatch(fetchPositionWeather(pos));
     });
-  }, []);
+
+    console.log('render use effect');
+  }, [dispatch]);
 
   return (
     <Main

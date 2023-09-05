@@ -12,3 +12,7 @@ export const DaysList = styled.ul`
     overflow-x: auto;
   }
 `;
+
+export const ErrorMessage = styled.h1`
+  text-align: center;
+`;

@@ -7,6 +7,7 @@ export const TimeBlock = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 45px;
+  margin-top: 20px;
 `;
 
 export const TimeClock = styled.div`

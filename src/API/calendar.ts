@@ -1,6 +1,5 @@
 import ApiCalendar from 'react-google-calendar-api';
-
-import { CalendarResponse, EventItem } from '../interfaces';
+import { CalendarResponse, EventItem } from '@interfaces';
 
 const config = {
   apiKey: process.env.REACT_APP_GOOGLE_API_KEY || '',

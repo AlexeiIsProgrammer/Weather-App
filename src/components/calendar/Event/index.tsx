@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { getShortTime } from '../../../utils';
+import { getShortTime } from '@utils/get-short-time';
 
 import { EventBlock, EventSummary, EventTime, EventWrapper } from './styles';
 import { EventProps } from './types/types';

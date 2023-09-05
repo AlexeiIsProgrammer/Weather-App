@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-
-import apiCalendar, { getAllEvents } from '../../API/calendar';
-import Button from '../UI/Button';
+import apiCalendar, { getAllEvents } from '@API/calendar';
+import Button from '@components/UI/Button';
 
 import { SignButtonProps } from './types/types';
 

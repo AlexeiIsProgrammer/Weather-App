@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
-import { getShortTime } from '../../utils';
+import { ErrorBoundary } from 'react-error-boundary';
+import { getShortTime } from '@utils/index';
 
 import {
   TimeBlock,
@@ -26,9 +26,15 @@ function Time({ city }: TimeProps) {
     }, ONE_SECOND);
   }, []);
 
+  if (city === '') {
+    throw new Error('Errorrrrr');
+  }
+
   return (
     <TimeBlock>
-      <TimeCity>{city}</TimeCity>
+      <ErrorBoundary fallback={<h1>Город не найден был</h1>}>
+        <TimeCity>{city}</TimeCity>
+      </ErrorBoundary>
       <TimeContainer>
         <TimeClock>{clock}</TimeClock>
         <TimeDate>{date}</TimeDate>

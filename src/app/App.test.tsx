@@ -1,9 +1,8 @@
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
-
-import { renderWithProviders } from '../test';
-import ElasticSearch from '../components/ElasticSearch';
-import { WeatherState } from '../store/types/interfaces';
+import ElasticSearch from '@components/ElasticSearch';
+import { WeatherState } from '@store/types/interfaces';
+import { renderWithProviders } from 'test';
 
 import App from './App';
 

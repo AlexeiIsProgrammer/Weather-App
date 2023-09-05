@@ -1,8 +1,7 @@
+import { Weather } from '@interfaces';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-
-import { Weather } from '../../interfaces/weather';
-import { WeatherResponse, WeatherState } from '../types/interfaces';
-import { ClickedDayType } from '../types/types';
+import { WeatherState, WeatherResponse } from '@store/types/interfaces';
+import { ClickedDayType } from '@store/types/types';
 
 const weatherObj = {} as Weather;
 
