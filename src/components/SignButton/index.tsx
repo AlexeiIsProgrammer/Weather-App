@@ -9,15 +9,17 @@ function SignButton({ setEvents }: SignButtonProps) {
   const [isSignIn, setIsSignIn] = useState<boolean>();
   console.log('sign in buttons');
   const signInHandle = async () => {
-    await apiCalendar.handleAuthClick();
-    const responseEvents = await getAllEvents();
+    try {
+      await apiCalendar.handleAuthClick();
+      const responseEvents = await getAllEvents();
 
-    if (!responseEvents.length) {
-      alert('Поздравляю, событий на сегодня не запланировано !');
-    }
+      if (!responseEvents.length) {
+        alert('Поздравляю, событий на сегодня не запланировано !');
+      }
 
-    setEvents(responseEvents);
-    setIsSignIn(true);
+      setEvents(responseEvents);
+      setIsSignIn(true);
+    } catch (error) {}
   };
 
   const signOutHandle = () => {

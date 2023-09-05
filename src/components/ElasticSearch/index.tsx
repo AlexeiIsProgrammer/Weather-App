@@ -12,10 +12,6 @@ function ElasticSearch() {
   const { error } = useAppSelector(weatherSelector);
   const dispatch = useAppDispatch();
 
-  const setWeather = async (cityWeather: string): Promise<void> => {
-    dispatch(fetchWeather(cityWeather));
-  };
-
   const onChangeHandler = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
       const target = e.target as HTMLInputElement;
@@ -27,12 +23,13 @@ function ElasticSearch() {
 
   useEffect(() => {
     clearTimeout(timer);
+    if (inputCity !== '') {
+      const newTimer = setTimeout(() => {
+        dispatch(fetchWeather(inputCity));
+      }, 2000);
 
-    const newTimer = setTimeout(() => {
-      setWeather(inputCity);
-    }, 2000);
-
-    setTimer(newTimer);
+      setTimer(newTimer);
+    }
   }, [inputCity]);
 
   return (

@@ -23,18 +23,13 @@ import {
 function App() {
   console.log('app render');
 
-  const dispatch = useAppDispatch();
   const { weather, weatherImage } = useAppSelector(weatherSelector);
 
   const [events, setEvents] = useState<EventItem[]>([]);
-
-  const setWeather = async (cityWeather: string): Promise<void> => {
-    dispatch(fetchWeather(cityWeather));
-  };
-
+  const dispatch = useAppDispatch();
   useEffect(() => {
     getPosition().then((pos) => {
-      setWeather(pos);
+      dispatch(fetchWeather(pos));
     });
   }, []);
 
