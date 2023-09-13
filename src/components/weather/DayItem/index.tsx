@@ -1,10 +1,12 @@
+import React from 'react';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import weatherSlice from '@store/reducers/weatherSlice';
+import { weatherChooseDay } from '@store/reducers/weatherSlice';
 import weatherSelector from '@store/selectors';
 import { getWeekDay } from '@utils/get-week-day';
-import React from 'react';
 
-import { DayWrapper, DayDate, DayImage, DayTemp } from './styles';
+import {
+  DayWrapper, DayDate, DayImage, DayTemp,
+} from './styles';
 import { DayProps } from './types/types';
 
 function DayItem({ id, weather }: DayProps) {
@@ -14,11 +16,7 @@ function DayItem({ id, weather }: DayProps) {
   const { clickedDay } = useAppSelector(weatherSelector);
 
   function hourStatistic() {
-    dispatch(
-      clickedDay === id
-        ? weatherSlice.actions.weatherChooseDay(null)
-        : weatherSlice.actions.weatherChooseDay(id)
-    );
+    dispatch(clickedDay === id ? weatherChooseDay(null) : weatherChooseDay(id));
   }
 
   return (

@@ -10,7 +10,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, 'queries'> {
 }
 export function renderWithProviders(
   ui: React.ReactElement,
-  { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {}
+  { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {},
 ) {
   function Wrapper({ children }: PropsWithChildren) {
     return <Provider store={store}>{children}</Provider>;
@@ -21,7 +21,7 @@ export function renderWithProviders(
 
 export function renderHookWithProviders<Result, Props = undefined>(
   callback: (initialProps: Props) => Result,
-  { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {}
+  { store = setupStore(), ...renderOptions }: ExtendedRenderOptions = {},
 ) {
   function Wrapper({ children }: PropsWithChildren) {
     return <Provider store={store}>{children}</Provider>;

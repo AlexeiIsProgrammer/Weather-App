@@ -36,4 +36,6 @@ export const weatherSlice = createSlice({
   },
 });
 
+export const { weatherChooseDay } = weatherSlice.actions;
+
 export default weatherSlice.reducer;

@@ -27,9 +27,11 @@ function App() {
   const [events, setEvents] = useState<EventItem[]>([]);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    getPosition().then((pos) => {
-      dispatch(fetchPositionWeather(pos));
-    });
+    if (!weather) {
+      getPosition().then((pos) => {
+        dispatch(fetchPositionWeather(pos));
+      });
+    }
 
     console.log('render use effect');
   }, [dispatch]);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getShortTime } from '@utils';
+import { getShortTime } from '@utils/get-short-time';
 
 import { HourWrapper } from './styles';
 import { HourProps } from './types/types';

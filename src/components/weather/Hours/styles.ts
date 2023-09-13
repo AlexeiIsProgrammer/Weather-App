@@ -23,8 +23,6 @@ export const HoursList = styled.ul`
   align-items: center;
 
   @media screen and (max-width: 991px) {
-    &__list {
-      flex-direction: row;
-    }
+    flex-direction: row;
   }
 `;

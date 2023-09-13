@@ -1,7 +1,9 @@
 import React from 'react';
 import { getShortTime } from '@utils/get-short-time';
 
-import { EventBlock, EventSummary, EventTime, EventWrapper } from './styles';
+import {
+  EventBlock, EventSummary, EventTime, EventWrapper,
+} from './styles';
 import { EventProps } from './types/types';
 
 function Event({ event }: EventProps) {
@@ -14,7 +16,7 @@ function Event({ event }: EventProps) {
           <EventTime>
             {`${getShortTime(
               event.start.dateTime.toString(),
-              false
+              false,
             )}-${getShortTime(event.end.dateTime.toString(), false)}`}
           </EventTime>
           <EventSummary>{event.summary}</EventSummary>

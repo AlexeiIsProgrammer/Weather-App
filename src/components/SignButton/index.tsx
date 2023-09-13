@@ -18,7 +18,9 @@ function SignButton({ setEvents }: SignButtonProps) {
 
       setEvents(responseEvents);
       setIsSignIn(true);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const signOutHandle = () => {

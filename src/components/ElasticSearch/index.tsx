@@ -21,7 +21,7 @@ function ElasticSearch() {
 
       setInputCity(target.value);
     },
-    []
+    [],
   );
 
   useEffect(() => {
