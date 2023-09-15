@@ -1,10 +1,10 @@
 import Button from '@components/UI/Button';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
-import { fetchWeather } from '@store/reducers/ActionCreators';
 import weatherSelector from '@store/selectors';
 import React, { useCallback, useEffect, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import Input from '@components/UI/Input';
+import { weatherFetching } from '@store/reducers/weatherSlice';
 
 import { ElasticSearchContainer } from './styles';
 
@@ -21,14 +21,14 @@ function ElasticSearch() {
 
       setInputCity(target.value);
     },
-    [],
+    []
   );
 
   useEffect(() => {
     clearTimeout(timer);
     if (inputCity !== '') {
       const newTimer = setTimeout(() => {
-        dispatch(fetchWeather(inputCity));
+        dispatch(weatherFetching(inputCity));
       }, 2000);
 
       setTimer(newTimer);
@@ -47,13 +47,15 @@ function ElasticSearch() {
       </ErrorBoundary>
 
       <ErrorBoundary
-        fallback={<h1>Input text and wait 2 seconds for searching</h1>}
+        fallback={<h1>Input text and wait 2 seconds for applying</h1>}
       >
         <Button
           onClick={() => {
+            dispatch({ type: 'CLICK' });
+
             if (inputCity !== weather?.location?.name) {
               clearTimeout(timer);
-              dispatch(fetchWeather(inputCity));
+              dispatch(weatherFetching(inputCity));
             }
           }}
         >

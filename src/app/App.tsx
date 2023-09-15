@@ -9,8 +9,8 @@ import Hours from '@components/Weather/Hours';
 import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import { isWeatherExists } from '@utils/is-weather-exists';
 import { EventItem } from '@interfaces';
-import { fetchPositionWeather } from '@store/reducers/ActionCreators';
 import weatherSelector from '@store/selectors';
+import { weatherPositionFetching } from '@store/reducers/weatherSlice';
 
 import {
   Main,
@@ -27,11 +27,9 @@ function App() {
   const [events, setEvents] = useState<EventItem[]>([]);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    if (!weather) {
-      getPosition().then((pos) => {
-        dispatch(fetchPositionWeather(pos));
-      });
-    }
+    getPosition().then((pos) => {
+      dispatch(weatherPositionFetching(pos));
+    });
 
     console.log('render use effect');
   }, [dispatch]);
