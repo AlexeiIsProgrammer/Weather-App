@@ -1,13 +1,5 @@
 import { styled } from 'styled-components';
 
-export const Main = styled.main<{ $backgroundImage: string }>`
-  background-image: ${(props) => props.$backgroundImage};
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-`;
-
 export const MainContainer = styled.div`
   height: 100vh;
   overflow-y: auto;

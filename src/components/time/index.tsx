@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { getShortTime } from '@utils/index';
+import { getShortTime, isWeatherExists } from '@utils/index';
+import { useAppSelector } from '@hooks/redux';
+import weatherSelector from '@store/selectors';
 
 import {
   TimeBlock,
@@ -9,9 +11,10 @@ import {
   TimeContainer,
   TimeDate,
 } from './styles';
-import { TimeProps } from './types/types';
 
-function Time({ city }: TimeProps) {
+function Time() {
+  const { weather } = useAppSelector(weatherSelector);
+  const { name } = weather.location;
   const [clock, setClock] = useState<string>(getShortTime(new Date()));
   const [date, setDate] = useState<string>(new Date().toDateString());
 
@@ -26,20 +29,22 @@ function Time({ city }: TimeProps) {
     }, ONE_SECOND);
   }, []);
 
-  if (city === '') {
-    throw new Error('Errorrrrr');
+  if (name === '') {
+    throw new Error('Something went wrong...');
   }
 
   return (
-    <TimeBlock>
-      <ErrorBoundary fallback={<h1>Город не найден был</h1>}>
-        <TimeCity>{city}</TimeCity>
-      </ErrorBoundary>
-      <TimeContainer>
-        <TimeClock>{clock}</TimeClock>
-        <TimeDate>{date}</TimeDate>
-      </TimeContainer>
-    </TimeBlock>
+    isWeatherExists(weather) && (
+      <TimeBlock>
+        <ErrorBoundary fallback={<h1>Город не был найден</h1>}>
+          <TimeCity>{name}</TimeCity>
+        </ErrorBoundary>
+        <TimeContainer>
+          <TimeClock>{clock}</TimeClock>
+          <TimeDate>{date}</TimeDate>
+        </TimeContainer>
+      </TimeBlock>
+    )
   );
 }
 

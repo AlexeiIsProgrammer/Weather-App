@@ -2,7 +2,7 @@ import React from 'react';
 import { useAppSelector } from '@hooks/redux';
 import { Hour } from '@interfaces';
 import weatherSelector from '@store/selectors';
-import HourItem from '@components/Weather/HourItem';
+import HourItem from '@components/HourItem';
 
 import { HoursWrapper, HoursList } from './styles';
 

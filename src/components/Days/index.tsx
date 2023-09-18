@@ -2,8 +2,8 @@ import React from 'react';
 import { useAppSelector } from '@hooks/redux';
 import weatherSelector from '@store/selectors';
 import { isWeatherExists } from '@utils/is-weather-exists';
-import CurrentDayItem from '@components/Weather/CurrentDayItem';
-import DayItem from '@components/Weather/DayItem';
+import CurrentDayItem from '@components/CurrentDayItem';
+import DayItem from '@components/DayItem';
 
 import { DaysWrapper, DaysList, ErrorMessage } from './styles';
 

@@ -30,3 +30,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*::-webkit-scrollbar {
+  width: 8px; /* ширина scrollbar */
+}
+*::-webkit-scrollbar-track {
+  background: blue; /* цвет дорожки */
+}
+*::-webkit-scrollbar-thumb {
+  background-color: white; /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+}

@@ -6,4 +6,8 @@ export const ElasticSearchContainer = styled.div`
   align-items: center;
   gap: 10px;
   width: 100%;
+
+  @media (max-width: 440px) {
+    flex-direction: column;
+  }
 `;

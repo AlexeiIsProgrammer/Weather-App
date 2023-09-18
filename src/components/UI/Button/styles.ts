@@ -25,5 +25,9 @@ const ButtonStyle = styled.button`
       background-color: black;
     }
   }
+
+  @media (max-width: 440px) {
+    width: 100%;
+  }
 `;
 export default ButtonStyle;

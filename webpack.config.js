@@ -25,7 +25,8 @@ module.exports = env = {
       "@API": path.resolve(__dirname, 'src/API/'),
       "@utils": path.resolve(__dirname, 'src/utils/'),
       "@store": path.resolve(__dirname, 'src/store/'),
-      "@interfaces": path.resolve(__dirname, 'src/interfaces')
+      "@interfaces": path.resolve(__dirname, 'src/interfaces'),
+      "@constants": path.resolve(__dirname, 'src/constants'),
     },
     extensions: ['.ts', '.tsx', '.js'],
   },

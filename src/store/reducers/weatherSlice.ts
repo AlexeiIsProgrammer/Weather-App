@@ -2,8 +2,7 @@ import { Weather } from '@interfaces';
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { WeatherState, WeatherResponse } from '@store/types/interfaces';
 import { ClickedDayType } from '@store/types/types';
-
-import { WEATHER } from '../../constants';
+import { WEATHER } from '@constants';
 
 const weatherObj = {} as Weather;
 
@@ -19,11 +18,11 @@ export const weatherSlice = createSlice({
   name: WEATHER,
   initialState,
   reducers: {
-    weatherPositionFetching(state, { payload: city }: PayloadAction<string>) {
+    weatherPositionFetching(state) {
       state.isLoading = true;
       state.error = '';
     },
-    weatherFetching(state, { payload: city }: PayloadAction<string>) {
+    weatherFetching(state) {
       state.isLoading = true;
       state.error = '';
     },
