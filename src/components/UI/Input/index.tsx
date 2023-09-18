@@ -6,8 +6,6 @@ import { InputProps } from './types/types';
 function Input({
   error, onChange, value, placeholder,
 }: InputProps) {
-  console.log('input');
-
   return (
     <InputContainer>
       <RealInput

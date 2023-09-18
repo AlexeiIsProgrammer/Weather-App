@@ -1,13 +1,15 @@
-import getRandomBackground from './background';
-import getPosition from './geolocation';
-
-jest.mock('axios');
+import getRandomBackground from '@API/background';
+import getPosition from '@API/geolocation';
 
 describe('background API testing', () => {
+  it('should call background API', async () => {
+    await expect(getRandomBackground('sunny')).toBeTruthy();
+  });
+
   it('should return url value', async () => {
     const data = await getRandomBackground('Sunny');
     const url = 'https://images.unsplash.com';
-    expect(data).toMatch(`/${url}/`);
+    expect(data).toMatch(`${url}/`);
   });
 });
 

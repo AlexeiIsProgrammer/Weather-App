@@ -7,8 +7,6 @@ import {
 import { EventProps } from './types/types';
 
 function Event({ event }: EventProps) {
-  console.log('event');
-
   return (
     <EventBlock>
       <a href={event.htmlLink}>

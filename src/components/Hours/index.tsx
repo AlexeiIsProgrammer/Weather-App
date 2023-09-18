@@ -13,7 +13,6 @@ function Hours() {
 
   const hours: Hour[] = weather.forecast.forecastday[clickedDay].hour;
 
-  console.log('hours');
   return (
     <HoursWrapper>
       <div>

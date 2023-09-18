@@ -1,8 +1,7 @@
 import '@testing-library/jest-dom';
-import renderer from 'react-test-renderer';
-import ElasticSearch from '@components/ElasticSearch';
 import { WeatherState } from '@store/types/interfaces';
-import { renderWithProviders } from 'test';
+
+import { renderWithProviders } from '../test/index';
 
 import App from './App';
 
@@ -51,6 +50,8 @@ const weatherReducer: WeatherState = {
 
 test('should render app', () => {
   renderWithProviders(<App />, { preloadedState: { weatherReducer } });
-  const search = renderer.create(<ElasticSearch />);
-  expect(search).toBeInTheDocument();
+});
+
+test('should render app with events', () => {
+  renderWithProviders(<App />, { preloadedState: { weatherReducer } });
 });

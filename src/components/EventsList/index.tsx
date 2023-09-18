@@ -5,8 +5,6 @@ import { Events, EventsListBlock } from './styles';
 import { EventsProps } from './types/types';
 
 function EventsList({ events }: EventsProps) {
-  console.log('event list');
-
   return (
     <Events>
       <div>

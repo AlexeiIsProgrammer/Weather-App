@@ -18,13 +18,17 @@ export const weatherSlice = createSlice({
   name: WEATHER,
   initialState,
   reducers: {
-    weatherPositionFetching(state) {
-      state.isLoading = true;
-      state.error = '';
+    weatherPositionFetching(state, action) {
+      if (action) {
+        state.isLoading = true;
+        state.error = '';
+      }
     },
-    weatherFetching(state) {
-      state.isLoading = true;
-      state.error = '';
+    weatherFetching(state, action) {
+      if (action) {
+        state.isLoading = true;
+        state.error = '';
+      }
     },
     weatherFetchingSuccess(state, action: PayloadAction<WeatherResponse>) {
       state.isLoading = false;

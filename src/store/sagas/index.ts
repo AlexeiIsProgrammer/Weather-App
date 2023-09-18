@@ -3,7 +3,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import {
   weatherFetchingError,
   weatherFetchingSuccess,
-} from '@store/reducers/weatherSlice';
+} from '@store/slices/weatherSlice';
 import { WeatherResponse } from '@store/types/interfaces';
 import axios, { AxiosResponse } from 'axios';
 import {

@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should change color of active element 1`] = `
+.c0 {
+  color: white;
+  background-color: blue;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: 5px;
+  transform: translateY(0px);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.c0:active {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 5px #000;
+}
+
+@media (hover: hover) {
+  .c0:not(.c0__current):hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 5px #000;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`should change color of inactive element 1`] = `
+.c0 {
+  color: black;
+  background-color: white;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  gap: 5px;
+  transform: translateY(0px);
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.c0:active {
+  transform: translateY(-10px);
+  box-shadow: 0px 0px 5px #000;
+}
+
+@media (hover: hover) {
+  .c0:not(.c0__current):hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 5px #000;
+  }
+}
+
+<div
+  className="c0"
+/>
+`;

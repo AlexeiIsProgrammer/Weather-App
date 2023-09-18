@@ -14,7 +14,6 @@ import {
 
 function Time() {
   const { weather } = useAppSelector(weatherSelector);
-  const { name } = weather.location;
   const [clock, setClock] = useState<string>(getShortTime(new Date()));
   const [date, setDate] = useState<string>(new Date().toDateString());
 
@@ -29,23 +28,17 @@ function Time() {
     }, ONE_SECOND);
   }, []);
 
-  if (name === '') {
-    throw new Error('Something went wrong...');
-  }
-
-  return (
-    isWeatherExists(weather) && (
-      <TimeBlock>
-        <ErrorBoundary fallback={<h1>Город не был найден</h1>}>
-          <TimeCity>{name}</TimeCity>
-        </ErrorBoundary>
-        <TimeContainer>
-          <TimeClock>{clock}</TimeClock>
-          <TimeDate>{date}</TimeDate>
-        </TimeContainer>
-      </TimeBlock>
-    )
-  );
+  return isWeatherExists(weather) ? (
+    <TimeBlock>
+      <ErrorBoundary fallback={<h1>Город не был найден</h1>}>
+        <TimeCity>{weather.location.name}</TimeCity>
+      </ErrorBoundary>
+      <TimeContainer>
+        <TimeClock>{clock}</TimeClock>
+        <TimeDate>{date}</TimeDate>
+      </TimeContainer>
+    </TimeBlock>
+  ) : null;
 }
 
 export default Time;

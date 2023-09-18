@@ -10,8 +10,6 @@ import {
 import { CurrentDayProps } from './types/types';
 
 function CurrentDayItem({ currentDay }: CurrentDayProps) {
-  console.log('current day');
-
   return (
     <CurrentDayWrapper>
       <CurrentDayImage>
