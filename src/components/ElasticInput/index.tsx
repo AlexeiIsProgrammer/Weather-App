@@ -1,6 +1,6 @@
 import Input from '@components/UI/Input';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import { weatherFetching } from '@store/reducers/weatherSlice';
+import { weatherFetching } from '@store/slices/weatherSlice';
 import weatherSelector from '@store/selectors';
 import React, { useCallback, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
@@ -21,7 +21,7 @@ function ElasticInput({
 
       setInputCity(target.value);
     },
-    [],
+    []
   );
 
   useEffect(() => {

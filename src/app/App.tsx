@@ -11,8 +11,6 @@ import Background from '@components/Background';
 import { MainContainer, MainSection, MainSectionContainer } from './styles';
 
 function App() {
-  console.log('app render');
-
   const [events, setEvents] = useState<EventItem[]>([]);
 
   return (

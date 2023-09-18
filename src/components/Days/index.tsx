@@ -8,7 +8,6 @@ import DayItem from '@components/DayItem';
 import { DaysWrapper, DaysList, ErrorMessage } from './styles';
 
 function Days() {
-  console.log('days list');
   const { weather, isLoading, error } = useAppSelector(weatherSelector);
 
   if (error) {

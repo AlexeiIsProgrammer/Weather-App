@@ -3,11 +3,7 @@ import React from 'react';
 import { InputContainer, RealInput } from './styles';
 import { InputProps } from './types/types';
 
-function Input({
-  error, onChange, value, placeholder,
-}: InputProps) {
-  console.log('input');
-
+function Input({ error, onChange, value, placeholder }: InputProps) {
   return (
     <InputContainer>
       <RealInput

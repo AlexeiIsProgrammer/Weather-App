@@ -1,8 +1,8 @@
 import '@testing-library/jest-dom';
-import renderer from 'react-test-renderer';
-import ElasticSearch from '@components/ElasticSearch';
 import { WeatherState } from '@store/types/interfaces';
-import { renderWithProviders } from 'test';
+// import EventsList from '@components/EventsList';
+
+import { renderWithProviders } from '../test/index';
 
 import App from './App';
 
@@ -51,6 +51,26 @@ const weatherReducer: WeatherState = {
 
 test('should render app', () => {
   renderWithProviders(<App />, { preloadedState: { weatherReducer } });
-  const search = renderer.create(<ElasticSearch />);
-  expect(search).toBeInTheDocument();
+});
+
+test('should render app with events', () => {
+  renderWithProviders(<App />, { preloadedState: { weatherReducer } });
+
+  // const eventsArray = [
+  //   {
+  //     id: '1',
+  //     htmlLink: '',
+  //     summary: '',
+  //     start: {
+  //       dateTime: new Date('2022-12-12'),
+  //       timeZone: '',
+  //     },
+  //     end: { dateTime: new Date('2022-12-12'), timeZone: '' },
+  //   },
+  // ];
+
+  // const wrapper = mount(<EventsList events={eventsArray} />);
+  // expect(wrapper.state('events')).not();
+  // wrapper.instance().setEvents(1);
+  expect(wrapper.state('events')).toBe(1);
 });

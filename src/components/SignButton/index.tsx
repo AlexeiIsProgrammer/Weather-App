@@ -6,7 +6,6 @@ import { SignButtonProps } from './types/types';
 
 function SignButton({ setEvents }: SignButtonProps) {
   const [isSignIn, setIsSignIn] = useState<boolean>();
-  console.log('sign in buttons');
   const signInHandle = async () => {
     try {
       await apiCalendar.handleAuthClick();

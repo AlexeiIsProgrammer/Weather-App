@@ -50,8 +50,11 @@ describe('weatherSelector', () => {
     };
     const store: RootState = {
       weatherReducer,
+      _persist: {
+        version: 1,
+        rehydrated: false,
+      },
     };
-
     const result = userSelector(store);
     expect(result).toBe(weatherReducer);
   });

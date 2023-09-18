@@ -1,6 +1,6 @@
 import getPosition from '@API/geolocation';
 import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import { weatherPositionFetching } from '@store/reducers/weatherSlice';
+import { weatherPositionFetching } from '@store/slices/weatherSlice';
 import weatherSelector from '@store/selectors';
 import React, { useEffect, useState } from 'react';
 import { isWeatherExists } from '@utils/is-weather-exists';
@@ -17,8 +17,6 @@ function Background() {
         dispatch(weatherPositionFetching(pos));
       });
     }
-
-    console.log('render use effect');
   }, [dispatch]);
 
   useEffect(() => {

@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from '@hooks/redux';
 import weatherSelector from '@store/selectors';
 import React, { useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { weatherFetching } from '@store/reducers/weatherSlice';
+import { weatherFetching } from '@store/slices/weatherSlice';
 import ElasticInput from '@components/ElasticInput';
 
 import { ElasticSearchContainer } from './styles';

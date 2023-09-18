@@ -1,9 +1,16 @@
-import getRandomBackground from './background';
-import getPosition from './geolocation';
+import getRandomBackground from '@API/background';
+import getPosition from '@API/geolocation';
+import axios from 'axios';
 
 jest.mock('axios');
 
 describe('background API testing', () => {
+  it('should call background API', async () => {
+    axios.get.mockResolvedValue();
+
+    await expect(getRandomBackground('sunny')).toBeInstanceOf('string');
+  });
+
   it('should return url value', async () => {
     const data = await getRandomBackground('Sunny');
     const url = 'https://images.unsplash.com';
