@@ -37,6 +37,7 @@
       "@API/*": ["./API/*"],
       "@utils/*": ["./utils/*"],
       "@store/*": ["./store/*"],
+      "@store": ["./store"],
       "@interfaces": ["./interfaces"],
       "@constants": ["./constants"]
     },
