@@ -6,7 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import {
   AppStore, RootState, persistor, tsStore,
-} from '~store';
+} from '~Store';
 
 const defaultState: RootState = {
   weatherReducer: {
