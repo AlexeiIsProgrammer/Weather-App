@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const devMode = mode === 'development';
 const target = 'web'; // Если development, то web настройки, если продакшн, то файл browserslistrc
 const devtool = devMode ? 'source-map' : undefined; // При дев моде, будет source-map для отслежиания ошибок
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = env = {
   mode,
@@ -65,7 +66,7 @@ module.exports = env = {
         ],
       },
       {
-        test: /\.(svg|jpg|gif)$/,
+        test: /\.(svg|jpg|gif|png)$/,
         type: 'asset/resource',
       },
     ],
@@ -79,6 +80,11 @@ module.exports = env = {
     }),
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(process.env),
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/img/icons", to: "./img/icons" },
+      ],
     }),
   ],
 };
