@@ -31,29 +31,13 @@ code {
     monospace;
 }
 
-.main {
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  &__container {
-    height: 100vh;
-    overflow-y: auto;
-  }
-
-  &-block {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 20px;
-    &__container {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-  }
+*::-webkit-scrollbar {
+  width: 8px; /* ширина scrollbar */
 }
-
-.marquee-container {
-  height: 100%;
+*::-webkit-scrollbar-track {
+  background: blue; /* цвет дорожки */
+}
+*::-webkit-scrollbar-thumb {
+  background-color: white; /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
 }

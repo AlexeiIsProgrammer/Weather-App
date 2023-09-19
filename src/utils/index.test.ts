@@ -1,6 +1,10 @@
-import type * as TestFunctions from './index';
+import { Weather } from '@interfaces';
 
-const { getWeekDay, getShortTime, randomImageNumber } = jest.requireActual<typeof TestFunctions>('./index.ts');
+import type * as TestFunctions from '.';
+
+const {
+  getWeekDay, getShortTime, randomImageNumber, isWeatherExists,
+} = jest.requireActual<typeof TestFunctions>('./index.ts');
 describe('getWeekDay() should return correct dates', () => {
   const testCases = [
     {
@@ -47,12 +51,19 @@ describe("getShortTime() should return time with zero's if possible", () => {
       output: '23:01:01',
     },
     {
-      input: { dateArg: new Date('May 10 2019 10:00:00') },
+      input: {
+        dateArg: new Date('May 10 2019 10:00:00'),
+        includeSeconds: false,
+      },
       output: '10:00',
+    },
+    {
+      input: { dateArg: new Date('June 18 2017 12:15:00') },
+      output: '12:15:00',
     },
   ];
   it.each(testCases)('should return correct $output', ({ input, output }) => {
-    const { dateArg, includeSeconds = false } = input;
+    const { dateArg, includeSeconds } = input;
     expect(getShortTime(dateArg, includeSeconds)).toBe(output);
   });
 });
@@ -62,5 +73,51 @@ describe('randomImageNumber() should return random number in diapasone', () => {
     const input = 10;
     expect(randomImageNumber(input)).toBeLessThan(input);
     expect(randomImageNumber(input)).toBeGreaterThanOrEqual(0);
+  });
+});
+
+describe('isWeatherExists() should return if weather exists', () => {
+  it("should return false, because weather hasn't any keys", () => {
+    const testWeather: Weather = {} as Weather;
+    expect(isWeatherExists(testWeather)).toBeFalsy();
+  });
+  it('should return true, because weather has data', () => {
+    const testWeather: Weather = {
+      location: {
+        name: 'Minsk',
+      },
+      current: {
+        temp_c: 36.8,
+        condition: {
+          icon: './sun.jpg',
+          text: 'sunny',
+        },
+      },
+      forecast: {
+        forecastday: [
+          {
+            date: new Date('05-10-2023'),
+            day: {
+              avgtemp_c: 34.7,
+              condition: {
+                icon: './rain.jpeg',
+                text: 'rainy',
+              },
+            },
+            hour: [
+              {
+                time: '23:13:10',
+                temp_c: 12.5,
+                condition: {
+                  icon: './coldy.png',
+                  text: 'very cold',
+                },
+              },
+            ],
+          },
+        ],
+      },
+    };
+    expect(isWeatherExists(testWeather)).toBeTruthy();
   });
 });

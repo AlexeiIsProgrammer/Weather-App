@@ -18,6 +18,17 @@ module.exports = env = {
     hot: true,
   },
   resolve: {
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
+    alias: {
+      "~Components": path.resolve(__dirname, 'src/components'),
+      "~UI": path.resolve(__dirname, 'src/components/UI'),
+      "~Hooks": path.resolve(__dirname, 'src/hooks'),
+      "~API": path.resolve(__dirname, 'src/API'),
+      "~Utils": path.resolve(__dirname, 'src/utils'),
+      "~Store": path.resolve(__dirname, 'src/store'),
+      "~Interfaces": path.resolve(__dirname, 'src/interfaces'),
+      "~Constants": path.resolve(__dirname, 'src/constants'),
+    },
     extensions: ['.ts', '.tsx', '.js'],
   },
   entry: ['@babel/polyfill', path.resolve(__dirname, 'src', 'index.tsx')],
