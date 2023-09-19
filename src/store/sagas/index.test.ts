@@ -1,40 +1,80 @@
+import getRandomBackground from '@API/background';
+import { call, put } from 'redux-saga/effects';
+import { weatherFetchingSuccess } from '@store/slices/weatherSlice';
+import { WeatherResponse } from '@store/types/interfaces';
 import { Weather } from '@interfaces';
-import { Action } from '@reduxjs/toolkit';
 
-describe('test getWeatherSaga generator', () => {
-  afterEach(() => {
+import { getWeatherSaga } from '.';
+
+describe('getWeatherSaga', () => {
+  afterAll(() => {
     jest.clearAllMocks();
   });
 
-  it('should process fullfilled saga', () => {
-    const weatherFetchingState = {
-      weather: {} as Weather,
-      weatherImage: '',
-      clickedDay: null,
-      isLoading: true,
-      error: '',
-    };
-    const weatherState = {
-      weather: {} as Weather,
-      weatherImage: '',
-      isLoading: false,
-      clickedDay: null,
-      error: '',
-    };
-    const weatherFetchingAction: Action = { type: weatherFetching.type };
-    const weatherFetchingResult = weatherSlice(
-      weatherState,
-      weatherFetchingAction
-    );
-    expect(weatherFetchingResult).toStrictEqual(weatherFetchingState);
+  it('should process fullfilled saga', async () => {
+    const city = 'Minsk';
 
-    const weatherPositionFetchingAction: Action = {
-      type: weatherPositionFetching.type,
+    const action = {
+      payload: city,
+      type: '',
     };
-    const weatherPositionFetchingResult = weatherSlice(
-      weatherState,
-      weatherPositionFetchingAction
+
+    const g = getWeatherSaga(action);
+
+    g.next();
+
+    const currentWeather = 'sunny';
+
+    expect(g.next().value).toEqual(call(getRandomBackground, currentWeather));
+
+    const data: Weather = {
+      location: {
+        name: 'Minsk',
+      },
+      current: {
+        temp_c: 36.8,
+        condition: {
+          icon: './sun.jpg',
+          text: 'sunny',
+        },
+      },
+      forecast: {
+        forecastday: [
+          {
+            date: new Date('05-10-2023'),
+            day: {
+              avgtemp_c: 34.7,
+              condition: {
+                icon: './rain.jpeg',
+                text: 'rainy',
+              },
+            },
+            hour: [
+              {
+                time: '23:13:10',
+                temp_c: 12.5,
+                condition: {
+                  icon: './coldy.png',
+                  text: 'very cold',
+                },
+              },
+            ],
+          },
+        ],
+      },
+    };
+
+    const imageURL = 'https://';
+
+    const weatherResponse: WeatherResponse = {
+      weather: data,
+      weatherImage: imageURL,
+    };
+
+    expect(g.next().value).toEqual(
+      put(weatherFetchingSuccess(weatherResponse))
     );
-    expect(weatherPositionFetchingResult).toStrictEqual(weatherFetchingState);
+
+    expect(g.next().done).toEqual(true);
   });
 });
