@@ -36,8 +36,8 @@
       "~Hooks/*": ["./hooks/*"],
       "~API/*": ["./API/*"],
       "~Utils/*": ["./utils/*"],
-      "~Store/*": ["./store/*"],
       "~Store": ["./store"],
+      "~Store/*": ["./store/*"],
       "~Interfaces": ["./interfaces"],
       "~Constants": ["./constants"]
     },
