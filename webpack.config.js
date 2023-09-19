@@ -18,6 +18,7 @@ module.exports = env = {
     hot: true,
   },
   resolve: {
+    modules: [path.resolve(__dirname, "src"), "node_modules"],
     alias: {
       "@components": path.resolve(__dirname, 'src/components/'),
       "@UI": path.resolve(__dirname, 'src/components/UI/'),
