@@ -2,10 +2,11 @@ import { RenderOptions, render, renderHook } from '@testing-library/react';
 import { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { PropsWithChildren } from 'react';
+import { PersistGate } from 'redux-persist/integration/react';
+
 import {
   AppStore, RootState, persistor, tsStore,
-} from '@store/index';
-import { PersistGate } from 'redux-persist/integration/react';
+} from '../store';
 
 const defaultState: RootState = {
   weatherReducer: {
