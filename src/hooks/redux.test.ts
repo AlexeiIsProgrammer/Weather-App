@@ -75,7 +75,7 @@ describe('useAppSelector', () => {
         preloadedState: {
           weatherReducer: weatherReducer.weatherReducer,
         },
-      }
+      },
     );
     expect(current).toStrictEqual(weatherReducer.weatherReducer);
   });

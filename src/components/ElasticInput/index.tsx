@@ -21,7 +21,7 @@ function ElasticInput({
 
       setInputCity(target.value);
     },
-    []
+    [],
   );
 
   useEffect(() => {

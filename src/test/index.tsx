@@ -2,7 +2,9 @@ import { RenderOptions, render, renderHook } from '@testing-library/react';
 import { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { PropsWithChildren } from 'react';
-import { AppStore, RootState, persistor, tsStore } from '@store/index';
+import {
+  AppStore, RootState, persistor, tsStore,
+} from '@store/index';
 import { PersistGate } from 'redux-persist/integration/react';
 
 const defaultState: RootState = {
@@ -64,7 +66,7 @@ export function renderWithProviders(
     preloadedState = defaultState,
     store = tsStore(preloadedState),
     ...renderOptions
-  }: ExtendedRenderOptions = {}
+  }: ExtendedRenderOptions = {},
 ) {
   function Wrapper({ children }: PropsWithChildren) {
     return (
@@ -85,7 +87,7 @@ export function renderHookWithProviders<Result, Props = undefined>(
     preloadedState = defaultState,
     store = tsStore(preloadedState),
     ...renderOptions
-  }: ExtendedRenderOptions = {}
+  }: ExtendedRenderOptions = {},
 ) {
   function Wrapper({ children }: PropsWithChildren) {
     return (

@@ -31,7 +31,7 @@ describe('test weatherSlice fetching', () => {
     const weatherFetchingAction: Action = { type: weatherFetching.type };
     const weatherFetchingResult = weatherSlice(
       weatherState,
-      weatherFetchingAction
+      weatherFetchingAction,
     );
     expect(weatherFetchingResult).toStrictEqual(weatherFetchingState);
 
@@ -40,7 +40,7 @@ describe('test weatherSlice fetching', () => {
     };
     const weatherPositionFetchingResult = weatherSlice(
       weatherState,
-      weatherPositionFetchingAction
+      weatherPositionFetchingAction,
     );
     expect(weatherPositionFetchingResult).toStrictEqual(weatherFetchingState);
   });

@@ -4,7 +4,9 @@ import { weatherChooseDay } from '@store/slices/weatherSlice';
 import weatherSelector from '@store/selectors';
 import { getWeekDay } from '@utils/get-week-day';
 
-import { DayWrapper, DayDate, DayImage, DayTemp } from './styles';
+import {
+  DayWrapper, DayDate, DayImage, DayTemp,
+} from './styles';
 import { DayProps } from './types/types';
 
 function DayItem({ id, weather }: DayProps) {

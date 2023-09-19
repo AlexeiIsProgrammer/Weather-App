@@ -28,7 +28,7 @@ function ElasticSearch() {
       >
         <Button
           onClick={() => {
-            if (inputCity !== weather?.location?.name) {
+            if (inputCity !== weather.location.name) {
               clearTimeout(timer);
               dispatch(weatherFetching(inputCity));
             }

@@ -51,7 +51,3 @@ const weatherReducer: WeatherState = {
 test('should render app', () => {
   renderWithProviders(<App />, { preloadedState: { weatherReducer } });
 });
-
-test('should render app with events', () => {
-  renderWithProviders(<App />, { preloadedState: { weatherReducer } });
-});

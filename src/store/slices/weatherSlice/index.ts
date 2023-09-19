@@ -31,8 +31,6 @@ export const weatherSlice = createSlice({
       }
     },
     weatherFetchingSuccess(state, action: PayloadAction<WeatherResponse>) {
-      console.log('sss');
-
       state.isLoading = false;
       state.error = '';
       state.weather = action.payload.weather;
