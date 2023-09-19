@@ -1,5 +1,6 @@
 import getRandomBackground from '@API/background';
 import getPosition from '@API/geolocation';
+import { getAllEvents } from '@API/calendar';
 
 describe('background API testing', () => {
   it('should call background API', async () => {
@@ -17,6 +18,14 @@ describe('geoposition API testing', () => {
   it('should return string value', async () => {
     const data = await getPosition();
     expect(data).toEqual(expect.any(String));
+    expect(data).toBeTruthy();
+  });
+});
+
+describe('calendar API testing', () => {
+  it('should return items', async () => {
+    const data = await getAllEvents();
+    expect(getAllEvents).toBeCalled();
     expect(data).toBeTruthy();
   });
 });

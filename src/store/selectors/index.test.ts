@@ -5,7 +5,7 @@ import { RootState } from '..';
 import userSelector from './index';
 
 describe('weatherSelector', () => {
-  it('should return user state from store', () => {
+  it('should return weather state from store', () => {
     const weatherReducer: WeatherState = {
       error: '',
       isLoading: false,

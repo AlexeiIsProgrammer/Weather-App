@@ -7,6 +7,7 @@ import Days from '@components/Days';
 import Hours from '@components/Hours';
 import { EventItem } from '@interfaces';
 import Background from '@components/Background';
+import { ErrorBoundary } from 'react-error-boundary';
 
 import { MainContainer, MainSection, MainSectionContainer } from './styles';
 
@@ -30,7 +31,9 @@ function App() {
 
               <Hours />
 
-              <SignButton setEvents={setEvents} />
+              <ErrorBoundary fallback={<h1>No connection with gapi..</h1>}>
+                <SignButton setEvents={setEvents} />
+              </ErrorBoundary>
             </MainSectionContainer>
           </MainSection>
         </MainContainer>

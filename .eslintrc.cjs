@@ -30,6 +30,7 @@ module.exports = {
         "simple-import-sort/sort": "off",
         'import/order': ["error", { "newlines-between": "always" }],
         'react/jsx-no-bind': 0,
-        'no-alert': 0
+        'no-alert': 0,
+        'import/no-named-as-default': 0
     },
 };

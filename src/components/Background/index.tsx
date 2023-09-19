@@ -12,7 +12,7 @@ function Background() {
   const [isImgLoaded, setIsImgLoaded] = useState(false);
   const dispatch = useAppDispatch();
   useEffect(() => {
-    if (!weather) {
+    if (!weather.location.name) {
       getPosition().then((pos) => {
         dispatch(weatherPositionFetching(pos));
       });
