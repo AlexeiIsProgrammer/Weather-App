@@ -1,5 +1,5 @@
 import React from 'react';
-import Event from '@components/Event';
+import Event from '@Components/Event';
 
 import { Events, EventsListBlock } from './styles';
 import { EventsProps } from './types/types';

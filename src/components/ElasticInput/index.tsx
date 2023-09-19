@@ -1,7 +1,7 @@
-import Input from '@components/UI/Input';
-import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import { weatherFetching } from '@store/slices/weatherSlice';
-import weatherSelector from '@store/selectors';
+import Input from '@Components/UI/Input';
+import { useAppDispatch, useAppSelector } from '@Hooks/redux';
+import { weatherFetching } from '@Store/slices/weatherSlice';
+import weatherSelector from '@Store/selectors';
 import React, { useCallback, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 

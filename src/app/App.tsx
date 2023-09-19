@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import EventsList from '@components/EventsList';
-import ElasticSearch from '@components/ElasticSearch';
-import SignButton from '@components/SignButton';
-import Time from '@components/Time';
-import Days from '@components/Days';
-import Hours from '@components/Hours';
-import { EventItem } from '@interfaces';
-import Background from '@components/Background';
+import EventsList from '@Components/EventsList';
+import ElasticSearch from '@Components/ElasticSearch';
+import SignButton from '@Components/SignButton';
+import Time from '@Components/Time';
+import Days from '@Components/Days';
+import Hours from '@Components/Hours';
+import { EventItem } from '@Interfaces';
+import Background from '@Components/Background';
 import { ErrorBoundary } from 'react-error-boundary';
 
 import { MainContainer, MainSection, MainSectionContainer } from './styles';

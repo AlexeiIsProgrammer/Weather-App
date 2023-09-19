@@ -1,9 +1,9 @@
 import React from 'react';
-import { useAppSelector } from '@hooks/redux';
-import weatherSelector from '@store/selectors';
-import { isWeatherExists } from '@utils/is-weather-exists';
-import CurrentDayItem from '@components/CurrentDayItem';
-import DayItem from '@components/DayItem';
+import { useAppSelector } from '@Hooks/redux';
+import weatherSelector from '@Store/selectors';
+import { isWeatherExists } from '@Utils/is-weather-exists';
+import CurrentDayItem from '@Components/CurrentDayItem';
+import DayItem from '@Components/DayItem';
 
 import { DaysWrapper, DaysList, ErrorMessage } from './styles';
 

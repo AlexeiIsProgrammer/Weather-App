@@ -1,16 +1,16 @@
-import { Weather } from '@interfaces';
+import { Weather } from '@Interfaces';
 import { PayloadAction } from '@reduxjs/toolkit';
 import {
   weatherFetchingError,
   weatherFetchingSuccess,
-} from '@store/slices/weatherSlice';
-import { WeatherResponse } from '@store/types/interfaces';
+} from '@Store/slices/weatherSlice';
+import { WeatherResponse } from '@Store/types/interfaces';
 import axios, { AxiosResponse } from 'axios';
 import {
   takeLatest, put, fork, call, all,
 } from 'redux-saga/effects';
 import getRandomBackground from '@API/background';
-import baseURL, { GET_WEATHER, GET_WEATHER_POSITION } from '@constants';
+import baseURL, { GET_WEATHER, GET_WEATHER_POSITION } from '@Constants';
 
 export function* getWeatherSaga({ payload: city }: PayloadAction<string>) {
   try {

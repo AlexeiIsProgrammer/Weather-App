@@ -1,5 +1,5 @@
-import { WeatherImages } from '@interfaces';
-import { randomImageNumber } from '@utils/get-random';
+import { WeatherImages } from '@Interfaces';
+import { randomImageNumber } from '@Utils/get-random';
 import axios from 'axios';
 
 async function getBackgrounds(weather: string): Promise<WeatherImages> {

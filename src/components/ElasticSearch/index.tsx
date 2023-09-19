@@ -1,10 +1,10 @@
-import Button from '@components/UI/Button';
-import { useAppSelector, useAppDispatch } from '@hooks/redux';
-import weatherSelector from '@store/selectors';
+import Button from '@Components/UI/Button';
+import { useAppSelector, useAppDispatch } from '@Hooks/redux';
+import weatherSelector from '@Store/selectors';
 import React, { useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { weatherFetching } from '@store/slices/weatherSlice';
-import ElasticInput from '@components/ElasticInput';
+import { weatherFetching } from '@Store/slices/weatherSlice';
+import ElasticInput from '@Components/ElasticInput';
 
 import { ElasticSearchContainer } from './styles';
 

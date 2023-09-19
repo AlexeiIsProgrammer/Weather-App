@@ -1,9 +1,9 @@
 import getPosition from '@API/geolocation';
-import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import { weatherPositionFetching } from '@store/slices/weatherSlice';
-import weatherSelector from '@store/selectors';
+import { useAppDispatch, useAppSelector } from '@Hooks/redux';
+import { weatherPositionFetching } from '@Store/slices/weatherSlice';
+import weatherSelector from '@Store/selectors';
 import React, { useEffect, useState } from 'react';
-import { isWeatherExists } from '@utils/is-weather-exists';
+import { isWeatherExists } from '@Utils/is-weather-exists';
 
 import { BackgroundContainer } from './styles';
 

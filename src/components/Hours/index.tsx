@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAppSelector } from '@hooks/redux';
-import { Hour } from '@interfaces';
-import weatherSelector from '@store/selectors';
-import HourItem from '@components/HourItem';
+import { useAppSelector } from '@Hooks/redux';
+import { Hour } from '@Interfaces';
+import weatherSelector from '@Store/selectors';
+import HourItem from '@Components/HourItem';
 
 import { HoursWrapper, HoursList } from './styles';
 

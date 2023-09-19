@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { getShortTime, isWeatherExists } from '@utils/index';
-import { useAppSelector } from '@hooks/redux';
-import weatherSelector from '@store/selectors';
+import { getShortTime, isWeatherExists } from '@Utils/index';
+import { useAppSelector } from '@Hooks/redux';
+import weatherSelector from '@Store/selectors';
 
 import {
   TimeBlock,

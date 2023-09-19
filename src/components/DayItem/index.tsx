@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAppDispatch, useAppSelector } from '@hooks/redux';
-import { weatherChooseDay } from '@store/slices/weatherSlice';
-import weatherSelector from '@store/selectors';
-import { getWeekDay } from '@utils/get-week-day';
+import { useAppDispatch, useAppSelector } from '@Hooks/redux';
+import { weatherChooseDay } from '@Store/slices/weatherSlice';
+import weatherSelector from '@Store/selectors';
+import { getWeekDay } from '@Utils/get-week-day';
 
 import {
   DayWrapper, DayDate, DayImage, DayTemp,
