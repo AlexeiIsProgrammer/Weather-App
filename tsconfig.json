@@ -31,15 +31,15 @@
     "moduleResolution": "node" /* Specify how TypeScript looks up a file from a given module specifier. */,
     "baseUrl": "./src",
     "paths": {
-      "@Components/*": ["./components/*"],
-      "@UI/*": ["./components/UI/*"],
-      "@Hooks/*": ["./hooks/*"],
-      "@API/*": ["./API/*"],
-      "@Utils/*": ["./utils/*"],
-      "@Store/*": ["./store/*"],
-      "@Store": ["./store"],
-      "@Interfaces": ["./interfaces"],
-      "@Constants": ["./constants"]
+      "~Components/*": ["./components/*"],
+      "~UI/*": ["./components/UI/*"],
+      "~Hooks/*": ["./hooks/*"],
+      "~API/*": ["./API/*"],
+      "~Utils/*": ["./utils/*"],
+      "~Store/*": ["./store/*"],
+      "~Store": ["./store"],
+      "~Interfaces": ["./interfaces"],
+      "~Constants": ["./constants"]
     },
 
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */

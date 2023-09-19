@@ -1,10 +1,11 @@
 import React from 'react';
-import { getShortTime } from '@Utils/get-short-time';
 
 import {
   EventBlock, EventSummary, EventTime, EventWrapper,
 } from './styles';
 import { EventProps } from './types/types';
+
+import { getShortTime } from '~Utils/get-short-time';
 
 function Event({ event }: EventProps) {
   return (

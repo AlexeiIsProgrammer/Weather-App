@@ -31,6 +31,7 @@ module.exports = {
         'import/order': ["error", { "newlines-between": "always" }],
         'react/jsx-no-bind': 0,
         'no-alert': 0,
-        'import/no-named-as-default': 0
+        'import/no-named-as-default': 0,
+        'import/extensions': 0
     },
 };

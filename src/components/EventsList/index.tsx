@@ -1,8 +1,9 @@
 import React from 'react';
-import Event from '@Components/Event';
 
 import { Events, EventsListBlock } from './styles';
 import { EventsProps } from './types/types';
+
+import Event from '~Components/Event';
 
 function EventsList({ events }: EventsProps) {
   return (

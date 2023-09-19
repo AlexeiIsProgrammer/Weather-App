@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
-import { getShortTime, isWeatherExists } from '@Utils/index';
-import { useAppSelector } from '@Hooks/redux';
-import weatherSelector from '@Store/selectors';
 
 import {
   TimeBlock,
@@ -11,6 +8,10 @@ import {
   TimeContainer,
   TimeDate,
 } from './styles';
+
+import { getShortTime, isWeatherExists } from '~Utils/index';
+import { useAppSelector } from '~Hooks/redux';
+import weatherSelector from '~Store/selectors';
 
 function Time() {
   const { weather } = useAppSelector(weatherSelector);

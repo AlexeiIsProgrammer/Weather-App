@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import apiCalendar, { getAllEvents } from '@API/calendar';
-import Button from '@Components/UI/Button';
 
 import { SignButtonProps } from './types/types';
+
+import apiCalendar, { getAllEvents } from '~API/calendar';
+import Button from '~Components/UI/Button';
 
 function SignButton({ setEvents }: SignButtonProps) {
   const [isSignIn, setIsSignIn] = useState<boolean>();

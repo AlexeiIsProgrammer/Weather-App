@@ -1,11 +1,12 @@
-import getPosition from '@API/geolocation';
-import { useAppDispatch, useAppSelector } from '@Hooks/redux';
-import { weatherPositionFetching } from '@Store/slices/weatherSlice';
-import weatherSelector from '@Store/selectors';
 import React, { useEffect, useState } from 'react';
-import { isWeatherExists } from '@Utils/is-weather-exists';
 
 import { BackgroundContainer } from './styles';
+
+import getPosition from '~API/geolocation';
+import { useAppDispatch, useAppSelector } from '~Hooks/redux';
+import { weatherPositionFetching } from '~Store/slices/weatherSlice';
+import weatherSelector from '~Store/selectors';
+import { isWeatherExists } from '~Utils/is-weather-exists';
 
 function Background() {
   const { weather, weatherImage } = useAppSelector(weatherSelector);
