@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 import { weatherPositionFetching } from '@Store/slices/weatherSlice';
 import weatherSelector from '@Store/selectors';
 import { isWeatherExists } from '@Utils/is-weather-exists';
+import Spinner from '@Components/Spinner';
 
 import { BackgroundContainer } from './styles';
 
@@ -13,6 +14,7 @@ function Background() {
   const dispatch = useAppDispatch();
   useEffect(() => {
     if (!weather?.location?.name) {
+      setIsImgLoaded(false);
       getPosition().then((pos) => {
         dispatch(weatherPositionFetching(pos));
       });
@@ -26,13 +28,15 @@ function Background() {
     img.onload = () => setIsImgLoaded(true);
   }, [weatherImage]);
 
-  return (
+  return isImgLoaded ? (
     <BackgroundContainer
       $backgroundImage={
         isWeatherExists(weather) ? `url('${weatherImage}')` : ''
       }
       $isLoaded={isImgLoaded}
     />
+  ) : (
+    <Spinner />
   );
 }
 
