@@ -1,5 +1,4 @@
 import React, { useCallback, useEffect } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 import Input from '@Components/UI/Input';
 import { useAppDispatch, useAppSelector } from '@Hooks/redux';
 import { weatherFetching } from '@Store/slices/weatherSlice';
@@ -21,7 +20,7 @@ function ElasticInput({
 
       setInputCity(target.value);
     },
-    [],
+    []
   );
 
   useEffect(() => {
@@ -36,14 +35,12 @@ function ElasticInput({
   }, [inputCity]);
 
   return (
-    <ErrorBoundary fallback={<h1>Input is broken</h1>}>
-      <Input
-        error={error}
-        onChange={onChangeHandler}
-        value={inputCity}
-        placeholder="Write country here"
-      />
-    </ErrorBoundary>
+    <Input
+      error={error}
+      onChange={onChangeHandler}
+      value={inputCity}
+      placeholder="Write country here"
+    />
   );
 }
 

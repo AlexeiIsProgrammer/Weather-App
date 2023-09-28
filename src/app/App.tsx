@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 import EventsList from '@Components/EventsList';
 import ElasticSearch from '@Components/ElasticSearch';
 import SignButton from '@Components/SignButton';
@@ -31,9 +30,7 @@ function App() {
 
               <Hours />
 
-              <ErrorBoundary fallback={<h1>No connection with gapi..</h1>}>
-                <SignButton setEvents={setEvents} />
-              </ErrorBoundary>
+              <SignButton setEvents={setEvents} />
             </MainSectionContainer>
           </MainSection>
         </MainContainer>

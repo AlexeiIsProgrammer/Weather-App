@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 import { getShortTime, isWeatherExists } from '@Utils/index';
 import { useAppSelector } from '@Hooks/redux';
 import weatherSelector from '@Store/selectors';
@@ -30,9 +29,7 @@ function Time() {
 
   return isWeatherExists(weather) ? (
     <TimeBlock>
-      <ErrorBoundary fallback={<h1>Город не был найден</h1>}>
-        <TimeCity>{weather.location.name}</TimeCity>
-      </ErrorBoundary>
+      <TimeCity>{weather.location.name}</TimeCity>
       <TimeContainer>
         <TimeClock>{clock}</TimeClock>
         <TimeDate>{date}</TimeDate>

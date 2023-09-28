@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
 import Button from '@Components/UI/Button';
 import { useAppSelector, useAppDispatch } from '@Hooks/redux';
 import weatherSelector from '@Store/selectors';
@@ -30,11 +29,7 @@ function ElasticSearch() {
         timer={timer}
         setTimer={setTimer}
       />
-      <ErrorBoundary
-        fallback={<h1>Input text and wait 2 seconds for applying</h1>}
-      >
-        <Button onClick={searchCityHandler}>Find Country</Button>
-      </ErrorBoundary>
+      <Button onClick={searchCityHandler}>Find Country</Button>
     </ElasticSearchContainer>
   );
 }
