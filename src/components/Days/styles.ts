@@ -1,7 +1,5 @@
 import { styled } from 'styled-components';
 
-export const DaysWrapper = styled.div``;
-
 export const DaysList = styled.ul`
   display: flex;
   flex-direction: row;

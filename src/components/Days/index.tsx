@@ -23,14 +23,14 @@ function Days() {
   const weatherDays = weather.forecast.forecastday;
 
   return (
-    <DaysWrapper>
+    <>
       <CurrentDayItem currentDay={currentDay} />
       <DaysList>
         {weatherDays.map((day, index) => (
           <DayItem key={day.date.toString()} id={index} weather={day} />
         ))}
       </DaysList>
-    </DaysWrapper>
+    </>
   );
 }
 

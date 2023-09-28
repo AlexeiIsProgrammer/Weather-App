@@ -83,7 +83,7 @@ module.exports = env = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: "src/img/icons", to: "./img/icons" },
+        { from: "src/assets/icons", to: "./assets/icons" },
       ],
     }),
   ],
