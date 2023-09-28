@@ -3,15 +3,14 @@ import axios, { AxiosResponse } from 'axios';
 import {
   takeLatest, put, fork, call, all,
 } from 'redux-saga/effects';
-
-import { Weather } from '~Interfaces';
+import { Weather } from '@Interfaces';
 import {
   weatherFetchingError,
   weatherFetchingSuccess,
-} from '~Store/slices/weatherSlice';
-import { WeatherResponse } from '~Store/types/interfaces';
-import getRandomBackground from '~API/background';
-import baseURL, { GET_WEATHER, GET_WEATHER_POSITION } from '~Constants';
+} from '@Store/slices/weatherSlice';
+import { WeatherResponse } from '@Store/types/interfaces';
+import getRandomBackground from '@API/background';
+import baseURL, { GET_WEATHER, GET_WEATHER_POSITION } from '@Constants';
 
 export function* getWeatherSaga({ payload: city }: PayloadAction<string>) {
   try {

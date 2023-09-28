@@ -1,12 +1,11 @@
 import React, { useCallback, useEffect } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import Input from '@Components/UI/Input';
+import { useAppDispatch, useAppSelector } from '@Hooks/redux';
+import { weatherFetching } from '@Store/slices/weatherSlice';
+import weatherSelector from '@Store/selectors';
 
 import { ElasticInputProps } from './types/types';
-
-import Input from '~Components/UI/Input';
-import { useAppDispatch, useAppSelector } from '~Hooks/redux';
-import { weatherFetching } from '~Store/slices/weatherSlice';
-import weatherSelector from '~Store/selectors';
 
 function ElasticInput({
   inputCity,

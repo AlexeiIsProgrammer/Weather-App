@@ -1,4 +1,4 @@
-import { WeatherState } from '@store/types/interfaces';
+import { WeatherState } from '@Store/types/interfaces';
 
 import { RootState } from '..';
 

@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { WeatherState } from '@store/types/interfaces';
+import { WeatherState } from '@Store/types/interfaces';
 import { fireEvent, screen } from '@testing-library/react';
 
 import { renderWithProviders } from '../../test/index';

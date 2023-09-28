@@ -1,4 +1,4 @@
-import { Weather } from '@interfaces';
+import { Weather } from '@Interfaces';
 import { Action } from '@reduxjs/toolkit';
 
 import weatherSlice, {

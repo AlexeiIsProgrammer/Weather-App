@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '@Store';
 
 import { renderHookWithProviders } from '../test';
-import { AppDispatch, RootState } from '../store';
 
 import { useAppDispatch, useAppSelector } from './redux';
 

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
+import Button from '@Components/UI/Button';
+import { useAppSelector, useAppDispatch } from '@Hooks/redux';
+import weatherSelector from '@Store/selectors';
+import { weatherFetching } from '@Store/slices/weatherSlice';
+import ElasticInput from '@Components/ElasticInput';
 
 import { ElasticSearchContainer } from './styles';
-
-import Button from '~Components/UI/Button';
-import { useAppSelector, useAppDispatch } from '~Hooks/redux';
-import weatherSelector from '~Store/selectors';
-import { weatherFetching } from '~Store/slices/weatherSlice';
-import ElasticInput from '~Components/ElasticInput';
 
 function ElasticSearch() {
   const [inputCity, setInputCity] = useState<string>('');

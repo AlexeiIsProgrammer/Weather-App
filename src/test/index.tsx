@@ -3,10 +3,9 @@ import { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { PropsWithChildren } from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
-
 import {
   AppStore, RootState, persistor, tsStore,
-} from '~Store';
+} from '@Store/index';
 
 const defaultState: RootState = {
   weatherReducer: {

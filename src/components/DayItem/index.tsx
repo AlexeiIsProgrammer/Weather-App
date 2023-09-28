@@ -1,14 +1,13 @@
 import React from 'react';
+import { useAppDispatch, useAppSelector } from '@Hooks/redux';
+import { weatherChooseDay } from '@Store/slices/weatherSlice';
+import weatherSelector from '@Store/selectors';
+import { getWeekDay } from '@Utils/get-week-day';
 
+import { DayProps } from './types/types';
 import {
   DayWrapper, DayDate, DayImage, DayTemp,
 } from './styles';
-import { DayProps } from './types/types';
-
-import { useAppDispatch, useAppSelector } from '~Hooks/redux';
-import { weatherChooseDay } from '~Store/slices/weatherSlice';
-import weatherSelector from '~Store/selectors';
-import { getWeekDay } from '~Utils/get-week-day';
 
 function DayItem({ id, weather }: DayProps) {
   const dispatch = useAppDispatch();

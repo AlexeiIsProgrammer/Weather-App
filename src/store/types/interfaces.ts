@@ -1,4 +1,4 @@
-import { Weather } from '@interfaces';
+import { Weather } from '@Interfaces';
 
 import { ClickedDayType } from './types';
 
