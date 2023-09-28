@@ -15,6 +15,13 @@ function ElasticSearch() {
   const { weather } = useAppSelector(weatherSelector);
   const dispatch = useAppDispatch();
 
+  const searchCityHandler = () => {
+    if (inputCity !== weather.location.name) {
+      clearTimeout(timer);
+      dispatch(weatherFetching(inputCity));
+    }
+  };
+
   return (
     <ElasticSearchContainer>
       <ElasticInput
@@ -26,16 +33,7 @@ function ElasticSearch() {
       <ErrorBoundary
         fallback={<h1>Input text and wait 2 seconds for applying</h1>}
       >
-        <Button
-          onClick={() => {
-            if (inputCity !== weather.location.name) {
-              clearTimeout(timer);
-              dispatch(weatherFetching(inputCity));
-            }
-          }}
-        >
-          Find Country
-        </Button>
+        <Button onClick={searchCityHandler}>Find Country</Button>
       </ErrorBoundary>
     </ElasticSearchContainer>
   );
