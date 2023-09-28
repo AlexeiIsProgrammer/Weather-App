@@ -8,4 +8,5 @@ export const SpinnerAnimation = styled.img`
   background-image: url(./assets/spinning-cat.gif);
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 `;
