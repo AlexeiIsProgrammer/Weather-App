@@ -1,10 +1,8 @@
 import { styled } from 'styled-components';
 
 export const DayWrapper = styled.div<{ $active?: boolean }>`
-  color: ${(props) =>
-    props.$active ? props.theme.colors.white : props.theme.colors.black};
-  background-color: ${(props) =>
-    props.$active ? props.theme.colors.blue : props.theme.colors.white};
+  color: ${(props) => (props.$active ? props.theme.colors.white : props.theme.colors.black)};
+  background-color: ${(props) => (props.$active ? props.theme.colors.blue : props.theme.colors.white)};
 
   padding: ${(props) => props.theme.padding.small};
   border: 1px solid ${(props) => props.theme.colors.black};

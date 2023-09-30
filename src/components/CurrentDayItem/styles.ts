@@ -1,6 +1,8 @@
 import { styled } from 'styled-components';
 
-import { DayDate, DayImage, DayTemp, DayWrapper } from '../DayItem/styles';
+import {
+  DayDate, DayImage, DayTemp, DayWrapper,
+} from '../DayItem/styles';
 
 export const CurrentDayWrapper = styled(DayWrapper)`
   cursor: default;
