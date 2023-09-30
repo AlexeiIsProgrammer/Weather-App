@@ -18,8 +18,8 @@ function App() {
       <Background />
       <main>
         <MainContainer>
-          <MainSection className="main-block">
-            <MainSectionContainer className="main-block__container">
+          <MainSection>
+            <MainSectionContainer>
               {events.length ? <EventsList events={events} /> : null}
 
               <Time />

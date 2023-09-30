@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const SpinnerAnimation = styled.img`
-  height: 100%;
-  width: 100%;
+  height: ${(props) => props.theme.height.full};
+  width: ${(props) => props.theme.width.full};
   z-index: -1;
   position: fixed;
   background-image: url(./assets/spinning-cat.gif);

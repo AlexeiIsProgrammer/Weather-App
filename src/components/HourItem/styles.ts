@@ -6,7 +6,7 @@ export const HourWrapper = styled.div`
   align-items: center;
   justify-content: center;
 
-  border: 1px solid black;
-  background-color: white;
-  padding: 10px;
+  border: 1px solid ${(props) => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.white};
+  padding: ${(props) => props.theme.padding.medium};
 `;
