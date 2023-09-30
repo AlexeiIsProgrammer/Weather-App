@@ -28,7 +28,7 @@ export default class ErrorBoundary extends Component<Props, State> {
       return (
         <>
           <ErrorBlock>There is an error!</ErrorBlock>
-          <ErrorBlock>{error?.message}</ErrorBlock>
+          {error?.message && <ErrorBlock>{error.message}</ErrorBlock>}
         </>
       );
     }
