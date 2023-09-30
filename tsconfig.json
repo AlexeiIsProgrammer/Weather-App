@@ -40,7 +40,8 @@
       "@Store": ["./store"],
       "@Store/*": ["./store/*"],
       "@Interfaces": ["./interfaces"],
-      "@Constants": ["./constants"]
+      "@Constants": ["./constants"],
+      "@Theme": ["./theme"]
     },
 
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */

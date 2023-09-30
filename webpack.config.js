@@ -29,6 +29,7 @@ module.exports = env = {
       "@Store": path.resolve(__dirname, 'src/store'),
       "@Interfaces": path.resolve(__dirname, 'src/interfaces'),
       "@Constants": path.resolve(__dirname, 'src/constants'),
+      "@Theme": path.resolve(__dirname, 'src/theme'),
     },
     extensions: ['.ts', '.tsx', '.js'],
   },

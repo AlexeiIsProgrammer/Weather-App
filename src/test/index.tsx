@@ -3,9 +3,8 @@ import { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { PropsWithChildren } from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
-import {
-  AppStore, RootState, persistor, tsStore,
-} from '@Store/index';
+import { AppStore, RootState, persistor, tsStore } from '@Store/index';
+import Theme from '@Theme';
 
 const defaultState: RootState = {
   weatherReducer: {
@@ -66,15 +65,20 @@ export function renderWithProviders(
     preloadedState = defaultState,
     store = tsStore(preloadedState),
     ...renderOptions
-  }: ExtendedRenderOptions = {},
+  }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren) {
     return (
-      <Provider store={store}>
-        <PersistGate loading={<h1>Loading persist..</h1>} persistor={persistor}>
-          {children}
-        </PersistGate>
-      </Provider>
+      <Theme>
+        <Provider store={store}>
+          <PersistGate
+            loading={<h1>Loading persist..</h1>}
+            persistor={persistor}
+          >
+            {children}
+          </PersistGate>
+        </Provider>
+      </Theme>
     );
   }
 
@@ -87,7 +91,7 @@ export function renderHookWithProviders<Result, Props = undefined>(
     preloadedState = defaultState,
     store = tsStore(preloadedState),
     ...renderOptions
-  }: ExtendedRenderOptions = {},
+  }: ExtendedRenderOptions = {}
 ) {
   function Wrapper({ children }: PropsWithChildren) {
     return (

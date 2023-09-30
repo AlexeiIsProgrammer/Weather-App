@@ -15,6 +15,7 @@ module.exports = {
     "^@Constants(.*)$": "<rootDir>/src/constants$1",
     "^@UI(.*)$": "<rootDir>/src/components/UI$1",
     "^@Interfaces(.*)$": "<rootDir>/src/interfaces$1",
+    "^@Theme(.*)$": "<rootDir>/src/theme$1",
   },
   verbose: true,
   setupFiles: ["dotenv/config"],
