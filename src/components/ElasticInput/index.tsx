@@ -44,7 +44,7 @@ function ElasticInput({ inputCity, setInputCity }: ElasticInputProps) {
 
       setInputCity(target.value);
     },
-    []
+    [],
   );
 
   return (

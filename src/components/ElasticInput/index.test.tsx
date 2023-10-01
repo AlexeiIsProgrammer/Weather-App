@@ -69,7 +69,7 @@ describe('testing of Elastic Input component', () => {
     });
 
     expect(
-      await screen.findByPlaceholderText('Write country here')
+      await screen.findByPlaceholderText('Write country here'),
     ).toBeInTheDocument();
   });
 
@@ -126,8 +126,7 @@ describe('testing of Elastic Input component', () => {
       },
     });
 
-    const input: HTMLInputElement =
-      await screen.findByPlaceholderText('Write country here');
+    const input: HTMLInputElement = await screen.findByPlaceholderText('Write country here');
 
     fireEvent.change(input, { target: { value: 'Riga' } });
   });

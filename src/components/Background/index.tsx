@@ -36,10 +36,9 @@ function Background() {
 
     setIsImgLoaded(false);
     const img = new Image();
-    img.src =
-      clickedDay === null
-        ? weatherImage.current
-        : weatherImage.days[clickedDay];
+    img.src = clickedDay === null
+      ? weatherImage.current
+      : weatherImage.days[clickedDay];
     img.onload = () => {
       setImage(img.src);
       setIsImgLoaded(true);
