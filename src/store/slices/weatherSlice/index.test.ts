@@ -16,14 +16,20 @@ describe('test weatherSlice fetching', () => {
   it('should fetching', () => {
     const weatherFetchingState = {
       weather: {} as Weather,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       clickedDay: null,
       isLoading: true,
       error: '',
     };
     const weatherState = {
       weather: {} as Weather,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       isLoading: false,
       clickedDay: null,
       error: '',
@@ -52,7 +58,10 @@ describe('test weatherSlice fetching', () => {
           name: 'Minsk',
         },
       } as Weather,
-      weatherImage: 'https://....',
+      weatherImage: {
+        current: 'https://...',
+        days: [],
+      },
       clickedDay: null,
       isLoading: false,
       error: '',
@@ -60,7 +69,10 @@ describe('test weatherSlice fetching', () => {
 
     const weatherState = {
       weather: {} as Weather,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       isLoading: false,
       clickedDay: null,
       error: '',
@@ -74,7 +86,10 @@ describe('test weatherSlice fetching', () => {
             name: 'Minsk',
           },
         },
-        weatherImage: 'https://....',
+        weatherImage: {
+          current: 'https://...',
+          days: [],
+        },
       },
     };
     const result = weatherSlice(weatherState, action);
@@ -84,7 +99,10 @@ describe('test weatherSlice fetching', () => {
   it('should fetching error', () => {
     const weatherState = {
       weather: {} as Weather,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       isLoading: false,
       clickedDay: null,
       error: '',

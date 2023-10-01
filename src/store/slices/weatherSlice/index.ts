@@ -8,7 +8,10 @@ const weatherObj = {} as Weather;
 
 const initialState: WeatherState = {
   weather: weatherObj,
-  weatherImage: '',
+  weatherImage: {
+    current: '',
+    days: [],
+  },
   isLoading: false,
   clickedDay: null,
   error: '',
@@ -33,6 +36,7 @@ export const weatherSlice = createSlice({
     weatherFetchingSuccess(state, action: PayloadAction<WeatherResponse>) {
       state.isLoading = false;
       state.error = '';
+      state.clickedDay = null;
       state.weather = action.payload.weather;
       state.weatherImage = action.payload.weatherImage;
     },

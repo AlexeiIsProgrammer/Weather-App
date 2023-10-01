@@ -8,6 +8,6 @@ test('should render ErrorBlock', () => {
   renderer.create(
     <Theme>
       <ErrorBlock />
-    </Theme>
+    </Theme>,
   );
 });

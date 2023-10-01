@@ -1,8 +1,7 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
-
 import 'jest-styled-components';
 import Theme from '@Theme';
+import renderer from 'react-test-renderer';
 
 import { DayWrapper } from './styles';
 
@@ -11,7 +10,7 @@ test('should change color of inactive element', () => {
     .create(
       <Theme>
         <DayWrapper $active={false} />
-      </Theme>
+      </Theme>,
     )
     .toJSON();
 
@@ -24,7 +23,7 @@ test('should change color of active element', () => {
     .create(
       <Theme>
         <DayWrapper $active />
-      </Theme>
+      </Theme>,
     )
     .toJSON();
 

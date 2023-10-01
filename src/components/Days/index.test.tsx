@@ -13,7 +13,10 @@ describe('testing of Days component', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',
@@ -63,7 +66,10 @@ describe('testing of Days component', () => {
       error: 'Some error',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',
@@ -113,7 +119,10 @@ describe('testing of Days component', () => {
       error: '',
       isLoading: true,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',

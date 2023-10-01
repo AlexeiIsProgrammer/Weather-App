@@ -4,12 +4,18 @@ import { ClickedDayType } from './types';
 
 export interface WeatherResponse {
   weather: Weather;
-  weatherImage: string;
+  weatherImage: {
+    current: string;
+    days: string[];
+  };
 }
 
 export interface WeatherState {
   weather: Weather;
-  weatherImage: string;
+  weatherImage: {
+    current: string;
+    days: string[];
+  };
   clickedDay: ClickedDayType;
   isLoading: boolean;
   error: string;

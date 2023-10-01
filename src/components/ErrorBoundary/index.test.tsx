@@ -5,15 +5,16 @@ import { renderWithProviders } from '../../test/index';
 
 import 'jest-styled-components';
 
-import ErrorBoundary from '.';
-
 describe('ErrorBoundary', () => {
   test('should render ErrorBoundary wrapper', async () => {
     const weatherReducer: WeatherState = {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: '',
@@ -70,7 +71,10 @@ describe('ErrorBoundary', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: '',

@@ -9,7 +9,10 @@ const weatherReducer: WeatherState = {
   error: '',
   isLoading: false,
   clickedDay: null,
-  weatherImage: '',
+  weatherImage: {
+    current: '',
+    days: [],
+  },
   weather: {
     location: {
       name: 'Minsk',

@@ -11,7 +11,7 @@ test('should change color of inactive element', () => {
     .create(
       <Theme>
         <RealInput $error={false} />
-      </Theme>
+      </Theme>,
     )
     .toJSON();
 
@@ -23,7 +23,7 @@ test('should change color of active element', () => {
     .create(
       <Theme>
         <RealInput $error />
-      </Theme>
+      </Theme>,
     )
     .toJSON();
 

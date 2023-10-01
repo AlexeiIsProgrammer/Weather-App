@@ -14,7 +14,10 @@ const defaultState: RootState = {
     error: '',
     isLoading: false,
     clickedDay: null,
-    weatherImage: '',
+    weatherImage: {
+      current: '',
+      days: [],
+    },
     weather: {
       location: {
         name: 'Minsk',

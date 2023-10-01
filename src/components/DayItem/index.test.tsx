@@ -39,7 +39,10 @@ test('renders dayitem wrapper and activate the day', async () => {
         error: '',
         isLoading: false,
         clickedDay: null,
-        weatherImage: '',
+        weatherImage: {
+          current: '',
+          days: [],
+        },
         weather: {
           location: {
             name: 'Minsk',
@@ -63,7 +66,7 @@ test('renders dayitem wrapper and activate the day', async () => {
     .create(
       <Theme>
         <DayTemp />
-      </Theme>
+      </Theme>,
     )
     .toJSON();
   expect(wrapper).toHaveStyleRule('font-weight', '600');
@@ -102,7 +105,10 @@ test('renders dayitem wrapper and deactivate the day', async () => {
         error: '',
         isLoading: false,
         clickedDay: 1,
-        weatherImage: '',
+        weatherImage: {
+          current: '',
+          days: [],
+        },
         weather: {
           location: {
             name: 'Minsk',
@@ -126,7 +132,7 @@ test('renders dayitem wrapper and deactivate the day', async () => {
     .create(
       <Theme>
         <DayTemp />
-      </Theme>
+      </Theme>,
     )
     .toJSON();
   expect(wrapper).toHaveStyleRule('font-weight', '600');

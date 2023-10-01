@@ -71,8 +71,13 @@ describe('getWeatherSaga', () => {
 
     const weatherResponse: WeatherResponse = {
       weather: data,
-      weatherImage: imageURL,
+      weatherImage: {
+        current: imageURL,
+        days: [],
+      },
     };
+
+    g.next();
 
     expect(g.next().value).toEqual(
       put(weatherFetchingSuccess(weatherResponse)),
@@ -162,8 +167,13 @@ describe('getWeatherByPositionSaga', () => {
 
     const weatherResponse: WeatherResponse = {
       weather: data,
-      weatherImage: imageURL,
+      weatherImage: {
+        current: imageURL,
+        days: [],
+      },
     };
+
+    g.next();
 
     expect(g.next().value).toEqual(
       put(weatherFetchingSuccess(weatherResponse)),

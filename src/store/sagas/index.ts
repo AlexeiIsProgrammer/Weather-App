@@ -27,8 +27,19 @@ export function* getWeatherSaga({ payload: city }: PayloadAction<string>) {
 
     const weatherResponse: WeatherResponse = {
       weather: response.data,
-      weatherImage: responseImage,
+      weatherImage: {
+        current: responseImage,
+        days: [],
+      },
     };
+
+    const { forecastday } = response.data.forecast;
+
+    yield Promise.all(
+      forecastday.map((forecastDay) => getRandomBackground(forecastDay.day.condition.text)),
+    ).then((results: string[]) => {
+      weatherResponse.weatherImage.days = results;
+    });
 
     yield put(weatherFetchingSuccess(weatherResponse));
   } catch (e) {
@@ -55,8 +66,19 @@ export function* getWeatherByPositionSaga({
 
     const weatherResponse: WeatherResponse = {
       weather: response.data,
-      weatherImage: responseImage,
+      weatherImage: {
+        current: responseImage,
+        days: [],
+      },
     };
+
+    const { forecastday } = response.data.forecast;
+
+    yield Promise.all(
+      forecastday.map((forecastDay) => getRandomBackground(forecastDay.day.condition.text)),
+    ).then((results: string[]) => {
+      weatherResponse.weatherImage.days = results;
+    });
 
     yield put(weatherFetchingSuccess(weatherResponse));
   } catch (e) {

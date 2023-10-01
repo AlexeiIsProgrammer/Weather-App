@@ -9,8 +9,10 @@ import Spinner from '@Components/Spinner';
 import { BackgroundContainer } from './styles';
 
 function Background() {
-  const { weather, weatherImage } = useAppSelector(weatherSelector);
-  const [isImgLoaded, setIsImgLoaded] = useState(false);
+  const { weather, weatherImage, clickedDay } = useAppSelector(weatherSelector);
+  const [isImgLoaded, setIsImgLoaded] = useState<boolean>(false);
+  const [image, setImage] = useState<string>('');
+
   const dispatch = useAppDispatch();
   useEffect(() => {
     if (!weather?.location?.name) {
@@ -24,15 +26,18 @@ function Background() {
   useEffect(() => {
     setIsImgLoaded(false);
     const img = new Image();
-    img.src = weatherImage;
-    img.onload = () => setIsImgLoaded(true);
-  }, [weatherImage]);
+    img.src = clickedDay === null
+      ? weatherImage.current
+      : weatherImage.days[clickedDay];
+    img.onload = () => {
+      setIsImgLoaded(true);
+      setImage(img.src);
+    };
+  }, [weatherImage, clickedDay]);
 
   return isImgLoaded ? (
     <BackgroundContainer
-      $backgroundImage={
-        isWeatherExists(weather) ? `url('${weatherImage}')` : ''
-      }
+      $backgroundImage={isWeatherExists(weather) ? `url('${image}')` : ''}
       $isLoaded={isImgLoaded}
     />
   ) : (
