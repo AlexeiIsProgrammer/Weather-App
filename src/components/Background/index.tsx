@@ -14,16 +14,26 @@ function Background() {
   const [image, setImage] = useState<string>('');
 
   const dispatch = useAppDispatch();
+
+  function fetchUserPosition() {
+    setIsImgLoaded(false);
+    getPosition().then((pos) => {
+      dispatch(weatherPositionFetching(pos));
+    });
+  }
+
   useEffect(() => {
     if (!weather?.location?.name) {
-      setIsImgLoaded(false);
-      getPosition().then((pos) => {
-        dispatch(weatherPositionFetching(pos));
-      });
+      fetchUserPosition();
     }
   }, [dispatch]);
 
   useEffect(() => {
+    if (weatherImage?.current === '') {
+      fetchUserPosition();
+      return;
+    }
+
     setIsImgLoaded(false);
     const img = new Image();
     img.src =

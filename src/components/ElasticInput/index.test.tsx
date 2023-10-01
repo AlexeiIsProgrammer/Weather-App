@@ -5,14 +5,14 @@ import { fireEvent, screen } from '@testing-library/react';
 import { renderWithProviders } from '../../test/index';
 
 import 'jest-styled-components';
+import { ElasticInputProps } from './types/types';
+
 import ElasticInput from '.';
 
 describe('testing of Elastic Input component', () => {
-  const elasticInputProps = {
+  const elasticInputProps: ElasticInputProps = {
     inputCity: 'Minsk',
     setInputCity: () => {},
-    timer: 0,
-    setTimer: () => {},
   };
 
   test('render Elastic Input', async () => {
@@ -69,7 +69,7 @@ describe('testing of Elastic Input component', () => {
     });
 
     expect(
-      await screen.findByPlaceholderText('Write country here'),
+      await screen.findByPlaceholderText('Write country here')
     ).toBeInTheDocument();
   });
 
@@ -126,7 +126,8 @@ describe('testing of Elastic Input component', () => {
       },
     });
 
-    const input: HTMLInputElement = await screen.findByPlaceholderText('Write country here');
+    const input: HTMLInputElement =
+      await screen.findByPlaceholderText('Write country here');
 
     fireEvent.change(input, { target: { value: 'Riga' } });
   });
