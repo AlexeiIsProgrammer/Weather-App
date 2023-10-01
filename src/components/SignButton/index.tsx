@@ -1,0 +1,42 @@
+import React, { useState } from 'react';
+import apiCalendar, { getAllEvents } from '@API/calendar';
+import Button from '@Components/UI/Button';
+
+import { SignButtonProps } from './types/types';
+
+function SignButton({ setEvents }: SignButtonProps) {
+  const [isSignIn, setIsSignIn] = useState<boolean>();
+  const signInHandle = async () => {
+    try {
+      await apiCalendar.handleAuthClick();
+      const responseEvents = await getAllEvents();
+
+      if (!responseEvents.length) {
+        alert('Поздравляю, событий на сегодня не запланировано !');
+      }
+
+      setEvents(responseEvents);
+      setIsSignIn(true);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      }
+    }
+  };
+
+  const signOutHandle = () => {
+    apiCalendar.handleSignoutClick();
+    setIsSignIn(false);
+    setEvents([]);
+  };
+
+  return (
+    <>
+      {!isSignIn ? <Button onClick={signInHandle}>Sign in</Button> : null}
+
+      {isSignIn ? <Button onClick={signOutHandle}>Sign out</Button> : null}
+    </>
+  );
+}
+
+export default React.memo(SignButton);
