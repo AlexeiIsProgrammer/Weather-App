@@ -2,11 +2,11 @@ import { styled } from 'styled-components';
 
 export const InputContainer = styled.div`
   display: block;
-  flex: 1;
 `;
 
 export const RealInput = styled.input<{ $error?: boolean }>`
-  color: ${(props) => (props.$error ? props.theme.colors.red : props.theme.colors.black)};
+  color: ${(props) =>
+    props.$error ? props.theme.colors.red : props.theme.colors.black};
 
   text-align: ${(props) => props.theme.textAlign.center};
   width: ${(props) => props.theme.width.full};

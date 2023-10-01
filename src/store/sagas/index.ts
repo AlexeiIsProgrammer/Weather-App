@@ -1,8 +1,6 @@
 import { PayloadAction } from '@reduxjs/toolkit';
 import axios, { AxiosResponse } from 'axios';
-import {
-  takeLatest, put, fork, call, all,
-} from 'redux-saga/effects';
+import { takeLatest, put, fork, call, all } from 'redux-saga/effects';
 import { Weather } from '@Interfaces';
 import {
   weatherFetchingError,
@@ -15,14 +13,14 @@ import baseURL, { GET_WEATHER, GET_WEATHER_POSITION } from '@Constants';
 export function* getWeatherSaga({ payload: city }: PayloadAction<string>) {
   try {
     const response: AxiosResponse<Weather> = yield axios.get<Weather>(
-      `${baseURL}/forecast.json?q=${city}&days=7&key=${process.env.REACT_APP_WEATHER_API_KEY}`,
+      `${baseURL}/forecast.json?q=${city}&days=7&key=${process.env.REACT_APP_WEATHER_API_KEY}`
     );
 
     const currentWeather = response.data.current.condition.text;
 
     const responseImage: string = yield call(
       getRandomBackground,
-      currentWeather,
+      currentWeather
     );
 
     const weatherResponse: WeatherResponse = {
@@ -36,7 +34,9 @@ export function* getWeatherSaga({ payload: city }: PayloadAction<string>) {
     const { forecastday } = response.data.forecast;
 
     yield Promise.all(
-      forecastday.map((forecastDay) => getRandomBackground(forecastDay.day.condition.text)),
+      forecastday.map((forecastDay) =>
+        getRandomBackground(forecastDay.day.condition.text)
+      )
     ).then((results: string[]) => {
       weatherResponse.weatherImage.days = results;
     });
@@ -54,14 +54,14 @@ export function* getWeatherByPositionSaga({
 }: PayloadAction<string>) {
   try {
     const response: AxiosResponse<Weather> = yield axios.get<Weather>(
-      `${baseURL}/forecast.json?q=${positionCity}&days=7&key=${process.env.REACT_APP_WEATHER_API_KEY}`,
+      `${baseURL}/forecast.json?q=${positionCity}&days=7&key=${process.env.REACT_APP_WEATHER_API_KEY}`
     );
 
     const currentWeather = response.data.current.condition.text;
 
     const responseImage: string = yield call(
       getRandomBackground,
-      currentWeather,
+      currentWeather
     );
 
     const weatherResponse: WeatherResponse = {
@@ -75,7 +75,9 @@ export function* getWeatherByPositionSaga({
     const { forecastday } = response.data.forecast;
 
     yield Promise.all(
-      forecastday.map((forecastDay) => getRandomBackground(forecastDay.day.condition.text)),
+      forecastday.map((forecastDay) =>
+        getRandomBackground(forecastDay.day.condition.text)
+      )
     ).then((results: string[]) => {
       weatherResponse.weatherImage.days = results;
     });

@@ -47,6 +47,9 @@ declare module 'styled-components' {
       fullScreen: string;
       auto: string;
     };
+    maxHeight: {
+      select: string;
+    };
     overflow: {
       auto: string;
       hidden: string;

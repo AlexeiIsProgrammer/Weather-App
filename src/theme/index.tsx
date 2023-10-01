@@ -49,6 +49,9 @@ const theme: DefaultTheme = {
     fullScreen: '100vh',
     auto: 'auto',
   },
+  maxHeight: {
+    select: '300px',
+  },
   overflow: {
     auto: 'auto',
     hidden: 'hidden',

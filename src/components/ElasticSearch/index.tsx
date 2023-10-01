@@ -9,26 +9,19 @@ import { ElasticSearchContainer } from './styles';
 
 function ElasticSearch() {
   const [inputCity, setInputCity] = useState<string>('');
-  const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | number>(0);
 
   const { weather } = useAppSelector(weatherSelector);
   const dispatch = useAppDispatch();
 
   const searchCityHandler = () => {
     if (inputCity !== weather.location.name) {
-      clearTimeout(timer);
       dispatch(weatherFetching(inputCity));
     }
   };
 
   return (
     <ElasticSearchContainer>
-      <ElasticInput
-        inputCity={inputCity}
-        setInputCity={setInputCity}
-        timer={timer}
-        setTimer={setTimer}
-      />
+      <ElasticInput inputCity={inputCity} setInputCity={setInputCity} />
       <Button onClick={searchCityHandler}>Find Country</Button>
     </ElasticSearchContainer>
   );
