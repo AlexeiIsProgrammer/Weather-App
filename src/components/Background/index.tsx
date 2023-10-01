@@ -26,12 +26,13 @@ function Background() {
   useEffect(() => {
     setIsImgLoaded(false);
     const img = new Image();
-    img.src = clickedDay === null
-      ? weatherImage.current
-      : weatherImage.days[clickedDay];
+    img.src =
+      clickedDay === null
+        ? weatherImage.current
+        : weatherImage.days[clickedDay];
     img.onload = () => {
-      setIsImgLoaded(true);
       setImage(img.src);
+      setIsImgLoaded(true);
     };
   }, [weatherImage, clickedDay]);
 

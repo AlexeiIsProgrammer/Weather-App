@@ -36,6 +36,12 @@ export const CloseSelectButton = styled.button`
   width: 20px;
   height: 20px;
 
+  padding: ${(props) => props.theme.padding.zero};
+  margin: ${(props) => props.theme.margin.zero};
+  outline: none;
+  border: none;
+  background: none;
+
   right: 10px;
   top: 10px;
 
@@ -47,14 +53,14 @@ export const CloseSelectButton = styled.button`
     width: 20px;
     height: 2px;
 
-    background-color: black;
+    background-color: ${(props) => props.theme.colors.black};
   }
 
   &::after {
-    transform: translateY(250%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
   }
 
   &::before {
-    transform: translateY(250%) rotate(45deg);
+    transform: translate(-50%, -50%) rotate(45deg);
   }
 `;
