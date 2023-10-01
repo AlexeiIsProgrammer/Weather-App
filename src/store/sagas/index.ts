@@ -3,15 +3,14 @@ import axios, { AxiosResponse } from 'axios';
 import {
   takeLatest, put, fork, call, all,
 } from 'redux-saga/effects';
-
-import { Weather } from '~Interfaces';
+import { Weather } from '@Interfaces';
 import {
   weatherFetchingError,
   weatherFetchingSuccess,
-} from '~Store/slices/weatherSlice';
-import { WeatherResponse } from '~Store/types/interfaces';
-import getRandomBackground from '~API/background';
-import baseURL, { GET_WEATHER, GET_WEATHER_POSITION } from '~Constants';
+} from '@Store/slices/weatherSlice';
+import { WeatherResponse } from '@Store/types/interfaces';
+import getRandomBackground from '@API/background';
+import baseURL, { GET_WEATHER, GET_WEATHER_POSITION } from '@Constants';
 
 export function* getWeatherSaga({ payload: city }: PayloadAction<string>) {
   try {
@@ -28,8 +27,19 @@ export function* getWeatherSaga({ payload: city }: PayloadAction<string>) {
 
     const weatherResponse: WeatherResponse = {
       weather: response.data,
-      weatherImage: responseImage,
+      weatherImage: {
+        current: responseImage,
+        days: [],
+      },
     };
+
+    const { forecastday } = response.data.forecast;
+
+    yield Promise.all(
+      forecastday.map((forecastDay) => getRandomBackground(forecastDay.day.condition.text)),
+    ).then((results: string[]) => {
+      weatherResponse.weatherImage.days = results;
+    });
 
     yield put(weatherFetchingSuccess(weatherResponse));
   } catch (e) {
@@ -56,8 +66,19 @@ export function* getWeatherByPositionSaga({
 
     const weatherResponse: WeatherResponse = {
       weather: response.data,
-      weatherImage: responseImage,
+      weatherImage: {
+        current: responseImage,
+        days: [],
+      },
     };
+
+    const { forecastday } = response.data.forecast;
+
+    yield Promise.all(
+      forecastday.map((forecastDay) => getRandomBackground(forecastDay.day.condition.text)),
+    ).then((results: string[]) => {
+      weatherResponse.weatherImage.days = results;
+    });
 
     yield put(weatherFetchingSuccess(weatherResponse));
   } catch (e) {

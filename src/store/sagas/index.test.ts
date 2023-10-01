@@ -3,9 +3,9 @@ import { call, put } from 'redux-saga/effects';
 import {
   weatherFetchingError,
   weatherFetchingSuccess,
-} from '@store/slices/weatherSlice';
-import { WeatherResponse } from '@store/types/interfaces';
-import { Weather } from '@interfaces';
+} from '@Store/slices/weatherSlice';
+import { WeatherResponse } from '@Store/types/interfaces';
+import { Weather } from '@Interfaces';
 
 import { getWeatherByPositionSaga, getWeatherSaga } from '.';
 
@@ -71,8 +71,13 @@ describe('getWeatherSaga', () => {
 
     const weatherResponse: WeatherResponse = {
       weather: data,
-      weatherImage: imageURL,
+      weatherImage: {
+        current: imageURL,
+        days: [],
+      },
     };
+
+    g.next();
 
     expect(g.next().value).toEqual(
       put(weatherFetchingSuccess(weatherResponse)),
@@ -162,8 +167,13 @@ describe('getWeatherByPositionSaga', () => {
 
     const weatherResponse: WeatherResponse = {
       weather: data,
-      weatherImage: imageURL,
+      weatherImage: {
+        current: imageURL,
+        days: [],
+      },
     };
+
+    g.next();
 
     expect(g.next().value).toEqual(
       put(weatherFetchingSuccess(weatherResponse)),

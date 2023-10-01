@@ -1,18 +1,18 @@
 import '@testing-library/jest-dom';
-import { WeatherState } from '@store/types/interfaces';
+import { WeatherState } from '@Store/types/interfaces';
 import { fireEvent, screen } from '@testing-library/react';
 
 import { renderWithProviders } from '../../test/index';
 
 import 'jest-styled-components';
+import { ElasticInputProps } from './types/types';
+
 import ElasticInput from '.';
 
 describe('testing of Elastic Input component', () => {
-  const elasticInputProps = {
+  const elasticInputProps: ElasticInputProps = {
     inputCity: 'Minsk',
     setInputCity: () => {},
-    timer: 0,
-    setTimer: () => {},
   };
 
   test('render Elastic Input', async () => {
@@ -20,7 +20,10 @@ describe('testing of Elastic Input component', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',
@@ -75,7 +78,10 @@ describe('testing of Elastic Input component', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',

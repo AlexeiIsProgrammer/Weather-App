@@ -38,3 +38,10 @@ export interface Hour {
 export interface Location {
   name: string;
 }
+
+export interface CityName {
+  id: number;
+  name: string;
+  region: string;
+  country: string;
+}

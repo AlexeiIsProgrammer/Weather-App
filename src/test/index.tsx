@@ -3,17 +3,21 @@ import { PreloadedState } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { PropsWithChildren } from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
-
 import {
   AppStore, RootState, persistor, tsStore,
-} from '~Store';
+} from '@Store/index';
+import Theme from '@Theme';
+import ErrorBoundary from '@Components/ErrorBoundary';
 
 const defaultState: RootState = {
   weatherReducer: {
     error: '',
     isLoading: false,
     clickedDay: null,
-    weatherImage: '',
+    weatherImage: {
+      current: '',
+      days: [],
+    },
     weather: {
       location: {
         name: 'Minsk',
@@ -71,11 +75,16 @@ export function renderWithProviders(
 ) {
   function Wrapper({ children }: PropsWithChildren) {
     return (
-      <Provider store={store}>
-        <PersistGate loading={<h1>Loading persist..</h1>} persistor={persistor}>
-          {children}
-        </PersistGate>
-      </Provider>
+      <Theme>
+        <Provider store={store}>
+          <PersistGate
+            loading={<h1>Loading persist..</h1>}
+            persistor={persistor}
+          >
+            <ErrorBoundary>{children}</ErrorBoundary>
+          </PersistGate>
+        </Provider>
+      </Theme>
     );
   }
 

@@ -9,52 +9,42 @@ export const CurrentDayWrapper = styled(DayWrapper)`
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
-  padding: 10px;
-  gap: 10px;
-  margin-bottom: 20px;
-
-  &__current &__date {
-  }
-
-  &__current &__image img,
-  &__current &__image {
-  }
-
-  &__current &__temp {
-  }
+  padding: ${(props) => props.theme.padding.medium};
+  gap: ${(props) => props.theme.gap.small};
+  margin-bottom: ${(props) => props.theme.margin.medium};
 `;
 
 export const CurrentDayDate = styled(DayDate)`
-  font-size: 50px;
+  font-size: ${(props) => props.theme.fontSizes.em.large};
 
   @media screen and (max-width: 450px) {
-    font-size: 40px;
+    font-size: ${(props) => props.theme.fontSizes.em.medium};
   }
 `;
 export const CurrentDayTemp = styled(DayTemp)`
-  font-weight: 600;
-  font-size: 55px;
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  font-size: ${(props) => props.theme.fontSizes.em.large};
 
   @media screen and (max-width: 450px) {
-    font-size: 35px;
+    font-size: ${(props) => props.theme.fontSizes.em.medium};
   }
 `;
 export const CurrentDayImage = styled(DayImage)`
-  width: 128px;
-  height: 128px;
+  width: ${(props) => props.theme.iconSize.large};
+  height: ${(props) => props.theme.iconSize.large};
 
   @media screen and (max-width: 450px) {
-    width: 64px;
-    height: 64px;
+    width: ${(props) => props.theme.iconSize.small};
+    height: ${(props) => props.theme.iconSize.small};
   }
 `;
 
 export const CurrentDayImageImg = styled.img`
-  width: 128px;
-  height: 128px;
+  width: ${(props) => props.theme.iconSize.large};
+  height: ${(props) => props.theme.iconSize.large};
 
   @media screen and (max-width: 450px) {
-    width: 64px;
-    height: 64px;
+    width: ${(props) => props.theme.iconSize.small};
+    height: ${(props) => props.theme.iconSize.small};
   }
 `;

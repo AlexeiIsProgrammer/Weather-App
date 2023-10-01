@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { WeatherState } from '@store/types/interfaces';
+import { WeatherState } from '@Store/types/interfaces';
 import { fireEvent, screen } from '@testing-library/react';
 
 import { renderWithProviders } from '../../test/index';
@@ -14,7 +14,10 @@ describe('testing of Elastic Input component', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',
@@ -67,7 +70,10 @@ describe('testing of Elastic Input component', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',
@@ -122,7 +128,10 @@ describe('testing of Elastic Input component', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: '',

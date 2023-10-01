@@ -21,14 +21,15 @@ module.exports = env = {
   resolve: {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
     alias: {
-      "~Components": path.resolve(__dirname, 'src/components'),
-      "~UI": path.resolve(__dirname, 'src/components/UI'),
-      "~Hooks": path.resolve(__dirname, 'src/hooks'),
-      "~API": path.resolve(__dirname, 'src/API'),
-      "~Utils": path.resolve(__dirname, 'src/utils'),
-      "~Store": path.resolve(__dirname, 'src/store'),
-      "~Interfaces": path.resolve(__dirname, 'src/interfaces'),
-      "~Constants": path.resolve(__dirname, 'src/constants'),
+      "@Components": path.resolve(__dirname, 'src/components'),
+      "@UI": path.resolve(__dirname, 'src/components/UI'),
+      "@Hooks": path.resolve(__dirname, 'src/hooks'),
+      "@API": path.resolve(__dirname, 'src/API'),
+      "@Utils": path.resolve(__dirname, 'src/utils'),
+      "@Store": path.resolve(__dirname, 'src/store'),
+      "@Interfaces": path.resolve(__dirname, 'src/interfaces'),
+      "@Constants": path.resolve(__dirname, 'src/constants'),
+      "@Theme": path.resolve(__dirname, 'src/theme'),
     },
     extensions: ['.ts', '.tsx', '.js'],
   },
@@ -83,7 +84,8 @@ module.exports = env = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: "src/img/icons", to: "./img/icons" },
+        { from: "src/assets/icons", to: "./assets/icons" },
+        { from: "src/assets", to: "./assets" },
       ],
     }),
   ],

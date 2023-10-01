@@ -1,33 +1,35 @@
 import { styled } from 'styled-components';
 
 const ButtonStyle = styled.button`
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.white};
   outline: none;
-  border: 1px solid black;
-  padding: 5px 10px;
-  font-size: 30px;
-  border-radius: 10px;
-  transition: 0.3s ease;
+  border: 1px solid ${(props) => props.theme.colors.black};
+  padding: ${(props) => props.theme.padding.small}
+    ${(props) => props.theme.padding.medium};
+  font-size: ${(props) => props.theme.fontSizes.em.medium};
+  border-radius: ${(props) => props.theme.borderRadius.medium};
+  transition: ${(props) => props.theme.transition.fast};
   cursor: pointer;
-  width: max-content;
-  margin: 0 auto;
+  width: ${(props) => props.theme.width.maxContent};
+  margin: ${(props) => props.theme.margin.zero}
+    ${(props) => props.theme.margin.auto};
 
   &:active {
-    border-color: white;
-    color: white;
-    background-color: black;
+    border-color: ${(props) => props.theme.colors.white};
+    color: ${(props) => props.theme.colors.white};
+    background-color: ${(props) => props.theme.colors.black};
   }
 
   @media (hover: hover) {
     &:hover {
-      border-color: white;
-      color: white;
-      background-color: black;
+      border-color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.white};
+      background-color: ${(props) => props.theme.colors.black};
     }
   }
 
   @media (max-width: 440px) {
-    width: 100%;
+    width: ${(props) => props.theme.width.full};
   }
 `;
 export default ButtonStyle;

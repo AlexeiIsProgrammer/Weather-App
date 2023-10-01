@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { WeatherState } from '@store/types/interfaces';
+import { WeatherState } from '@Store/types/interfaces';
 
 import { renderWithProviders } from '../../test/index';
 
@@ -12,7 +12,10 @@ test('renders background wrapper', async () => {
     error: '',
     isLoading: false,
     clickedDay: null,
-    weatherImage: '',
+    weatherImage: {
+      current: '',
+      days: [],
+    },
     weather: {
       location: {
         name: '',

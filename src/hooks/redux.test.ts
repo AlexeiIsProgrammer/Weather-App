@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
+import { AppDispatch, RootState } from '@Store';
 
 import { renderHookWithProviders } from '../test';
-import { AppDispatch, RootState } from '../store';
 
 import { useAppDispatch, useAppSelector } from './redux';
 
@@ -24,7 +24,10 @@ describe('useAppSelector', () => {
         error: '',
         isLoading: false,
         clickedDay: null,
-        weatherImage: '',
+        weatherImage: {
+          current: '',
+          days: [],
+        },
         weather: {
           location: {
             name: 'Minsk',

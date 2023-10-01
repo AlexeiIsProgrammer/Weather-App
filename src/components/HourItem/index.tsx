@@ -1,9 +1,8 @@
 import React from 'react';
+import { getShortTime } from '@Utils/get-short-time';
 
 import { HourWrapper } from './styles';
 import { HourProps } from './types/types';
-
-import { getShortTime } from '~Utils/get-short-time';
 
 function HourItem({ hour }: HourProps) {
   return (

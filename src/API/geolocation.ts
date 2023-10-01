@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Geolocation } from '@interfaces';
+import { Geolocation } from '@Interfaces';
 
 export default async function getPosition() {
   const response = await axios.get<Geolocation>(

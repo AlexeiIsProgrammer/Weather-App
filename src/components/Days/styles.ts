@@ -1,18 +1,16 @@
 import { styled } from 'styled-components';
 
-export const DaysWrapper = styled.div``;
-
 export const DaysList = styled.ul`
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: ${(props) => props.theme.gap.large};
   justify-content: space-between;
 
   @media screen and (max-width: 991px) {
-    overflow-x: auto;
+    overflow-x: ${(props) => props.theme.overflow.auto};
   }
 `;
 
 export const ErrorMessage = styled.h1`
-  text-align: center;
+  text-align: ${(props) => props.theme.textAlign.center};
 `;

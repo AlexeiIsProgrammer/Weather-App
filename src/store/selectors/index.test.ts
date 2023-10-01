@@ -1,4 +1,4 @@
-import { WeatherState } from '@store/types/interfaces';
+import { WeatherState } from '@Store/types/interfaces';
 
 import { RootState } from '..';
 
@@ -10,7 +10,10 @@ describe('weatherSelector', () => {
       error: '',
       isLoading: false,
       clickedDay: null,
-      weatherImage: '',
+      weatherImage: {
+        current: '',
+        days: [],
+      },
       weather: {
         location: {
           name: 'Minsk',

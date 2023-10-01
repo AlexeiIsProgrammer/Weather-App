@@ -1,3 +1,4 @@
+import getCities from '@API/cities';
 import getRandomBackground from '@API/background';
 import getPosition from '@API/geolocation';
 import { getAllEvents } from '@API/calendar';
@@ -26,6 +27,14 @@ describe('calendar API testing', () => {
   it('should return items', async () => {
     const data = await getAllEvents();
     expect(getAllEvents).toBeCalled();
+    expect(data).toBeTruthy();
+  });
+});
+
+describe('cities API testing', () => {
+  it('should return items', async () => {
+    const data = await getCities('London');
+    expect(getCities).toBeCalled();
     expect(data).toBeTruthy();
   });
 });

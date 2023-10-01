@@ -1,43 +1,28 @@
 import React, { useState } from 'react';
-import { ErrorBoundary } from 'react-error-boundary';
+import Button from '@Components/UI/Button';
+import { useAppSelector, useAppDispatch } from '@Hooks/redux';
+import weatherSelector from '@Store/selectors';
+import { weatherFetching } from '@Store/slices/weatherSlice';
+import ElasticInput from '@Components/ElasticInput';
 
 import { ElasticSearchContainer } from './styles';
 
-import Button from '~Components/UI/Button';
-import { useAppSelector, useAppDispatch } from '~Hooks/redux';
-import weatherSelector from '~Store/selectors';
-import { weatherFetching } from '~Store/slices/weatherSlice';
-import ElasticInput from '~Components/ElasticInput';
-
 function ElasticSearch() {
   const [inputCity, setInputCity] = useState<string>('');
-  const [timer, setTimer] = useState<ReturnType<typeof setTimeout> | number>(0);
 
   const { weather } = useAppSelector(weatherSelector);
   const dispatch = useAppDispatch();
 
+  const searchCityHandler = () => {
+    if (inputCity !== weather.location.name) {
+      dispatch(weatherFetching(inputCity));
+    }
+  };
+
   return (
     <ElasticSearchContainer>
-      <ElasticInput
-        inputCity={inputCity}
-        setInputCity={setInputCity}
-        timer={timer}
-        setTimer={setTimer}
-      />
-      <ErrorBoundary
-        fallback={<h1>Input text and wait 2 seconds for applying</h1>}
-      >
-        <Button
-          onClick={() => {
-            if (inputCity !== weather.location.name) {
-              clearTimeout(timer);
-              dispatch(weatherFetching(inputCity));
-            }
-          }}
-        >
-          Find Country
-        </Button>
-      </ErrorBoundary>
+      <ElasticInput inputCity={inputCity} setInputCity={setInputCity} />
+      <Button onClick={searchCityHandler}>Find Country</Button>
     </ElasticSearchContainer>
   );
 }

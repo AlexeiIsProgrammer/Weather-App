@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 import renderer from 'react-test-renderer';
 import { fireEvent, screen } from '@testing-library/react';
+import Theme from '@Theme';
 
 import { renderWithProviders } from '../../test/index';
 
@@ -38,7 +39,10 @@ test('renders dayitem wrapper and activate the day', async () => {
         error: '',
         isLoading: false,
         clickedDay: null,
-        weatherImage: '',
+        weatherImage: {
+          current: '',
+          days: [],
+        },
         weather: {
           location: {
             name: 'Minsk',
@@ -58,7 +62,13 @@ test('renders dayitem wrapper and activate the day', async () => {
     },
   });
 
-  const wrapper = renderer.create(<DayTemp />).toJSON();
+  const wrapper = renderer
+    .create(
+      <Theme>
+        <DayTemp />
+      </Theme>,
+    )
+    .toJSON();
   expect(wrapper).toHaveStyleRule('font-weight', '600');
 
   const day = await screen.findByTitle('Day');
@@ -95,7 +105,10 @@ test('renders dayitem wrapper and deactivate the day', async () => {
         error: '',
         isLoading: false,
         clickedDay: 1,
-        weatherImage: '',
+        weatherImage: {
+          current: '',
+          days: [],
+        },
         weather: {
           location: {
             name: 'Minsk',
@@ -115,7 +128,13 @@ test('renders dayitem wrapper and deactivate the day', async () => {
     },
   });
 
-  const wrapper = renderer.create(<DayTemp />).toJSON();
+  const wrapper = renderer
+    .create(
+      <Theme>
+        <DayTemp />
+      </Theme>,
+    )
+    .toJSON();
   expect(wrapper).toHaveStyleRule('font-weight', '600');
 
   const day = await screen.findByTitle('Day');
